@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Instagram, Palette, Sparkles, MessageSquare, Github, ArrowUp, Send, Check } from 'lucide-react';
 import { SOCIAL_LINKS } from '../data/agencyData';
 
@@ -74,41 +75,41 @@ export const Footer: React.FC = () => {
             </div>
           </div>
 
-          {/* Quick Links */}
+          {/* Quick Navigation Links */}
           <div className="md:col-span-3 space-y-4">
             <h4 className="text-xs font-mono uppercase tracking-widest text-white">
-              Disciplines &amp; Vault
+              Studio Navigation
             </h4>
             <ul className="space-y-2 text-xs text-zinc-400">
               <li>
-                <a href="#portfolio" className="hover:text-white transition-colors">
-                  Concept Art &amp; VisDev
-                </a>
+                <Link to="/" className="hover:text-white transition-colors">
+                  Portfolio Vault
+                </Link>
               </li>
               <li>
-                <a href="#portfolio" className="hover:text-white transition-colors">
-                  3D Sculpting &amp; Modeling
-                </a>
+                <Link to="/inspector" className="hover:text-white transition-colors">
+                  Pipeline Inspector (Sketch vs. Polish)
+                </Link>
               </li>
               <li>
-                <a href="#portfolio" className="hover:text-white transition-colors">
-                  2D Splash &amp; Editorial Key Art
-                </a>
+                <Link to="/services" className="hover:text-white transition-colors">
+                  Services &amp; 4-Stage SOP
+                </Link>
               </li>
               <li>
-                <a href="#portfolio" className="hover:text-white transition-colors">
-                  Motion Graphics &amp; UE5 VFX
-                </a>
+                <Link to="/estimator" className="hover:text-white transition-colors">
+                  Commission Cost Estimator
+                </Link>
               </li>
               <li>
-                <a href="#portfolio" className="hover:text-white transition-colors">
-                  Game UI/UX &amp; HUD Systems
-                </a>
+                <Link to="/testimonials" className="hover:text-white transition-colors">
+                  Client Testimonials
+                </Link>
               </li>
               <li>
-                <a href="#inspector" className="hover:text-white transition-colors">
-                  Interactive Pipeline Inspector
-                </a>
+                <Link to="/contact" className="hover:text-white transition-colors">
+                  Submit Creative Brief
+                </Link>
               </li>
             </ul>
           </div>
@@ -119,7 +120,7 @@ export const Footer: React.FC = () => {
               The Studio Dispatch
             </h4>
             <p className="text-xs text-zinc-400 leading-relaxed">
-              Subscribe to receive quarterly case studies, breakdown breakdowns, and pipeline breakdowns from our art directors.
+              Subscribe to receive quarterly case studies, pipeline breakdowns, and milestone releases from our art directors.
             </p>
 
             <form onSubmit={handleNewsletter} className="space-y-2">

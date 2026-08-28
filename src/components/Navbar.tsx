@@ -1,15 +1,12 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
+import { NavLink, Link, useNavigate } from 'react-router-dom';
 import { Menu, X, Instagram, Palette, MessageSquare, ArrowUpRight } from 'lucide-react';
 import { SOCIAL_LINKS } from '../data/agencyData';
 
-interface NavbarProps {
-  onOpenEstimator: () => void;
-  onOpenContact: () => void;
-}
-
-export const Navbar: React.FC<NavbarProps> = ({ onOpenEstimator, onOpenContact }) => {
+export const Navbar: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,14 +17,12 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenEstimator, onOpenContact }
   }, []);
 
   const navLinks = [
-    { label: 'Disciplines', href: '#disciplines' },
-    { label: 'Portfolio', href: '#portfolio' },
-    { label: 'Inspector', href: '#inspector' },
-    { label: 'Services', href: '#services' },
-    { label: 'Process', href: '#process' },
-    { label: 'Estimator', href: '#estimator', onClick: onOpenEstimator },
-    { label: 'Testimonials', href: '#testimonials' },
-    { label: 'FAQ', href: '#faq' },
+    { label: 'Portfolio & Works', path: '/' },
+    { label: 'Pipeline Inspector', path: '/inspector' },
+    { label: 'Services & SOP', path: '/services' },
+    { label: 'Cost Estimator', path: '/estimator' },
+    { label: 'Testimonials', path: '/testimonials' },
+    { label: 'Contact', path: '/contact' },
   ];
 
   return (
@@ -40,7 +35,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenEstimator, onOpenContact }
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         {/* Brand Logo */}
-        <a href="#" className="flex items-center gap-3 group">
+        <Link to="/" className="flex items-center gap-3 group">
           <div className="relative w-10 h-10 rounded-xl overflow-hidden bg-black border border-white/20 p-1 flex items-center justify-center transition-all duration-300 group-hover:scale-105 group-hover:border-white shadow-glow-sm">
             <img
               src="/Core Artworks LOGO.png"
@@ -54,27 +49,27 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenEstimator, onOpenContact }
               <span className="inline-block w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
             </span>
             <span className="text-[10px] uppercase tracking-[0.2em] text-zinc-400 font-medium">
-              Digital Arts & VisDev
+              Digital Arts &amp; VisDev
             </span>
           </div>
-        </a>
+        </Link>
 
         {/* Desktop Navigation */}
         <nav className="hidden lg:flex items-center gap-1 bg-zinc-950/60 p-1.5 rounded-full border border-white/10 backdrop-blur-md">
           {navLinks.map((link) => (
-            <a
+            <NavLink
               key={link.label}
-              href={link.href}
-              onClick={(e) => {
-                if (link.onClick) {
-                  e.preventDefault();
-                  link.onClick();
-                }
-              }}
-              className="px-3.5 py-1.5 text-xs font-medium text-zinc-300 hover:text-white hover:bg-white/10 rounded-full transition-all duration-200"
+              to={link.path}
+              className={({ isActive }) =>
+                `px-4 py-1.5 text-xs font-medium rounded-full transition-all duration-200 ${
+                  isActive
+                    ? 'bg-white text-black font-semibold shadow-sm'
+                    : 'text-zinc-300 hover:text-white hover:bg-white/10'
+                }`
+              }
             >
               {link.label}
-            </a>
+            </NavLink>
           ))}
         </nav>
 
@@ -112,7 +107,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenEstimator, onOpenContact }
           </div>
 
           <button
-            onClick={onOpenContact}
+            onClick={() => navigate('/contact')}
             className="relative group overflow-hidden px-4 py-2 rounded-xl text-xs font-semibold uppercase tracking-wider bg-white text-black hover:bg-zinc-200 transition-all duration-300 shadow-glow-sm flex items-center gap-1.5"
           >
             <span>Start a Project</span>
@@ -123,7 +118,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenEstimator, onOpenContact }
         {/* Mobile Menu Toggle */}
         <div className="lg:hidden flex items-center gap-2">
           <button
-            onClick={onOpenContact}
+            onClick={() => navigate('/contact')}
             className="sm:hidden px-3 py-1.5 text-xs font-semibold bg-white text-black rounded-lg"
           >
             Inquire
@@ -142,20 +137,20 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenEstimator, onOpenContact }
         <div className="lg:hidden bg-[#0a0a0d] border-b border-white/10 px-6 py-6 space-y-4 animate-in slide-in-from-top duration-300">
           <div className="grid grid-cols-2 gap-2">
             {navLinks.map((link) => (
-              <a
+              <NavLink
                 key={link.label}
-                href={link.href}
-                onClick={(e) => {
-                  setMobileMenuOpen(false);
-                  if (link.onClick) {
-                    e.preventDefault();
-                    link.onClick();
-                  }
-                }}
-                className="px-4 py-2.5 text-sm font-medium text-zinc-300 hover:text-white bg-zinc-900/60 hover:bg-white/10 rounded-lg border border-white/5"
+                to={link.path}
+                onClick={() => setMobileMenuOpen(false)}
+                className={({ isActive }) =>
+                  `px-4 py-2.5 text-sm font-medium rounded-lg border transition-all ${
+                    isActive
+                      ? 'bg-white text-black font-semibold border-white'
+                      : 'text-zinc-300 hover:text-white bg-zinc-900/60 hover:bg-white/10 border-white/5'
+                  }`
+                }
               >
                 {link.label}
-              </a>
+              </NavLink>
             ))}
           </div>
 
@@ -176,7 +171,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenEstimator, onOpenContact }
             <button
               onClick={() => {
                 setMobileMenuOpen(false);
-                onOpenContact();
+                navigate('/contact');
               }}
               className="px-4 py-2 bg-white text-black text-xs font-semibold rounded-lg"
             >

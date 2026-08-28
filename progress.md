@@ -43,5 +43,6 @@
 ## Phase 5: Trigger (Deployment)
 - [x] Ran full production build (`npm run build` exited with code 0).
 - [x] Started local development server at `http://localhost:3000/`.
+- [x] Initialized Git repository, committed all source files, and pushed to `https://github.com/hannan-bhatti/coreartworks.git` (branch `main`).
 - [x] Configured `vercel.json` and comprehensive `README.md`.
 - [x] Finalized state log in `gemini.md`.
