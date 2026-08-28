@@ -3,6 +3,7 @@
 ## Behavioral Rules & Invariants
 - **Reliability over speed**: Never guess at business logic.
 - **Data-First Rule**: All data schemas (Portfolio, Categories, Testimonials, FAQs, Commission Estimator, Inquiries) must be defined and validated before UI/Tool implementations.
+- **Continuous Git & Vercel Sync Invariant**: After ANY code change, styling modification, or asset update is completed and verified, the System Pilot MUST immediately stage, commit, and push all updates to GitHub (`git push origin main`). Pushing to `main` automatically triggers Vercel continuous deployment.
 - **Theme Constraints**: Grey (`#121214`, `#18181b`, `#27272a`, `#71717a`), White (`#ffffff`, `#f4f4f5`), Black (`#000000`, `#09090b`). High-contrast monochrome with refined micro-gradients.
 - **Social Integrations**: Instagram, DeviantArt, ArtStation, Discord, GitHub.
 - **Self-Annealing**: Stack trace analysis -> Patch script -> Test fix -> Update architecture SOPs.
@@ -141,8 +142,4 @@
 ---
 
 ## Maintenance & Incident Log
-- **Phase 1**: Discovery completed; full data schemas codified.
-- **Phase 2**: Link established. Scaffolding set up with React 18, Vite, TypeScript, Tailwind CSS, Lucide Icons, and Canvas Confetti.
-- **Phase 3**: SOPs codified in `architecture/`. All UI and data engines constructed according to A.N.T. 3-layer architecture.
-- **Phase 4**: Styling tuned to a luxury monochrome palette (Grey, White, Black) with high-contrast typography, interactive Before/After inspector, color palette copy swatches, and responsive layout.
-- **Phase 5**: Production build tested and verified (`npm run build` code 0). Configured for instant deployment to GitHub and Vercel.
+- **Auto-Deployment Invariant codified**: Continuous git commit and push to GitHub `main` after every verified change.
