@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { NavLink, Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Menu, X, Instagram, Palette, MessageSquare, ArrowUpRight } from 'lucide-react';
 import { SOCIAL_LINKS } from '../data/agencyData';
 
 export const Navbar: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const location = useLocation();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -17,13 +18,46 @@ export const Navbar: React.FC = () => {
   }, []);
 
   const navLinks = [
-    { label: 'Portfolio & Works', path: '/' },
-    { label: 'Pipeline Inspector', path: '/inspector' },
-    { label: 'Services & SOP', path: '/services' },
-    { label: 'Cost Estimator', path: '/estimator' },
+    { label: 'Disciplines', target: 'disciplines', page: '/', isAnchor: true },
+    { label: 'Portfolio', target: 'portfolio', page: '/', isAnchor: true },
+    { label: 'Inspector', path: '/inspector' },
+    { label: 'Services', path: '/services' },
+    { label: 'Process', target: 'process', page: '/services', isAnchor: true },
+    { label: 'Estimator', path: '/estimator' },
     { label: 'Testimonials', path: '/testimonials' },
-    { label: 'Contact', path: '/contact' },
+    { label: 'FAQ', target: 'faq', page: '/', isAnchor: true },
   ];
+
+  const handleNavClick = (link: (typeof navLinks)[0], e: React.MouseEvent) => {
+    e.preventDefault();
+    setMobileMenuOpen(false);
+
+    if (link.isAnchor) {
+      if (location.pathname === link.page) {
+        const el = document.getElementById(link.target!);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth' });
+        }
+      } else {
+        navigate(link.page!);
+        setTimeout(() => {
+          const el = document.getElementById(link.target!);
+          if (el) {
+            el.scrollIntoView({ behavior: 'smooth' });
+          }
+        }, 150);
+      }
+    } else {
+      navigate(link.path!);
+    }
+  };
+
+  const isLinkActive = (link: (typeof navLinks)[0]) => {
+    if (!link.isAnchor && link.path) {
+      return location.pathname === link.path;
+    }
+    return false;
+  };
 
   return (
     <header
@@ -54,23 +88,25 @@ export const Navbar: React.FC = () => {
           </div>
         </Link>
 
-        {/* Desktop Navigation */}
+        {/* Desktop Navigation (Restored compact single-word pill layout) */}
         <nav className="hidden lg:flex items-center gap-1 bg-zinc-950/60 p-1.5 rounded-full border border-white/10 backdrop-blur-md">
-          {navLinks.map((link) => (
-            <NavLink
-              key={link.label}
-              to={link.path}
-              className={({ isActive }) =>
-                `px-4 py-1.5 text-xs font-medium rounded-full transition-all duration-200 ${
-                  isActive
+          {navLinks.map((link) => {
+            const active = isLinkActive(link);
+            return (
+              <a
+                key={link.label}
+                href={link.path || `#${link.target}`}
+                onClick={(e) => handleNavClick(link, e)}
+                className={`px-3.5 py-1.5 text-xs font-medium rounded-full transition-all duration-200 ${
+                  active
                     ? 'bg-white text-black font-semibold shadow-sm'
                     : 'text-zinc-300 hover:text-white hover:bg-white/10'
-                }`
-              }
-            >
-              {link.label}
-            </NavLink>
-          ))}
+                }`}
+              >
+                {link.label}
+              </a>
+            );
+          })}
         </nav>
 
         {/* Right CTA & Social Badges */}
@@ -137,20 +173,18 @@ export const Navbar: React.FC = () => {
         <div className="lg:hidden bg-[#0a0a0d] border-b border-white/10 px-6 py-6 space-y-4 animate-in slide-in-from-top duration-300">
           <div className="grid grid-cols-2 gap-2">
             {navLinks.map((link) => (
-              <NavLink
+              <a
                 key={link.label}
-                to={link.path}
-                onClick={() => setMobileMenuOpen(false)}
-                className={({ isActive }) =>
-                  `px-4 py-2.5 text-sm font-medium rounded-lg border transition-all ${
-                    isActive
-                      ? 'bg-white text-black font-semibold border-white'
-                      : 'text-zinc-300 hover:text-white bg-zinc-900/60 hover:bg-white/10 border-white/5'
-                  }`
-                }
+                href={link.path || `#${link.target}`}
+                onClick={(e) => handleNavClick(link, e)}
+                className={`px-4 py-2.5 text-sm font-medium rounded-lg border transition-all ${
+                  isLinkActive(link)
+                    ? 'bg-white text-black font-semibold border-white'
+                    : 'text-zinc-300 hover:text-white bg-zinc-900/60 hover:bg-white/10 border-white/5'
+                }`}
               >
                 {link.label}
-              </NavLink>
+              </a>
             ))}
           </div>
 

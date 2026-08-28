@@ -1,5 +1,6 @@
 import React from 'react';
 import { Hero } from '../components/Hero';
+import { DisciplinesShowcase } from '../components/DisciplinesShowcase';
 import { PortfolioGallery } from '../components/PortfolioGallery';
 import { FAQSection } from '../components/FAQSection';
 import { PORTFOLIO_ARTWORKS } from '../data/portfolioData';
@@ -26,6 +27,11 @@ export const HomePage: React.FC<HomePageProps> = ({
     if (el) el.scrollIntoView({ behavior: 'smooth' });
   };
 
+  const handleSelectCategoryFromDiscipline = (categoryId: string) => {
+    onSelectCategoryFilter(categoryId);
+    handleExploreGallery();
+  };
+
   const handlePreloadEstimator = (disciplineId: string) => {
     navigate('/estimator', { state: { disciplineId } });
   };
@@ -40,7 +46,10 @@ export const HomePage: React.FC<HomePageProps> = ({
         onExploreGallery={handleExploreGallery}
       />
 
-      {/* 2. Interactive Feature Banner (Links to dedicated Inspector & Services) */}
+      {/* 2. Core Disciplines Overview (#disciplines) */}
+      <DisciplinesShowcase onSelectCategory={handleSelectCategoryFromDiscipline} />
+
+      {/* 3. Interactive Feature Highlights */}
       <section className="py-12 border-y border-white/5 bg-zinc-950/60">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -100,7 +109,7 @@ export const HomePage: React.FC<HomePageProps> = ({
         </div>
       </section>
 
-      {/* 3. Deep Interactive Portfolio Matrix (Broad Categories & Subcategories) */}
+      {/* 4. Deep Interactive Portfolio Matrix (#portfolio) */}
       <PortfolioGallery
         onSelectArtwork={onSelectArtwork}
         selectedCategoryFilter={selectedCategoryFilter}
@@ -108,10 +117,10 @@ export const HomePage: React.FC<HomePageProps> = ({
         onPreloadEstimatorWithDiscipline={handlePreloadEstimator}
       />
 
-      {/* 4. Frequently Asked Questions Section */}
+      {/* 5. Frequently Asked Questions Section (#faq) */}
       <FAQSection onOpenContact={() => navigate('/contact')} />
 
-      {/* 5. Streamlined Bottom CTA Banner */}
+      {/* 6. Streamlined Bottom CTA Banner */}
       <section className="py-20 bg-[#070709] border-t border-white/5 relative overflow-hidden">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6 relative z-10">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-zinc-900 border border-white/10 text-xs font-mono text-zinc-300">
