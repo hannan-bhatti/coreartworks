@@ -11,7 +11,7 @@ interface EstimatorPageProps {
 export const EstimatorPage: React.FC<EstimatorPageProps> = ({ onSendBriefToContact }) => {
   const location = useLocation();
   const navigate = useNavigate();
-  const initialDiscipline = location.state?.disciplineId || 'concept-art';
+  const initialDiscipline = location.state?.disciplineId || 'book-cover';
 
   const handleTransfer = (brief: CommissionBrief) => {
     onSendBriefToContact(brief);

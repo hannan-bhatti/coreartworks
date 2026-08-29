@@ -1,6 +1,22 @@
 import React from 'react';
 import { AGENCY_SERVICES } from '../data/agencyData';
-import { Sparkles, Box, Palette, Zap, Layers, Clock, CheckCircle2, ArrowRight } from 'lucide-react';
+import {
+  Sparkles,
+  Box,
+  Palette,
+  Zap,
+  Layers,
+  BookOpen,
+  User,
+  Disc,
+  Shield,
+  BookMarked,
+  Monitor,
+  Layout,
+  Clock,
+  CheckCircle2,
+  ArrowRight,
+} from 'lucide-react';
 
 interface ServicesSectionProps {
   onSelectServiceDiscipline: (category: string) => void;
@@ -12,6 +28,13 @@ const ICONS: Record<string, React.FC<{ className?: string }>> = {
   Palette,
   Zap,
   Layers,
+  BookOpen,
+  User,
+  Disc,
+  Shield,
+  BookMarked,
+  Monitor,
+  Layout,
 };
 
 export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServiceDiscipline }) => {

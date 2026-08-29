@@ -1,7 +1,16 @@
 export interface Artwork {
   id: string;
   title: string;
-  category: 'concept-art' | '3d-sculpting' | '2d-illustration' | 'vfx-animation' | 'brand-identity';
+  category:
+    | 'book-cover'
+    | 'character-design'
+    | 'album-cover'
+    | 'logo-design'
+    | 'dnd-fursona'
+    | 'comic-manga'
+    | 'wallpapers'
+    | 'banners-overlays'
+    | string;
   categoryLabel: string;
   subcategory: string;
   subcategoryLabel: string;

@@ -9,7 +9,7 @@ interface CommissionEstimatorProps {
 }
 
 export const CommissionEstimator: React.FC<CommissionEstimatorProps> = ({
-  initialDiscipline = 'concept-art',
+  initialDiscipline = 'book-cover',
   onSendBriefToContact
 }) => {
   const [discipline, setDiscipline] = useState<string>(initialDiscipline);
@@ -30,11 +30,14 @@ export const CommissionEstimator: React.FC<CommissionEstimatorProps> = ({
 
   // Base pricing matrix per discipline
   const baseRates: Record<string, number> = {
-    'concept-art': 1800,
-    '3d-sculpting': 2800,
-    '2d-illustration': 2200,
-    'vfx-animation': 3600,
-    'brand-identity': 3200,
+    'book-cover': 1200,
+    'character-design': 1500,
+    'album-cover': 1100,
+    'logo-design': 800,
+    'dnd-fursona': 950,
+    'comic-manga': 1400,
+    'wallpapers': 650,
+    'banners-overlays': 750,
   };
 
   // Complexity multipliers

@@ -13,7 +13,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialBrief }) 
     name: '',
     email: '',
     company: '',
-    discipline: 'Concept Art & VisDev',
+    discipline: 'Book Cover design',
     budget: '$5,000 - $10,000',
     timeline: 'Standard (3-4 weeks)',
     message: '',
