@@ -64,12 +64,12 @@ export const ART_CATEGORIES: ArtCategory[] = [
     id: 'dnd-fursona',
     name: 'D&D and Fursona Artworks',
     slug: 'dnd-fursona',
-    tagline: 'Tabletop RPG Characters, Fursonas & Custom Anthro Art',
-    description: 'Custom tabletop RPG portraits, detailed anthro/fursona character references, party splashes, fantasy weapons, and lore-rich OC illustrations.',
+    tagline: 'Custom D&D Characters, Fursonas & Anthro Art',
+    description: 'Custom D&D character portraits, detailed anthro/fursona character references, party splashes, fantasy weapons, and lore-rich OC illustrations.',
     iconName: 'Shield',
     coverImage: 'https://images.unsplash.com/photo-1578632767115-351597cf2477?auto=format&fit=crop&w=1200&q=80',
     subcategories: [
-      { id: 'dnd-art', name: 'D&D', slug: 'dnd', itemCount: 22, description: 'D&D 5e / Pathfinder tabletop hero portraits & spellcaster scenes' },
+      { id: 'dnd-art', name: 'D&D', slug: 'dnd', itemCount: 22, description: 'D&D 5e / fantasy hero portraits & spellcaster scenes' },
       { id: 'fursona-art', name: 'Fursona', slug: 'fursona', itemCount: 19, description: 'Custom fursona reference sheets, anthro art & badges' }
     ]
   },
@@ -432,10 +432,10 @@ export const PORTFOLIO_ARTWORKS: Artwork[] = [
     afterLabel: 'Phase 4: Full Color & Divine Aura Lighting',
     aspectRatio: 'portrait',
     description: 'Custom commission of an obsidian-scaled Dragonborn Oath of Vengeance Paladin wielding a radiant greatsword with intricate runic engravings.',
-    client: 'Private Tabletop Collector',
+    client: 'Private Fantasy Collector',
     year: 2025,
     tools: ['Photoshop', 'Clip Studio Paint'],
-    tags: ['D&D', 'Tabletop RPG', 'Dragonborn', 'Paladin', 'Character Art'],
+    tags: ['D&D', 'Fantasy RPG', 'Dragonborn', 'Paladin', 'Character Art'],
     featured: true,
     colorPalette: ['#09090b', '#1c1c21', '#52525b', '#d4d4d8', '#ffffff'],
     stats: { views: '33.4k', likes: '4.8k' }

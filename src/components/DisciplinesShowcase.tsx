@@ -50,7 +50,7 @@ export const DisciplinesShowcase: React.FC<DisciplinesShowcaseProps> = ({ onSele
               CORE DISCIPLINES &amp; TAXONOMY
             </h2>
             <p className="text-zinc-400 text-sm sm:text-base leading-relaxed">
-              Our multidisciplinary studio bridges book publishing, character development, music artwork, identity design, tabletop art, serialized comics, 8K wallpapers, and broadcast overlays.
+              Our multidisciplinary studio bridges book publishing, character development, music artwork, identity design, D&amp;D and fursona art, serialized comics, 8K wallpapers, and broadcast overlays.
             </p>
           </div>
           <div className="text-xs font-mono text-zinc-500 uppercase tracking-wider">

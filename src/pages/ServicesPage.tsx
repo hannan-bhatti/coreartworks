@@ -13,7 +13,7 @@ export const ServicesPage: React.FC = () => {
 
   const deliverableFormats = [
     { title: 'Book Cover & Print Masters', formats: ['Layered 300/600 DPI Master PSDs', 'Amazon KDP & IngramSpark Print PDFs', 'Foil & Spot UV Masks', 'High-DPI E-Book Formats'] },
-    { title: 'Character Design & Ref Sheets', formats: ['3-Angle High-Res Turnaround PNGs', 'Clean Vector Line Art (.SVG / .EPS)', 'Layered Lighting Adjustment PSDs', 'VTT Virtual Tabletop Tokens'] },
+    { title: 'Character Design & Ref Sheets', formats: ['3-Angle High-Res Turnaround PNGs', 'Clean Vector Line Art (.SVG / .EPS)', 'Layered Lighting Adjustment PSDs', 'High-Res Digital Character Tokens'] },
     { title: 'Logo & Brand Assets', formats: ['Vector Master Files (.AI, .EPS, .SVG)', 'Transparent High-Res PNGs', 'Monochrome & Inverted Variations', 'Brand Guidelines Sheet'] },
     { title: 'Stream & Motion Packages', formats: ['OBS / Streamlabs Scene Packages', 'Transparent Animated .WebM Loops', 'High-FPS Intermission Stinger Files', 'Twitch Emotes & Sub Badges'] },
   ];

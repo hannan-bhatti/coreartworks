@@ -12,7 +12,7 @@ export const TestimonialsPage: React.FC = () => {
     { studio: 'Tor & Orbit Fantasy Press', country: 'United Kingdom', genre: 'Book Publishing', role: 'Hardcover Novel Jackets' },
     { studio: 'Astral Wave Records', country: 'Germany & US', genre: 'Record Label', role: 'Vinyl Sleeves & Motion Canvases' },
     { studio: 'Zenith Manga Publishing', country: 'Japan', genre: 'Manga & Webtoons', role: 'Inked Spreads & Tankobon Covers' },
-    { studio: 'Mythic Forge Tabletop', country: 'United States', genre: 'TTRPG & Fantasy', role: 'D&D Character Turnarounds' },
+    { studio: 'Mythic Forge Gaming', country: 'United States', genre: 'Fantasy & D&D', role: 'D&D Character Turnarounds' },
     { studio: 'Phantom Creator Network', country: 'Canada', genre: 'Live Streaming', role: 'Modular Twitch Overlay Systems' }
   ];
 
