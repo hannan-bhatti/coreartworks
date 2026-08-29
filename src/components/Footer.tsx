@@ -50,7 +50,7 @@ export const Footer: React.FC = () => {
             </div>
 
             <p className="text-xs text-zinc-400 max-w-sm leading-relaxed">
-              Core Artworks is a specialized visual development studio partnering with game developers, film producers, and digital publishers to create world-class concept art, 3D sculpts, and visual experiences.
+              Core Artworks is a specialized digital arts studio partnering with authors, musicians, game developers, streamers, and content creators to produce world-class visual assets and brand identities.
             </p>
 
             {/* Social Grid Badges */}

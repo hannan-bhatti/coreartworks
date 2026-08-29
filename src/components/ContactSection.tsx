@@ -75,7 +75,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialBrief }) 
             </h2>
 
             <p className="text-zinc-400 text-sm sm:text-base leading-relaxed">
-              Whether you require a singular iconic hero splash art piece, high-poly 3D character production, or an entire visual development bible, our directors are prepared to align on scope.
+              Whether you require an iconic book or album cover, full-body character sheets, dynamic esports branding, custom D&amp;D/fursona commissions, or a full streaming suite, our artists are prepared to align on scope.
             </p>
 
             {/* Direct Studio Contact Cards */}

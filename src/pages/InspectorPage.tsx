@@ -9,23 +9,23 @@ export const InspectorPage: React.FC = () => {
   const pipelineStages = [
     {
       phase: '01',
-      name: 'Silhouette & Value Blocking',
-      description: 'Rapid thumbnail passes establishing strong focal arcs, chiaroscuro contrast, and anatomical silhouette readability before high-poly detailing.'
+      name: 'Thumbnail & Value Sketch',
+      description: 'Rapid conceptual thumbnails establishing strong focal arcs, chiaroscuro contrast, dynamic anatomy, and layout readability.'
     },
     {
       phase: '02',
-      name: 'Digital Sculpt & Topology',
-      description: 'High-poly organic digital sculpting in ZBrush, Sub-D hard surface modeling, and clean quad-dominant edge flows ready for rigging.'
+      name: 'Line Art & Structural Inking',
+      description: 'Clean vector linework, precise G-pen strokes, anatomical model turnarounds, and typographic placement.'
     },
     {
       phase: '03',
-      name: 'PBR Materialization & Texturing',
-      description: 'Physically Based Rendering (PBR) multi-channel maps (Albedo, Roughness, Metallic, Normal, Ambient Occlusion) tuned for Unreal Engine 5.'
+      name: 'Color Script & Shading Pass',
+      description: 'Multi-layer cel shading, smooth painterly rendering, ambient occlusion, and lighting atmosphere.'
     },
     {
       phase: '04',
-      name: 'Atmospheric Lighting & Master Polish',
-      description: 'Volumetric light shafts, micro-imperfection passes, color grading, particle bloom, and 8K master plate export.'
+      name: 'Atmospheric Effects & Master Polish',
+      description: 'Foil masks, particle bloom, color grading, print-ready 300/600 DPI masters, and high-DPI digital export.'
     }
   ];
 
@@ -46,7 +46,7 @@ export const InspectorPage: React.FC = () => {
           </h1>
 
           <p className="text-zinc-400 text-sm sm:text-base leading-relaxed">
-            Inspect the step-by-step transformation of Core Artworks assets. Drag the slider to compare raw conceptual thumbnails, wireframe topologies, and clay sculpts against final rendered game &amp; film assets.
+            Inspect the step-by-step transformation of Core Artworks assets. Drag the slider to compare raw conceptual thumbnails, pencil sketches, and vector line art against final rendered master illustrations, book covers, and branding suites.
           </p>
         </div>
       </div>
@@ -97,11 +97,11 @@ export const InspectorPage: React.FC = () => {
           <div className="pt-6 border-t border-white/5 grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs text-zinc-300 font-mono">
             <div className="flex items-center gap-2">
               <CheckCircle2 className="w-4 h-4 text-white" />
-              <span>Nanite &amp; Lumen Optimized</span>
+              <span>300/600 DPI Print Ready</span>
             </div>
             <div className="flex items-center gap-2">
               <CheckCircle2 className="w-4 h-4 text-white" />
-              <span>Layered 16-Bit PSD &amp; FBX</span>
+              <span>Layered PSDs &amp; Clean Vectors</span>
             </div>
             <div className="flex items-center gap-2">
               <CheckCircle2 className="w-4 h-4 text-white" />

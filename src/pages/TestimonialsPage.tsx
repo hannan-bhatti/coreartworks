@@ -8,12 +8,12 @@ export const TestimonialsPage: React.FC = () => {
   const navigate = useNavigate();
 
   const studioHighlights = [
-    { studio: 'Apex Cyberware Interactive', country: 'United States', genre: 'AAA Cyberpunk RPG', role: 'Art Direction & VisDev' },
-    { studio: 'Mythic Forge Studios', country: 'United Kingdom', genre: 'Dark Fantasy ARPG', role: '3D High-Poly Sculpting' },
-    { studio: 'Astral TCG Publishing', country: 'Japan & US', genre: 'Trading Card Game', role: 'Foil Key Illustrations' },
-    { studio: 'Nexus Interactive Tech', country: 'Canada', genre: 'Sci-Fi Shooter', role: 'Diegetic HUD & Game UI' },
-    { studio: 'Starbound Studios', country: 'Germany', genre: 'Space Exploration Sim', role: 'Unreal Engine 5 VFX' },
-    { studio: 'Hyperion Cinematic Entertainment', country: 'France', genre: 'Animated Feature', role: 'Cinematic Keyframe Art' }
+    { studio: 'Apex Titan Esports', country: 'United States', genre: 'Esports & Streaming', role: 'Team Logo & Stream Suite' },
+    { studio: 'Tor & Orbit Fantasy Press', country: 'United Kingdom', genre: 'Book Publishing', role: 'Hardcover Novel Jackets' },
+    { studio: 'Astral Wave Records', country: 'Germany & US', genre: 'Record Label', role: 'Vinyl Sleeves & Motion Canvases' },
+    { studio: 'Zenith Manga Publishing', country: 'Japan', genre: 'Manga & Webtoons', role: 'Inked Spreads & Tankobon Covers' },
+    { studio: 'Mythic Forge Tabletop', country: 'United States', genre: 'TTRPG & Fantasy', role: 'D&D Character Turnarounds' },
+    { studio: 'Phantom Creator Network', country: 'Canada', genre: 'Live Streaming', role: 'Modular Twitch Overlay Systems' }
   ];
 
   return (
@@ -24,16 +24,16 @@ export const TestimonialsPage: React.FC = () => {
         <div className="space-y-4 max-w-3xl">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-zinc-900 border border-white/10 text-xs font-mono text-zinc-300">
             <Award className="w-3.5 h-3.5 text-white" />
-            <span>Studio Trust &amp; Case Validation</span>
+            <span>Client Trust &amp; Case Validation</span>
           </div>
 
           <h1 className="text-4xl sm:text-6xl font-display font-extrabold text-white tracking-tight">
             PROVEN TRACK RECORD <br />
-            <span className="text-gradient-silver">WITH WORLD-CLASS STUDIOS</span>
+            <span className="text-gradient-silver">WITH VISIONARY CREATORS</span>
           </h1>
 
           <p className="text-zinc-400 text-sm sm:text-base leading-relaxed">
-            Read verified reviews from art directors, lead game producers, and franchise managers who rely on Core Artworks for mission-critical visual production.
+            Read verified reviews from published authors, record labels, esports orgs, and creators who rely on Core Artworks for high-impact visual craftsmanship.
           </p>
         </div>
       </div>

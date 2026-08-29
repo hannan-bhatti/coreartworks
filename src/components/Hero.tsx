@@ -40,7 +40,7 @@ export const Hero: React.FC<HeroProps> = ({
                 <span className="text-gradient-silver">DIGITAL VISIONS</span> &amp; WORLDS.
               </h1>
               <p className="text-base sm:text-lg text-zinc-400 max-w-xl font-light leading-relaxed">
-                Core Artworks is an elite digital arts studio and visual production powerhouse. We engineer bespoke book and album covers, master character designs, dynamic esports logos, custom D&D and fursona art, serialized comics, and stream broadcast visuals for visionary creators and studios.
+                Core Artworks is a premier digital arts agency crafting bespoke book &amp; album covers, high-concept character sheets, dynamic logos, tabletop &amp; fursona art, serialized manga, and streaming broadcast packages for world-class creators.
               </p>
             </div>
 

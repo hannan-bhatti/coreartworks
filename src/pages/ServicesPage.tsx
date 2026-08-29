@@ -12,10 +12,10 @@ export const ServicesPage: React.FC = () => {
   };
 
   const deliverableFormats = [
-    { title: '3D & Sculpting Packages', formats: ['.FBX (Rigged & Clean UVs)', '.OBJ', '.ZTL / .ZPR (ZBrush High Poly)', '.SPP (Substance Painter)'] },
-    { title: 'Game Engine Assets', formats: ['Unreal Engine 5 (.uasset Nanite Ready)', 'Unity Prefabs', 'PBR 4K/8K Texture Sets (OpenGL/DirectX)'] },
-    { title: '2D & Concept Master Files', formats: ['Layered 16-Bit Master PSDs', '8K High-DPI Print Files', 'Foil & Spot UV Masks', 'Color Scripts'] },
-    { title: 'Motion & VFX Deliverables', formats: ['ProRes 4444 (Alpha Channel)', 'Unreal Niagara Emitters', 'Spine 2D Animations', 'After Effects Projects'] },
+    { title: 'Book Cover & Print Masters', formats: ['Layered 300/600 DPI Master PSDs', 'Amazon KDP & IngramSpark Print PDFs', 'Foil & Spot UV Masks', 'High-DPI E-Book Formats'] },
+    { title: 'Character Design & Ref Sheets', formats: ['3-Angle High-Res Turnaround PNGs', 'Clean Vector Line Art (.SVG / .EPS)', 'Layered Lighting Adjustment PSDs', 'VTT Virtual Tabletop Tokens'] },
+    { title: 'Logo & Brand Assets', formats: ['Vector Master Files (.AI, .EPS, .SVG)', 'Transparent High-Res PNGs', 'Monochrome & Inverted Variations', 'Brand Guidelines Sheet'] },
+    { title: 'Stream & Motion Packages', formats: ['OBS / Streamlabs Scene Packages', 'Transparent Animated .WebM Loops', 'High-FPS Intermission Stinger Files', 'Twitch Emotes & Sub Badges'] },
   ];
 
   return (
@@ -26,16 +26,16 @@ export const ServicesPage: React.FC = () => {
         <div className="space-y-4 max-w-3xl">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-zinc-900 border border-white/10 text-xs font-mono text-zinc-300">
             <Sparkles className="w-3.5 h-3.5 text-white" />
-            <span>Enterprise Production Services</span>
+            <span>Full Creative Production Services</span>
           </div>
 
           <h1 className="text-4xl sm:text-6xl font-display font-extrabold text-white tracking-tight">
             FULL-SPECTRUM <br />
-            <span className="text-gradient-silver">DIGITAL VISUAL CAPABILITIES</span>
+            <span className="text-gradient-silver">DIGITAL ART CAPABILITIES</span>
           </h1>
 
           <p className="text-zinc-400 text-sm sm:text-base leading-relaxed">
-            From initial pitch keyframes to production-ready game engine assets, Core Artworks operates as an integrated visual department for top gaming, film, and virtual production studios.
+            From bestselling novel jackets and character turnarounds to custom D&amp;D art, manga spreads, and broadcast stream packages, Core Artworks delivers production-ready visual craftsmanship.
           </p>
         </div>
       </div>

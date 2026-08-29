@@ -110,46 +110,46 @@ export const CLIENT_TESTIMONIALS: Testimonial[] = [
   {
     id: 't-01',
     clientName: 'Julian Vance',
-    role: 'Art Director',
-    company: 'Apex Cyberware Interactive',
+    role: 'Editorial Director',
+    company: 'Tor & Orbit Fantasy Press',
     avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80',
-    quote: 'Core Artworks transformed our hazy worldbuilding ideas into iconic key art that secured our Series A game publishing deal. Their mastery of lighting, materials, and iterative communication is unmatched in the industry.',
-    projectType: 'Concept Art & Character Turnarounds',
+    quote: 'Core Artworks designed the dust jacket for our flagship dark fantasy trilogy. The gold-foil typography and atmospheric cover illustration drove a 300% increase in hardcover pre-orders.',
+    projectType: 'Book Cover Design & Typography',
     rating: 5,
-    highlightTag: 'AAA Game Production'
+    highlightTag: 'Bestseller Release'
   },
   {
     id: 't-02',
     clientName: 'Elena Rostova',
-    role: 'Creative Producer',
-    company: 'Mythic Forge Studios',
+    role: 'Creative Director',
+    company: 'Astral Wave Records',
     avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=200&q=80',
-    quote: 'From ZBrush clay sculpts to final PBR engine integration, the Core Artworks team delivered 14 hero character models ahead of schedule. Their mesh topology is spotless and drops into Unreal Engine effortlessly.',
-    projectType: '3D Character Sculpting & PBR Assets',
+    quote: 'From vinyl gatefold sleeves to animated Spotify Canvas loops, the Core Artworks team delivered a mesmerizing visual identity for our electronic album launch ahead of schedule.',
+    projectType: 'Album Cover & Motion Canvas',
     rating: 5,
-    highlightTag: 'On-Time Milestones'
+    highlightTag: 'Vinyl & Digital Masters'
   },
   {
     id: 't-03',
     clientName: 'Marcus Sterling',
-    role: 'Lead Game Designer',
-    company: 'Astral TCG Publishing',
+    role: 'Founder & GM',
+    company: 'Apex Titan Esports',
     avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80',
-    quote: 'We commissioned Core Artworks for 30 mythic foil cards for our premiere expansion. Every single piece is museum-grade digital craftsmanship. The community response has been electric.',
-    projectType: '2D Card Game & Foil Key Art',
+    quote: 'We commissioned Core Artworks for our esports franchise rebrand and Twitch broadcast overlay package. The vector emblem and stinger animations are absolute perfection.',
+    projectType: 'Esports Logo & Stream Package',
     rating: 5,
-    highlightTag: 'Flagship Expansion'
+    highlightTag: 'Tournament Broadcast'
   },
   {
     id: 't-04',
     clientName: 'Seraphina Chen',
-    role: 'Head of Brand & Marketing',
-    company: 'Nexus Interactive',
+    role: 'Senior Manga Editor',
+    company: 'Zenith Manga Publishing',
     avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&q=80',
-    quote: 'The monochromatic identity, kinetic logo reveal, and diegetic HUD elements created by Core Artworks elevated our studio brand into a high-end luxury creative powerhouse.',
-    projectType: 'Studio Identity & UI/UX Systems',
+    quote: 'The inked spreads, action screentones, and tankobon volume covers created by Core Artworks brought our serialized dark fantasy series to life with breathtaking craftsmanship.',
+    projectType: 'Manga Inking & Webtoon Art',
     rating: 5,
-    highlightTag: 'Rebranding & UI'
+    highlightTag: 'Serialized Serialization'
   }
 ];
 
@@ -158,37 +158,37 @@ export const FAQ_ITEMS: FAQItem[] = [
     id: 'faq-01',
     category: 'Licensing & IP',
     question: 'How do commercial rights and intellectual property transfer work?',
-    answer: 'Upon final milestone payment, full exclusive commercial rights, copyright transfer, and master file ownership are released to your studio. We retain only the right to display the finalized work in our portfolio (subject to your NDA and release timeline embargoes).'
+    answer: 'Upon final milestone payment, full exclusive commercial rights, copyright transfer, and master file ownership are released to you. We retain only the right to display the finalized work in our portfolio (subject to your release timeline embargoes).'
   },
   {
     id: 'faq-02',
     category: 'Process & Pipeline',
     question: 'Can you work under strict Non-Disclosure Agreements (NDAs)?',
-    answer: 'Yes, 85% of our production occurs under strict mutual NDAs. We adhere to enterprise security protocols, air-gapped local repositories, and synchronized embargo dates for public announcements.'
+    answer: 'Yes, the majority of our commercial commissions occur under strict mutual NDAs. We maintain encrypted local storage and synchronized embargo dates for album drops, book launches, and game announcements.'
   },
   {
     id: 'faq-03',
     category: 'Process & Pipeline',
     question: 'What is the standard revision and approval cycle?',
-    answer: 'Every project follows a structured 4-stage pipeline: (1) Rough Silhouette & Composition Thumbnails, (2) Detailed Value/Clay Pass, (3) Color & Material Polish, and (4) Final Render Pass. Each stage includes 2 rounds of client feedback to ensure zero surprises.'
+    answer: 'Every project follows a structured 4-stage pipeline: (1) Rough Thumbnail & Composition Passes, (2) Clean Line Art & Anatomy Lock, (3) Color & Shading Render, and (4) Master Polish & Print Export. Each stage includes 2 rounds of feedback.'
   },
   {
     id: 'faq-04',
     category: 'Pricing & Turnaround',
     question: 'How fast can you deliver rush milestones or sprint deadlines?',
-    answer: 'We maintain dedicated sprint squads for critical deadlines (e.g., publisher pitches, game awards trailers, or convention key art). Fast-track delivery is available with a 25% - 50% rush allocation.'
+    answer: 'We maintain dedicated sprint squads for critical deadlines (e.g. convention launches, tour announcements, book release dates, or tournament streams). Fast-track delivery is available.'
   },
   {
     id: 'faq-05',
     category: 'Deliverables & Specs',
-    question: 'What source files and engine formats are provided upon completion?',
-    answer: 'We provide layered high-res source files (PSD with organized adjustment groups, ZPR/ZTL sculpts, FBX/OBJ meshes, 4K/8K PBR Substance textures, and Unreal Engine .uasset packages) ready for immediate integration.'
+    question: 'What source files and formats are provided upon completion?',
+    answer: 'We provide layered high-res source files (300/600 DPI Master PSDs with organized layers, vector .AI / .SVG files, animated .WebM stream packages, print-ready PDF covers, and 4K/8K wallpaper exports).'
   },
   {
     id: 'faq-06',
     category: 'Pricing & Turnaround',
     question: 'Do you accept milestone-based payments and escrow?',
-    answer: 'Yes. Most studio engagements are structured across 3 milestones: 30% initial deposit on brief lock, 40% midway value/clay approval, and 30% final source delivery.'
+    answer: 'Yes. Most client commissions are structured across 3 milestones: 30% initial deposit on brief lock, 40% midway line/color approval, and 30% final master delivery.'
   }
 ];
 
@@ -234,21 +234,21 @@ export const PROCESS_STEPS = [
   {
     step: '01',
     title: 'Creative Brief & Discovery',
-    description: 'We align on aesthetic direction, target lore, technical polygon/texture limits, visual benchmarks, and strict timeline milestones.'
+    description: 'We align on narrative lore, aesthetic direction, dimensions, typography rules, visual benchmarks, and strict milestone timelines.'
   },
   {
     step: '02',
-    title: 'Silhouette & Concept Pass',
-    description: 'Rapid thumbnail generation, composition tests, and line drafts to lock down the strongest visual silhouette before investing into high-poly details.'
+    title: 'Thumbnail & Value Composition',
+    description: 'Rapid sketch thumbnail passes, silhouette framing, and typographic drafts to lock down composition before high-detail rendering.'
   },
   {
     step: '03',
-    title: 'Sculpting, Lighting & Detailing',
-    description: 'Master-level anatomy definition, PBR shader pass, micro-surface imperfections, and atmospheric volumetric lighting.'
+    title: 'Line Art, Shading & Detailing',
+    description: 'Master-level anatomical inking, multi-layer shading, vector refinement, and atmospheric lighting passes.'
   },
   {
     step: '04',
-    title: 'Master Delivery & Engine Integration',
-    description: 'Final 8K render pass, layered PSD and Unreal Engine asset package delivery, plus commercial copyright sign-off.'
+    title: 'Master Delivery & Print Export',
+    description: 'Final 300/600 DPI print-ready files, layered master PSDs, vector packages, stream assets, and commercial copyright sign-off.'
   }
 ];
