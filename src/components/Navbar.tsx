@@ -83,7 +83,7 @@ export const Navbar: React.FC = () => {
               <span className="inline-block w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
             </span>
             <span className="text-[10px] uppercase tracking-[0.2em] text-zinc-400 font-medium">
-              Digital Arts &amp; VisDev
+              Digital Arts &amp; Concept
             </span>
           </div>
         </Link>
