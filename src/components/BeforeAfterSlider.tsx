@@ -13,6 +13,46 @@ export const BeforeAfterSlider: React.FC = () => {
 
   const activeItem = comparisonItems[selectedIdx] || comparisonItems[0];
   const containerRef = useRef<HTMLDivElement>(null);
+  const hasAutoScrubbed = useRef(false);
+
+  // Scroll-triggered teaser sweep when section enters viewport
+  React.useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !hasAutoScrubbed.current && mode === 'slider') {
+          hasAutoScrubbed.current = true;
+          let start: number | null = null;
+          const duration = 1400;
+
+          const sweep = (timestamp: number) => {
+            if (isDragging) return; // cancel if user starts dragging
+            if (!start) start = timestamp;
+            const elapsed = timestamp - start;
+            const progress = Math.min(elapsed / duration, 1);
+
+            // Sine wave excursion: 50 + sin(progress * 2PI) * 16
+            const offset = Math.sin(progress * Math.PI * 2) * 16;
+            setSliderPosition(50 + offset);
+
+            if (progress < 1) {
+              requestAnimationFrame(sweep);
+            } else {
+              setSliderPosition(50);
+            }
+          };
+
+          requestAnimationFrame(sweep);
+        }
+      },
+      { threshold: 0.25 }
+    );
+
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, [mode, isDragging]);
 
   const handleMove = useCallback(
     (clientX: number) => {
