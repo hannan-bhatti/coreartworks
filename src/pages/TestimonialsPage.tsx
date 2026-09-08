@@ -3,6 +3,7 @@ import { TestimonialsSection } from '../components/TestimonialsSection';
 import { useNavigate } from 'react-router-dom';
 import { Award, ArrowRight, ShieldCheck } from 'lucide-react';
 import { AGENCY_METRICS } from '../data/agencyData';
+import { AnimatedCounter } from '../components/AnimatedCounter';
 
 export const TestimonialsPage: React.FC = () => {
   const navigate = useNavigate();
@@ -44,7 +45,7 @@ export const TestimonialsPage: React.FC = () => {
           {AGENCY_METRICS.map((m) => (
             <div key={m.label} className="space-y-1">
               <div className="text-3xl sm:text-4xl font-display font-extrabold text-white text-gradient-silver">
-                {m.value}
+                <AnimatedCounter value={m.value} duration={2000} />
               </div>
               <div className="text-xs font-semibold text-zinc-300">
                 {m.label}
