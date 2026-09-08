@@ -88,7 +88,7 @@ export const PortfolioGallery: React.FC<PortfolioGalleryProps> = ({
               <span>Production Vault</span>
             </div>
             <h2 className="text-3xl sm:text-5xl font-display font-bold text-white tracking-tight">
-              INTERACTIVE PORTFOLIO MATRIX
+              INTERACTIVE <span className="text-shimmer-silver font-black">PORTFOLIO MATRIX</span>
             </h2>
             <p className="text-zinc-400 text-sm sm:text-base max-w-2xl leading-relaxed">
               Explore curated deliverables categorized across visual development, 3D digital sculpts, key splash art, visual effects, and game UI systems.

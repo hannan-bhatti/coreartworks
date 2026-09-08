@@ -141,7 +141,7 @@ export const HomePage: React.FC<HomePageProps> = ({
             </div>
 
             <h2 className="text-3xl sm:text-5xl font-display font-bold text-white tracking-tight">
-              COMMISSION YOUR PROJECT WITH CORE ARTWORKS
+              COMMISSION YOUR PROJECT WITH <span className="text-shimmer-silver font-black">CORE ARTWORKS</span>
             </h2>
 
             <p className="text-zinc-400 text-sm sm:text-base max-w-xl mx-auto leading-relaxed">

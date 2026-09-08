@@ -47,7 +47,7 @@ export const DisciplinesShowcase: React.FC<DisciplinesShowcaseProps> = ({ onSele
               <span>Full-Spectrum Visual Production</span>
             </div>
             <h2 className="text-3xl sm:text-5xl font-display font-bold text-white tracking-tight">
-              CORE DISCIPLINES &amp; TAXONOMY
+              CORE <span className="text-shimmer-silver font-black">DISCIPLINES &amp; TAXONOMY</span>
             </h2>
             <p className="text-zinc-400 text-sm sm:text-base leading-relaxed">
               Our multidisciplinary studio bridges book publishing, character development, music artwork, identity design, D&amp;D and fursona art, serialized comics, 8K wallpapers, and broadcast overlays.
