@@ -88,8 +88,8 @@ export const Navbar: React.FC = () => {
           </div>
         </Link>
 
-        {/* Desktop Navigation (Restored compact single-word pill layout) */}
-        <nav className="hidden lg:flex items-center gap-1 bg-zinc-950/60 p-1.5 rounded-full border border-white/10 backdrop-blur-md">
+        {/* Desktop Navigation (Restored compact single-word pill layout without outline) */}
+        <nav className="hidden lg:flex items-center gap-1 bg-zinc-950/60 p-1.5 rounded-full backdrop-blur-md">
           {navLinks.map((link) => {
             const active = isLinkActive(link);
             return (
