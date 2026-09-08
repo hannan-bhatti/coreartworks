@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
-import { Sparkles, Send, CheckCircle2, Shield } from 'lucide-react';
+import { Sparkles, Send, CheckCircle2, Shield, Bookmark } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { CommissionBrief } from '../types';
 import { ART_CATEGORIES } from '../data/portfolioData';
+import { useMoodboard } from '../context/MoodboardContext';
 
 interface ContactSectionProps {
   initialBrief?: CommissionBrief | null;
@@ -22,6 +23,8 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialBrief }) 
 
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const { moodboard } = useMoodboard();
+  const referencedItems = initialBrief?.moodboardItems || (moodboard.length > 0 ? moodboard : []);
 
   // If initialBrief is provided by the Commission Estimator, pre-fill form
   useEffect(() => {
@@ -256,6 +259,37 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialBrief }) 
                     </select>
                   </div>
                 </div>
+
+                {/* Attached Moodboard Visual Benchmarks Strip */}
+                {referencedItems.length > 0 && (
+                  <div className="p-3.5 rounded-2xl bg-zinc-950 border border-white/10 space-y-2.5">
+                    <div className="flex items-center justify-between text-[11px] font-mono">
+                      <span className="flex items-center gap-1.5 text-zinc-300 font-semibold">
+                        <Bookmark className="w-3.5 h-3.5 fill-white text-white" />
+                        Attached Moodboard Benchmarks ({referencedItems.length})
+                      </span>
+                      <span className="text-zinc-500">Linked to Brief</span>
+                    </div>
+                    <div className="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none">
+                      {referencedItems.map((item) => (
+                        <div
+                          key={item.id}
+                          className="flex items-center gap-2 p-1.5 pr-3 rounded-xl bg-zinc-900 border border-white/5 flex-shrink-0"
+                        >
+                          <img
+                            src={item.image}
+                            alt={item.title}
+                            className="w-7 h-7 rounded-lg object-cover"
+                          />
+                          <div className="text-[10px]">
+                            <p className="text-white font-medium truncate max-w-[120px]">{item.title}</p>
+                            <p className="text-zinc-500 font-mono text-[9px]">{item.subcategoryLabel}</p>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
 
                 {/* Message / Brief Details */}
                 <div className="space-y-2">

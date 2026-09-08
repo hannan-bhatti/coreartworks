@@ -94,6 +94,8 @@ export interface CommissionBrief {
   budgetRange: string;
   briefDescription: string;
   referenceLinks?: string;
+  moodboardIds?: string[];
+  moodboardItems?: Artwork[];
 }
 
 export interface SocialLink {

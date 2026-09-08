@@ -1,7 +1,9 @@
 import React, { useState, useMemo } from 'react';
 import { ART_CATEGORIES, PORTFOLIO_ARTWORKS } from '../data/portfolioData';
 import { Artwork } from '../types';
-import { Search, Eye, ArrowUpRight, X } from 'lucide-react';
+import { Search, Eye, ArrowUpRight, X, Bookmark } from 'lucide-react';
+import { Interactive3DCard } from './Interactive3DCard';
+import { useMoodboard } from '../context/MoodboardContext';
 
 interface PortfolioGalleryProps {
   onSelectArtwork: (artwork: Artwork) => void;
@@ -20,6 +22,7 @@ export const PortfolioGallery: React.FC<PortfolioGalleryProps> = ({
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedTag, setSelectedTag] = useState<string | null>(null);
   const [sortBy, setSortBy] = useState<'featured' | 'newest' | 'views'>('featured');
+  const { toggleMoodboard, isInMoodboard } = useMoodboard();
 
   // Extract all unique tags across artworks
   const allTags = useMemo(() => {
@@ -244,87 +247,111 @@ export const PortfolioGallery: React.FC<PortfolioGalleryProps> = ({
           </div>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredArtworks.map((art) => (
-              <div
-                key={art.id}
-                onClick={() => onSelectArtwork(art)}
-                className="group cursor-pointer rounded-2xl overflow-hidden bg-zinc-950 border border-white/10 hover:border-white/35 transition-all duration-500 hover:shadow-glow-md flex flex-col justify-between"
-              >
-                {/* Artwork Image Viewport */}
-                <div className="relative aspect-[4/3] overflow-hidden bg-zinc-900">
-                  <img
-                    src={art.image}
-                    alt={art.title}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 filter brightness-90 group-hover:brightness-100"
-                    loading="lazy"
-                  />
-                  
-                  {/* Category Pill on top left */}
-                  <div className="absolute top-3 left-3 flex items-center gap-1.5">
-                    <span className="px-2.5 py-1 rounded-md text-[10px] font-semibold uppercase tracking-wider bg-black/80 text-zinc-200 border border-white/10 backdrop-blur-md">
-                      {art.subcategoryLabel}
-                    </span>
-                    {art.beforeImage && (
-                      <span className="px-2 py-0.5 rounded-md text-[10px] font-mono bg-zinc-800/90 text-white border border-white/15">
-                        A/B Inspectable
+            {filteredArtworks.map((art) => {
+              const bookmarked = isInMoodboard(art.id);
+              return (
+                <Interactive3DCard
+                  key={art.id}
+                  onClick={() => onSelectArtwork(art)}
+                  maxTilt={8}
+                  scale={1.02}
+                  className="group cursor-pointer rounded-2xl overflow-hidden bg-zinc-950 border border-white/10 hover:border-white/35 transition-all duration-300 hover:shadow-glow-md flex flex-col justify-between h-full"
+                >
+                  {/* Artwork Image Viewport */}
+                  <div className="relative aspect-[4/3] overflow-hidden bg-zinc-900">
+                    <img
+                      src={art.image}
+                      alt={art.title}
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 filter brightness-90 group-hover:brightness-100"
+                      loading="lazy"
+                    />
+
+                    {/* Category Pill on top left */}
+                    <div className="absolute top-3 left-3 flex items-center gap-1.5 z-10">
+                      <span className="px-2.5 py-1 rounded-md text-[10px] font-semibold uppercase tracking-wider bg-black/80 text-zinc-200 border border-white/10 backdrop-blur-md">
+                        {art.subcategoryLabel}
                       </span>
-                    )}
-                  </div>
-
-                  {/* Hover Quick Action Indicator */}
-                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-3">
-                    <span className="px-4 py-2 rounded-xl bg-white text-black font-semibold text-xs flex items-center gap-1.5 shadow-xl">
-                      <Eye className="w-3.5 h-3.5" />
-                      <span>Inspect Artwork Specs</span>
-                    </span>
-                  </div>
-                </div>
-
-                {/* Card Content & Details */}
-                <div className="p-5 space-y-3 bg-zinc-950 flex-1 flex flex-col justify-between">
-                  <div className="space-y-1.5">
-                    <div className="flex items-center justify-between text-[11px] font-mono text-zinc-400">
-                      <span>{art.client}</span>
-                      <span>{art.year}</span>
-                    </div>
-
-                    <h3 className="text-base font-bold text-white font-display leading-snug group-hover:text-zinc-200 transition-colors">
-                      {art.title}
-                    </h3>
-
-                    <p className="text-xs text-zinc-400 line-clamp-2 leading-relaxed">
-                      {art.description}
-                    </p>
-                  </div>
-
-                  {/* Software Tags & Commission Link */}
-                  <div className="pt-3 border-t border-white/5 flex items-center justify-between gap-2">
-                    <div className="flex flex-wrap gap-1">
-                      {art.tools.slice(0, 2).map((t) => (
-                        <span
-                          key={t}
-                          className="px-2 py-0.5 rounded bg-zinc-900 text-zinc-400 text-[10px] font-mono border border-white/5"
-                        >
-                          {t}
+                      {art.beforeImage && (
+                        <span className="px-2 py-0.5 rounded-md text-[10px] font-mono bg-zinc-800/90 text-white border border-white/15">
+                          A/B Inspectable
                         </span>
-                      ))}
+                      )}
                     </div>
 
-                    <button
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        onPreloadEstimatorWithDiscipline(art.category);
-                      }}
-                      className="text-[11px] font-semibold text-zinc-300 hover:text-white flex items-center gap-1 group/btn"
-                      title="Calculate estimate for this art style"
-                    >
-                      <span>Quote Style</span>
-                      <ArrowUpRight className="w-3 h-3 transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
-                    </button>
+                    {/* Bookmark to Moodboard Button on top right */}
+                    <div className="absolute top-3 right-3 z-10">
+                      <button
+                        type="button"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          toggleMoodboard(art);
+                        }}
+                        className={`p-2 rounded-xl backdrop-blur-md transition-all duration-200 flex items-center justify-center ${
+                          bookmarked
+                            ? 'bg-white text-black shadow-glow-sm scale-105'
+                            : 'bg-black/65 hover:bg-black text-zinc-300 hover:text-white border border-white/15 hover:border-white/30'
+                        }`}
+                        title={bookmarked ? 'Remove from Curated Moodboard' : 'Add to Curated Moodboard'}
+                      >
+                        <Bookmark className={`w-3.5 h-3.5 ${bookmarked ? 'fill-black' : ''}`} />
+                      </button>
+                    </div>
+
+                    {/* Hover Quick Action Indicator */}
+                    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-3 pointer-events-none">
+                      <span className="px-4 py-2 rounded-xl bg-white text-black font-semibold text-xs flex items-center gap-1.5 shadow-xl">
+                        <Eye className="w-3.5 h-3.5" />
+                        <span>Inspect Artwork Specs</span>
+                      </span>
+                    </div>
                   </div>
-                </div>
-              </div>
-            ))}
+
+                  {/* Card Content & Details */}
+                  <div className="p-5 space-y-3 bg-zinc-950 flex-1 flex flex-col justify-between">
+                    <div className="space-y-1.5">
+                      <div className="flex items-center justify-between text-[11px] font-mono text-zinc-400">
+                        <span>{art.client}</span>
+                        <span>{art.year}</span>
+                      </div>
+
+                      <h3 className="text-base font-bold text-white font-display leading-snug group-hover:text-zinc-200 transition-colors">
+                        {art.title}
+                      </h3>
+
+                      <p className="text-xs text-zinc-400 line-clamp-2 leading-relaxed">
+                        {art.description}
+                      </p>
+                    </div>
+
+                    {/* Software Tags & Commission Link */}
+                    <div className="pt-3 border-t border-white/5 flex items-center justify-between gap-2">
+                      <div className="flex flex-wrap gap-1">
+                        {art.tools.slice(0, 2).map((t) => (
+                          <span
+                            key={t}
+                            className="px-2 py-0.5 rounded bg-zinc-900 text-zinc-400 text-[10px] font-mono border border-white/5"
+                          >
+                            {t}
+                          </span>
+                        ))}
+                      </div>
+
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          onPreloadEstimatorWithDiscipline(art.category);
+                        }}
+                        className="text-[11px] font-semibold text-zinc-300 hover:text-white flex items-center gap-1 group/btn"
+                        title="Calculate estimate for this art style"
+                      >
+                        <span>Quote Style</span>
+                        <ArrowUpRight className="w-3 h-3 transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
+                      </button>
+                    </div>
+                  </div>
+                </Interactive3DCard>
+              );
+            })}
           </div>
         )}
 
