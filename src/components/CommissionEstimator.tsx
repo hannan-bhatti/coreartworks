@@ -118,7 +118,7 @@ export const CommissionEstimator: React.FC<CommissionEstimatorProps> = ({
             <span>Deterministic Pricing Engine</span>
           </div>
           <h2 className="text-3xl sm:text-5xl font-display font-bold text-white tracking-tight">
-            PROJECT COMMISSION ESTIMATOR
+            PROJECT <span className="text-shimmer-silver font-black">COMMISSION ESTIMATOR</span>
           </h2>
           <p className="text-zinc-400 text-sm sm:text-base leading-relaxed">
             Configure your creative scope, timeline urgency, and licensing parameters to obtain an instantaneous, transparent production estimate.
@@ -284,7 +284,7 @@ export const CommissionEstimator: React.FC<CommissionEstimatorProps> = ({
 
             {/* Estimated Price Range Big Display */}
             <div className="space-y-1">
-              <div className="text-3xl sm:text-4xl font-display font-extrabold text-white tracking-tight text-gradient-silver">
+              <div className="text-3xl sm:text-4xl font-display font-extrabold text-white tracking-tight text-shimmer-silver font-black">
                 {calculation.minFormatted} - {calculation.maxFormatted}
               </div>
               <div className="text-xs text-zinc-400 font-mono">

@@ -25,7 +25,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ initialBrief }) => {
 
           <h1 className="text-4xl sm:text-6xl font-display font-extrabold text-white tracking-tight">
             COMMISSION A PROJECT / <br />
-            <span className="text-gradient-silver">SUBMIT CREATIVE BRIEF</span>
+            <span className="text-shimmer-silver font-black">SUBMIT CREATIVE BRIEF</span>
           </h1>
 
           <p className="text-zinc-400 text-sm sm:text-base leading-relaxed">

@@ -74,7 +74,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialBrief }) 
 
             <h2 className="text-3xl sm:text-5xl font-display font-bold text-white tracking-tight">
               LET'S CRAFT YOUR NEXT <br />
-              <span className="text-gradient-silver">VISUAL MASTERPIECE</span>.
+              <span className="text-shimmer-silver font-black">VISUAL MASTERPIECE</span>.
             </h2>
 
             <p className="text-zinc-400 text-sm sm:text-base leading-relaxed">

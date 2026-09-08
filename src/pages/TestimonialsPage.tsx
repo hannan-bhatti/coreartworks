@@ -30,7 +30,7 @@ export const TestimonialsPage: React.FC = () => {
 
           <h1 className="text-4xl sm:text-6xl font-display font-extrabold text-white tracking-tight">
             PROVEN TRACK RECORD <br />
-            <span className="text-gradient-silver">WITH VISIONARY CREATORS</span>
+            <span className="text-shimmer-silver font-black">WITH VISIONARY CREATORS</span>
           </h1>
 
           <p className="text-zinc-400 text-sm sm:text-base leading-relaxed">
@@ -44,7 +44,7 @@ export const TestimonialsPage: React.FC = () => {
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 p-8 rounded-3xl bg-zinc-950 border border-white/10">
           {AGENCY_METRICS.map((m) => (
             <div key={m.label} className="space-y-1">
-              <div className="text-3xl sm:text-4xl font-display font-extrabold text-white text-gradient-silver">
+              <div className="text-3xl sm:text-4xl font-display font-extrabold text-white text-shimmer-silver font-black">
                 <AnimatedCounter value={m.value} duration={2000} />
               </div>
               <div className="text-xs font-semibold text-zinc-300">

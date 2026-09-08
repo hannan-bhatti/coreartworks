@@ -50,7 +50,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
               <span>Studio Capabilities</span>
             </div>
             <h2 className="text-3xl sm:text-5xl font-display font-bold text-white tracking-tight">
-              SPECIALIZED ART SERVICES
+              SPECIALIZED <span className="text-shimmer-silver font-black">ART SERVICES</span>
             </h2>
             <p className="text-zinc-400 text-sm sm:text-base leading-relaxed">
               Every deliverable is crafted with strict adherence to industry polygon budgets, PBR texture standards, high-DPI print readiness, and engine integration specifications.

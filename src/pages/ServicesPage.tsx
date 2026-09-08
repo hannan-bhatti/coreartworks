@@ -31,7 +31,7 @@ export const ServicesPage: React.FC = () => {
 
           <h1 className="text-4xl sm:text-6xl font-display font-extrabold text-white tracking-tight">
             FULL-SPECTRUM <br />
-            <span className="text-gradient-silver">DIGITAL ART CAPABILITIES</span>
+            <span className="text-shimmer-silver font-black">DIGITAL ART CAPABILITIES</span>
           </h1>
 
           <p className="text-zinc-400 text-sm sm:text-base leading-relaxed">

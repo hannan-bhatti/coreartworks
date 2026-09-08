@@ -42,7 +42,7 @@ export const InspectorPage: React.FC = () => {
 
           <h1 className="text-4xl sm:text-6xl font-display font-extrabold text-white tracking-tight">
             PIPELINE EVOLUTION: <br />
-            <span className="text-gradient-silver">SKETCH TO CINEMATIC MASTER</span>
+            <span className="text-shimmer-silver font-black">SKETCH TO CINEMATIC MASTER</span>
           </h1>
 
           <p className="text-zinc-400 text-sm sm:text-base leading-relaxed">

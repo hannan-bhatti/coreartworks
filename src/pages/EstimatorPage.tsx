@@ -31,7 +31,7 @@ export const EstimatorPage: React.FC<EstimatorPageProps> = ({ onSendBriefToConta
 
           <h1 className="text-4xl sm:text-6xl font-display font-extrabold text-white tracking-tight">
             COMMISSION &amp; PRODUCTION <br />
-            <span className="text-gradient-silver">COST ESTIMATOR</span>
+            <span className="text-shimmer-silver font-black">COST ESTIMATOR</span>
           </h1>
 
           <p className="text-zinc-400 text-sm sm:text-base leading-relaxed">

@@ -90,7 +90,7 @@ export const BeforeAfterSlider: React.FC = () => {
               <span>Interactive Pipeline Inspector</span>
             </div>
             <h2 className="text-3xl sm:text-5xl font-display font-bold text-white tracking-tight">
-              SKETCH &amp; CLAY &rarr; FINAL POLISH
+              SKETCH &amp; CLAY &rarr; <span className="text-shimmer-silver font-black">FINAL POLISH</span>
             </h2>
             <p className="text-zinc-400 text-sm sm:text-base leading-relaxed">
               Experience the iterative evolution of Core Artworks assets. Drag the slider to inspect the transition from foundational silhouette to high-gloss cinematic master.

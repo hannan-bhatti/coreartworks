@@ -15,7 +15,7 @@ export const TestimonialsSection: React.FC = () => {
               <span>Industry Validation</span>
             </div>
             <h2 className="text-3xl sm:text-5xl font-display font-bold text-white tracking-tight">
-              TESTIMONIALS FROM ART DIRECTORS &amp; PRODUCERS
+              TESTIMONIALS FROM <span className="text-shimmer-silver font-black">ART DIRECTORS &amp; PRODUCERS</span>
             </h2>
             <p className="text-zinc-400 text-sm sm:text-base leading-relaxed">
               Trusted by veteran developers, indie publishers, and entertainment franchises across the globe.
