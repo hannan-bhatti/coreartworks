@@ -22,9 +22,9 @@ body {
   background-color: #070709;
   color: #f6f6f4;
   font-family: 'General Sans', 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
   overflow-x: hidden;
-  selection-background-color: #ffffff;
-  selection-color: #000000;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
@@ -36,8 +36,29 @@ input, select, textarea, button, label, optgroup, option {
   -webkit-font-smoothing: antialiased;
 }
 
-code, kbd, samp, pre, .font-mono {
+/* Hard override: every element that could receive monospace must use General Sans */
+*,
+*::before,
+*::after {
+  font-family: inherit;
+}
+
+code, kbd, samp, pre,
+[class*="font-mono"],
+.font-mono {
   font-family: 'General Sans', 'Inter', system-ui, -apple-system, sans-serif !important;
+  letter-spacing: 0.01em;
+}
+
+/* Raise minimum legible size — nothing below 12px anywhere */
+[class*="text-[10px]"],
+[class*="text-[9px]"],
+[class*="text-[8px]"] {
+  font-size: 12px !important;
+}
+
+[class*="text-[11px]"] {
+  font-size: 12.5px !important;
 }
 
 /* Suppress default browser outline highlight boxes on click/focus */
@@ -256,7 +277,7 @@ button:active {
   align-items: center;
   gap: 10px;
   font-family: 'General Sans', 'Inter', sans-serif;
-  font-size: 12px;
+  font-size: 12.5px;
   font-weight: 600;
   letter-spacing: 0.22em;
   text-transform: uppercase;

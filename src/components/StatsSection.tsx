@@ -172,7 +172,7 @@ export const StatsSection: React.FC = () => {
 
                   {/* Primary Label */}
                   <p
-                    className={`text-xs font-mono uppercase tracking-[0.1em] transition-colors duration-300 ${
+                    className={`text-[13px] uppercase tracking-[0.1em] transition-colors duration-300 ${
                       isHovered ? 'text-white font-semibold' : 'text-zinc-400'
                     }`}
                   >
