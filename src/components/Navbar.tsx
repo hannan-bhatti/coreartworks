@@ -69,8 +69,11 @@ export const Navbar: React.FC = () => {
     >
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 flex items-center justify-between">
         {/* Brand Logo & Name */}
-        <Link to="/" className="flex items-center gap-3 group">
-          <div className="relative w-8 h-8 rounded-lg overflow-hidden bg-black border border-white/20 p-1 flex items-center justify-center transition-all duration-300 group-hover:border-white">
+        <Link
+          to="/"
+          className="flex items-center gap-3 group outline-none focus:outline-none focus:ring-0 focus-visible:outline-none focus-visible:ring-0 active:outline-none ring-0 border-none select-none"
+        >
+          <div className="relative w-8 h-8 rounded-lg overflow-hidden bg-transparent flex items-center justify-center">
             <img
               src="/Core Artworks LOGO.png"
               alt="Core Artworks Logo"

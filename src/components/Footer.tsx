@@ -31,8 +31,11 @@ export const Footer: React.FC = () => {
           
           {/* Brand Col */}
           <div className="md:col-span-4 space-y-6">
-            <Link to="/" className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-lg overflow-hidden bg-black border border-white/20 p-1 flex items-center justify-center">
+            <Link
+              to="/"
+              className="flex items-center gap-3 group outline-none focus:outline-none focus:ring-0 focus-visible:outline-none focus-visible:ring-0 active:outline-none ring-0 border-none select-none"
+            >
+              <div className="w-8 h-8 rounded-lg overflow-hidden bg-transparent flex items-center justify-center">
                 <img
                   src="/Core Artworks LOGO.png"
                   alt="Core Artworks Logo"
