@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AnimatedCounter } from './AnimatedCounter';
-import { ArrowUpRight, Star, Sparkles, Globe, Clock } from 'lucide-react';
+import { Star, Sparkles, Globe, Clock } from 'lucide-react';
 
 interface StatItem {
   id: string;
@@ -126,36 +126,7 @@ export const StatsSection: React.FC = () => {
                     : 'hover:bg-white/[0.015]'
                 }`}
               >
-                {/* Top Row: Mini interactive badge + Action jump arrow */}
-                <div className="flex items-center justify-between pb-3">
-                  <div
-                    className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-mono uppercase tracking-wider transition-all duration-300 ${
-                      isHovered
-                        ? 'bg-white text-black font-semibold shadow-sm'
-                        : 'bg-white/[0.05] text-zinc-400 group-hover:text-zinc-200'
-                    }`}
-                  >
-                    {stat.icon}
-                    <span>{stat.badge}</span>
-                  </div>
 
-                  <div
-                    className={`flex items-center gap-1 text-[11px] font-medium tracking-wide transition-all duration-300 ${
-                      isHovered
-                        ? 'text-white opacity-100 translate-x-0'
-                        : 'text-zinc-500 opacity-60 group-hover:opacity-100 group-hover:text-zinc-300'
-                    }`}
-                  >
-                    <span className="hidden xl:inline text-[10px] uppercase font-mono tracking-wider">
-                      {stat.actionText}
-                    </span>
-                    <ArrowUpRight
-                      className={`w-3.5 h-3.5 transition-transform duration-300 ${
-                        isHovered ? 'translate-x-0.5 -translate-y-0.5 text-white' : ''
-                      }`}
-                    />
-                  </div>
-                </div>
 
                 {/* Main Stat Number */}
                 <div className="space-y-1.5 pt-1">
@@ -209,18 +180,7 @@ export const StatsSection: React.FC = () => {
                   </p>
                 </div>
 
-                {/* Interactive Subtitle / Micro-detail that expands on hover */}
-                <div className="pt-3 overflow-hidden">
-                  <p
-                    className={`text-xs transition-all duration-300 ${
-                      isHovered
-                        ? 'text-zinc-300 translate-y-0 opacity-100'
-                        : 'text-zinc-500 opacity-80'
-                    }`}
-                  >
-                    {stat.caption}
-                  </p>
-                </div>
+
 
                 {/* Animated Accent Line that expands on card hover */}
                 <div className="pt-4">
