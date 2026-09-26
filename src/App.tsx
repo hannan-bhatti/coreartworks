@@ -9,6 +9,7 @@ import { MoodboardDrawer } from './components/MoodboardDrawer';
 import { MoodboardProvider } from './context/MoodboardContext';
 import { HomePage } from './pages/HomePage';
 import { ServicesPage } from './pages/ServicesPage';
+import { AboutPage } from './pages/AboutPage';
 import { ContactPage } from './pages/ContactPage';
 import { Artwork, CommissionBrief } from './types';
 
@@ -57,12 +58,12 @@ export function App() {
                 }
               />
               <Route path="/services" element={<ServicesPage />} />
+              <Route path="/about" element={<AboutPage />} />
               <Route
                 path="/contact"
                 element={<ContactPage initialBrief={activeBrief} />}
               />
               {/* Fallback & Redirects for routes */}
-              <Route path="/about" element={<Navigate to="/#about" replace />} />
               <Route path="/estimator" element={<Navigate to="/contact" replace />} />
               <Route path="/inspector" element={<Navigate to="/" replace />} />
               <Route path="/testimonials" element={<Navigate to="/#testimonials" replace />} />

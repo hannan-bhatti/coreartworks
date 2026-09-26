@@ -21,7 +21,7 @@ export const Navbar: React.FC = () => {
     { label: 'Home', target: 'home', page: '/', isAnchor: true },
     { label: 'Portfolio', target: 'portfolio', page: '/', isAnchor: true },
     { label: 'Services', path: '/services' },
-    { label: 'About', target: 'about', page: '/', isAnchor: true },
+    { label: 'About', path: '/about' },
     { label: 'Testimonials', target: 'testimonials', page: '/', isAnchor: true },
   ];
 
