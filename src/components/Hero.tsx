@@ -37,7 +37,7 @@ export const Hero: React.FC<HeroProps> = ({
             </div>
 
             {/* Clean Pill CTAs */}
-            <div className="space-y-3 pt-2">
+            <div className="pt-2">
               <div className="flex flex-wrap items-center gap-4">
                 <button
                   onClick={onExploreGallery}
@@ -54,9 +54,6 @@ export const Hero: React.FC<HeroProps> = ({
                   <span>Start a Project</span>
                 </button>
               </div>
-              <p className="text-xs text-zinc-500 font-mono tracking-wider pt-1">
-                300+ projects shipped worldwide &bull; Q3/Q4 Production Open
-              </p>
             </div>
 
             {/* Minimalist Scroll Indicator */}
