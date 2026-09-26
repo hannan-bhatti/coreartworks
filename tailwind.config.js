@@ -34,6 +34,7 @@ export default {
         sans: ['"General Sans"', '"Inter"', 'system-ui', '-apple-system', 'sans-serif'],
         display: ['"Clash Display"', '"Space Grotesk"', '"Syne"', 'sans-serif'],
         serif: ['"Cinzel"', 'Georgia', 'serif'],
+        mono: ['"General Sans"', '"Inter"', 'system-ui', '-apple-system', 'sans-serif'],
       },
       boxShadow: {
         'glow-sm': '0 0 15px -3px rgba(255, 255, 255, 0.1)',

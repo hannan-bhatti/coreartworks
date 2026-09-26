@@ -26,6 +26,18 @@ body {
   selection-background-color: #ffffff;
   selection-color: #000000;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Ensure clean, crisp, legible typography on all UI elements */
+input, select, textarea, button, label, optgroup, option {
+  font-family: 'General Sans', 'Inter', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+code, kbd, samp, pre, .font-mono {
+  font-family: 'General Sans', 'Inter', system-ui, -apple-system, sans-serif !important;
 }
 
 /* Suppress default browser outline highlight boxes on click/focus */

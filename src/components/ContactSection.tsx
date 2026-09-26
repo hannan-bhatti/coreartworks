@@ -1,9 +1,6 @@
-import { useState, useEffect } from 'react';
-import { Send, CheckCircle2, Shield, Bookmark } from 'lucide-react';
-import confetti from 'canvas-confetti';
+import React, { useState, useEffect } from 'react';
+import { Mail, Instagram, Youtube, Check } from 'lucide-react';
 import { CommissionBrief } from '../types';
-import { ART_CATEGORIES } from '../data/portfolioData';
-import { useMoodboard } from '../context/MoodboardContext';
 
 interface ContactSectionProps {
   initialBrief?: CommissionBrief | null;
@@ -13,28 +10,23 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialBrief }) 
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    company: '',
-    discipline: 'Book Cover design',
-    budget: '$5,000 - $10,000',
-    timeline: 'Standard (3-4 weeks)',
+    projectType: 'Digital Arts & Cover Design',
+    budget: '$250 – $750',
     message: '',
-    ndaRequired: true,
   });
 
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const { moodboard } = useMoodboard();
-  const referencedItems = initialBrief?.moodboardItems || (moodboard.length > 0 ? moodboard : []);
 
-  // If initialBrief is provided by the Commission Estimator, pre-fill form
   useEffect(() => {
     if (initialBrief) {
       setFormData((prev) => ({
         ...prev,
-        discipline: initialBrief.discipline,
-        budget: initialBrief.budgetRange,
-        timeline: initialBrief.timeline,
-        message: `${initialBrief.briefDescription}\n\nScope: ${initialBrief.scope}\nDetail Tier: ${initialBrief.complexity}\nLicensing: ${initialBrief.commercialRights ? 'Exclusive Commercial IP' : 'Personal Use'}`,
+        projectType: initialBrief.discipline || prev.projectType,
+        budget: initialBrief.budgetRange || prev.budget,
+        message: initialBrief.briefDescription
+          ? `${initialBrief.briefDescription}\n\nScope: ${initialBrief.scope || ''}`
+          : prev.message,
       }));
     }
   }, [initialBrief]);
@@ -46,302 +38,198 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialBrief }) 
     setTimeout(() => {
       setIsSubmitting(false);
       setSubmitted(true);
-      // Trigger subtle celebration confetti
-      confetti({
-        particleCount: 70,
-        spread: 60,
-        origin: { y: 0.7 },
-        colors: ['#ffffff', '#a1a1aa', '#52525b', '#e4e4e7'],
-      });
-    }, 900);
+    }, 600);
   };
 
   return (
-    <section id="contact" className="py-24 relative bg-[#070709] border-t border-white/5 overflow-hidden">
-      {/* Background Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-white/[0.02] rounded-full blur-[160px] pointer-events-none" />
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+    <section id="contact" className="py-16 bg-[#0a0a0b] relative z-10">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           
-          {/* Left Column: Studio Intake Manifesto */}
-          <div className="lg:col-span-5 space-y-6">
-            <div>
-              <span className="eyebrow-accent text-zinc-400">Project Intake</span>
+          <aside className="lg:col-span-5 space-y-6">
+            <div className="space-y-4">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-display font-bold text-white uppercase tracking-tight">
+                We'd Love To Hear <br className="hidden sm:inline" />From You
+              </h2>
+              <p className="text-zinc-400 text-base sm:text-lg leading-relaxed">
+                Whether it's a single cover illustration or a full brand world, tell us what you're building and we'll get back to you within one business day.
+              </p>
             </div>
 
-            <h2 className="text-3xl sm:text-5xl font-display font-bold text-white tracking-tight uppercase leading-[1.05]">
-              Let's Craft Your Next <br />
-              <span className="is-outline">Visual Masterpiece.</span>
-            </h2>
-
-            <p className="text-zinc-400 text-sm sm:text-base leading-relaxed">
-              Whether you require an iconic book or album cover, full-body character sheets, serialized comics, or a full streaming suite, our artists are prepared to align on scope.
-            </p>
-
-            {/* Direct Studio Contact Cards */}
-            <div className="space-y-3 pt-4 border-t border-white/[0.08]">
-              <div className="p-5 rounded-2xl bg-[#121214] border border-white/[0.08] flex items-center justify-between">
+            <div className="pt-8 border-t border-white/[0.08] space-y-6">
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-full border border-white/[0.15] bg-[#121214] flex items-center justify-center text-white flex-shrink-0">
+                  <Mail className="w-5 h-5 text-white" />
+                </div>
                 <div>
-                  <span className="text-[10px] font-mono uppercase tracking-wider text-zinc-500 block">
-                    Direct Creative Inquiries
-                  </span>
+                  <p className="text-xs uppercase tracking-wider text-zinc-400 font-semibold mb-0.5">
+                    Email
+                  </p>
                   <a
                     href="mailto:coreartworks@gmail.com"
-                    className="text-sm font-semibold text-white hover:text-zinc-300 transition-colors"
+                    className="text-base sm:text-lg font-medium text-white hover:text-zinc-300 transition-colors"
                   >
                     coreartworks@gmail.com
                   </a>
                 </div>
-                <span className="text-xs text-zinc-400 font-mono">Reply &lt; 24 hrs</span>
               </div>
 
-              <div className="p-5 rounded-2xl bg-[#121214] border border-white/[0.08] flex items-center justify-between">
-                <div>
-                  <span className="text-[10px] font-mono uppercase tracking-wider text-zinc-500 block">
-                    Studio Location
-                  </span>
-                  <span className="text-sm font-semibold text-white">
-                    Remote Worldwide Production
-                  </span>
-                </div>
-                <span className="text-xs text-zinc-400 font-mono">Global Timezones</span>
-              </div>
-            </div>
-
-            {/* NDA badge */}
-            <div className="p-4 rounded-xl bg-black/40 border border-white/[0.06] flex items-center gap-3 text-xs text-zinc-400">
-              <Shield className="w-5 h-5 text-zinc-300 flex-shrink-0" />
-              <span>All submissions protected by our default bilateral Non-Disclosure Agreement.</span>
-            </div>
-          </div>
-
-          {/* Right Column: Creative Brief Form */}
-          <div className="lg:col-span-7 bg-[#121214] p-6 sm:p-10 rounded-2xl border border-white/[0.08] shadow-2xl relative">
-            
-            {submitted ? (
-              <div className="py-16 text-center space-y-5 animate-in zoom-in-95 duration-300">
-                <div className="w-16 h-16 rounded-full bg-white/10 border border-white/30 flex items-center justify-center mx-auto text-white">
-                  <CheckCircle2 className="w-8 h-8 text-white" />
-                </div>
-                <div className="space-y-2">
-                  <h3 className="text-2xl font-bold font-display text-white">
-                    Creative Brief Received
-                  </h3>
-                  <p className="text-xs sm:text-sm text-zinc-400 max-w-md mx-auto leading-relaxed">
-                    Thank you, <strong className="text-white">{formData.name}</strong>. Our Lead Art Director has received your project parameters and will contact you at <strong className="text-zinc-200">{formData.email}</strong> with a detailed production roadmap.
-                  </p>
-                </div>
-
-                <div className="pt-6">
-                  <button
-                    onClick={() => {
-                      setSubmitted(false);
-                      setFormData({
-                        name: '',
-                        email: '',
-                        company: '',
-                        discipline: 'Book Cover designs',
-                        budget: '$5,000 - $10,000',
-                        timeline: 'Standard (3-4 weeks)',
-                        message: '',
-                        ndaRequired: true,
-                      });
-                    }}
-                    className="px-6 py-2.5 rounded-xl bg-zinc-900 hover:bg-zinc-800 text-xs font-semibold text-white border border-white/10"
-                  >
-                    Submit Another Brief
-                  </button>
-                </div>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="space-y-6">
-                
-                <div className="flex items-center justify-between pb-4 border-b border-white/10">
-                  <span className="text-xs font-mono uppercase tracking-wider text-zinc-400">
-                    Creative Brief Submission Form
-                  </span>
-                  <span className="text-[10px] font-mono text-zinc-500">
-                    Step 1 of 1
-                  </span>
-                </div>
-
-                {/* Name & Email */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <label className="text-xs font-mono uppercase tracking-widest text-zinc-400">
-                      Your Name *
-                    </label>
-                    <input
-                      type="text"
-                      required
-                      placeholder="e.g. Marcus Sterling"
-                      value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full bg-zinc-900 border border-white/10 rounded-xl px-4 py-2.5 text-xs text-white placeholder-zinc-500 focus:outline-none focus:border-white/30"
-                    />
-                  </div>
-
-                  <div className="space-y-2">
-                    <label className="text-xs font-mono uppercase tracking-widest text-zinc-400">
-                      Email Address *
-                    </label>
-                    <input
-                      type="email"
-                      required
-                      placeholder="e.g. marcus@studio.com"
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full bg-zinc-900 border border-white/10 rounded-xl px-4 py-2.5 text-xs text-white placeholder-zinc-500 focus:outline-none focus:border-white/30"
-                    />
-                  </div>
-                </div>
-
-                {/* Company & Discipline */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <label className="text-xs font-mono uppercase tracking-widest text-zinc-400">
-                      Studio / Company (Optional)
-                    </label>
-                    <input
-                      type="text"
-                      placeholder="e.g. Apex Interactive"
-                      value={formData.company}
-                      onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                      className="w-full bg-zinc-900 border border-white/10 rounded-xl px-4 py-2.5 text-xs text-white placeholder-zinc-500 focus:outline-none focus:border-white/30"
-                    />
-                  </div>
-
-                  <div className="space-y-2">
-                    <label className="text-xs font-mono uppercase tracking-widest text-zinc-400">
-                      Primary Discipline *
-                    </label>
-                    <select
-                      value={formData.discipline}
-                      onChange={(e) => setFormData({ ...formData, discipline: e.target.value })}
-                      className="w-full bg-zinc-900 border border-white/10 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-white/30"
-                    >
-                      {ART_CATEGORIES.map((c) => (
-                        <option key={c.id} value={c.name}>
-                          {c.name}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-                </div>
-
-                {/* Budget Range & Timeline */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <label className="text-xs font-mono uppercase tracking-widest text-zinc-400">
-                      Estimated Budget Range
-                    </label>
-                    <input
-                      type="text"
-                      placeholder="e.g. $3,500 - $8,000"
-                      value={formData.budget}
-                      onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
-                      className="w-full bg-zinc-900 border border-white/10 rounded-xl px-4 py-2.5 text-xs text-white placeholder-zinc-500 focus:outline-none focus:border-white/30"
-                    />
-                  </div>
-
-                  <div className="space-y-2">
-                    <label className="text-xs font-mono uppercase tracking-widest text-zinc-400">
-                      Target Timeline
-                    </label>
-                    <select
-                      value={formData.timeline}
-                      onChange={(e) => setFormData({ ...formData, timeline: e.target.value })}
-                      className="w-full bg-zinc-900 border border-white/10 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-white/30"
-                    >
-                      <option value="Rush (1-2 weeks)">Rush Sprint (1-2 weeks)</option>
-                      <option value="Standard (3-4 weeks)">Standard Milestone (3-4 weeks)</option>
-                      <option value="Flexible (6+ weeks)">Flexible / Long Term (6+ weeks)</option>
-                    </select>
-                  </div>
-                </div>
-
-                {/* Attached Moodboard Visual Benchmarks Strip */}
-                {referencedItems.length > 0 && (
-                  <div className="p-3.5 rounded-2xl bg-zinc-950 border border-white/10 space-y-2.5">
-                    <div className="flex items-center justify-between text-[11px] font-mono">
-                      <span className="flex items-center gap-1.5 text-zinc-300 font-semibold">
-                        <Bookmark className="w-3.5 h-3.5 fill-white text-white" />
-                        Attached Moodboard Benchmarks ({referencedItems.length})
-                      </span>
-                      <span className="text-zinc-500">Linked to Brief</span>
-                    </div>
-                    <div className="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none">
-                      {referencedItems.map((item) => (
-                        <div
-                          key={item.id}
-                          className="flex items-center gap-2 p-1.5 pr-3 rounded-xl bg-zinc-900 border border-white/5 flex-shrink-0"
-                        >
-                          <img
-                            src={item.image}
-                            alt={item.title}
-                            className="w-7 h-7 rounded-lg object-cover"
-                          />
-                          <div className="text-[10px]">
-                            <p className="text-white font-medium truncate max-w-[120px]">{item.title}</p>
-                            <p className="text-zinc-500 font-mono text-[9px]">{item.subcategoryLabel}</p>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                )}
-
-                {/* Message / Brief Details */}
-                <div className="space-y-2">
-                  <label className="text-xs font-mono uppercase tracking-widest text-zinc-400">
-                    Project Brief &amp; Lore / Reference Notes *
-                  </label>
-                  <textarea
-                    required
-                    rows={4}
-                    placeholder="Tell us about the world, character specs, polygon requirements, visual references, or deliverables required..."
-                    value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="w-full bg-zinc-900 border border-white/10 rounded-xl p-4 text-xs text-white placeholder-zinc-500 focus:outline-none focus:border-white/30 resize-none font-sans leading-relaxed"
-                  />
-                </div>
-
-                {/* Checkbox for NDA */}
-                <label className="flex items-center gap-3 cursor-pointer select-none text-xs text-zinc-400">
-                  <input
-                    type="checkbox"
-                    checked={formData.ndaRequired}
-                    onChange={(e) => setFormData({ ...formData, ndaRequired: e.target.checked })}
-                    className="w-4 h-4 rounded bg-zinc-900 border-white/20 text-white focus:ring-0 accent-white"
-                  />
-                  <span>Execute mutual Non-Disclosure Agreement (NDA) prior to detailed asset review</span>
-                </label>
-
-                {/* Submit Button */}
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-full py-4 rounded-xl bg-white text-black font-semibold text-xs uppercase tracking-wider hover:bg-zinc-200 transition-all flex items-center justify-center gap-2 shadow-glow-sm disabled:opacity-50"
+              <div className="flex items-center gap-3 pt-2">
+                <a
+                  href="https://instagram.com/coreartworks"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-11 h-11 rounded-full border border-white/[0.15] bg-[#121214] flex items-center justify-center text-zinc-300 hover:text-black hover:bg-white hover:-translate-y-1 transition-all duration-300"
+                  aria-label="Instagram"
                 >
-                  {isSubmitting ? (
-                    <span>Encrypting &amp; Dispatching Brief...</span>
-                  ) : (
-                    <>
-                      <Send className="w-4 h-4" />
-                      <span>Submit Creative Brief to Art Directors</span>
-                    </>
-                  )}
-                </button>
+                  <Instagram className="w-4 h-4" />
+                </a>
+                <a
+                  href="https://youtube.com/@coreartworks"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-11 h-11 rounded-full border border-white/[0.15] bg-[#121214] flex items-center justify-center text-zinc-300 hover:text-black hover:bg-white hover:-translate-y-1 transition-all duration-300"
+                  aria-label="YouTube"
+                >
+                  <Youtube className="w-4 h-4" />
+                </a>
+              </div>
+            </div>
+          </aside>
 
-              </form>
-            )}
+          <div className="lg:col-span-7">
+            <div className="p-7 sm:p-10 lg:p-12 rounded-2xl bg-[#121214] border border-white/[0.08] shadow-2xl relative">
+              {submitted ? (
+                <div className="p-6 sm:p-8 rounded-xl bg-[#16161a] border border-white/[0.16] flex items-center gap-4 text-left">
+                  <div className="w-10 h-10 rounded-full bg-white text-black flex items-center justify-center flex-shrink-0 font-bold">
+                    <Check className="w-5 h-5 stroke-[2.5]" />
+                  </div>
+                  <div className="space-y-1">
+                    <p className="text-white text-base font-semibold">
+                      Message received.
+                    </p>
+                    <p className="text-zinc-400 text-sm">
+                      Thanks for reaching out — we'll get back to you shortly at <span className="text-zinc-200">{formData.email || 'your email'}</span>.
+                    </p>
+                  </div>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                    <div className="space-y-2">
+                      <label htmlFor="cs-name" className="text-xs uppercase tracking-wider text-zinc-300 font-semibold block">
+                        Name
+                      </label>
+                      <input
+                        id="cs-name"
+                        type="text"
+                        required
+                        value={formData.name}
+                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                        placeholder="Your full name"
+                        className="w-full bg-[#16161a] border border-white/[0.14] rounded-xl px-4 py-3.5 text-sm text-white placeholder-zinc-500 focus:outline-none focus:border-white focus:bg-[#121214] focus:ring-4 focus:ring-white/[0.08] transition-all"
+                      />
+                    </div>
 
+                    <div className="space-y-2">
+                      <label htmlFor="cs-email" className="text-xs uppercase tracking-wider text-zinc-300 font-semibold block">
+                        Email
+                      </label>
+                      <input
+                        id="cs-email"
+                        type="email"
+                        required
+                        value={formData.email}
+                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                        placeholder="you@email.com"
+                        className="w-full bg-[#16161a] border border-white/[0.14] rounded-xl px-4 py-3.5 text-sm text-white placeholder-zinc-500 focus:outline-none focus:border-white focus:bg-[#121214] focus:ring-4 focus:ring-white/[0.08] transition-all"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                    <div className="space-y-2">
+                      <label htmlFor="cs-type" className="text-xs uppercase tracking-wider text-zinc-300 font-semibold block">
+                        Project Type
+                      </label>
+                      <select
+                        id="cs-type"
+                        required
+                        value={formData.projectType}
+                        onChange={(e) => setFormData({ ...formData, projectType: e.target.value })}
+                        className="w-full bg-[#16161a] border border-white/[0.14] rounded-xl px-4 py-3.5 text-sm text-white focus:outline-none focus:border-white focus:bg-[#121214] focus:ring-4 focus:ring-white/[0.08] transition-all appearance-none cursor-pointer"
+                      >
+                        <option value="Digital Arts & Cover Design">Digital Arts &amp; Cover Design</option>
+                        <option value="Comic & Manga Production">Comic &amp; Manga Production</option>
+                        <option value="Animation & Motion">Animation &amp; Motion</option>
+                        <option value="Web & App Development">Web &amp; App Development</option>
+                        <option value="Something Else">Something Else</option>
+                      </select>
+                    </div>
+
+                    <div className="space-y-2">
+                      <label htmlFor="cs-budget" className="text-xs uppercase tracking-wider text-zinc-300 font-semibold block">
+                        Budget
+                      </label>
+                      <select
+                        id="cs-budget"
+                        required
+                        value={formData.budget}
+                        onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
+                        className="w-full bg-[#16161a] border border-white/[0.14] rounded-xl px-4 py-3.5 text-sm text-white focus:outline-none focus:border-white focus:bg-[#121214] focus:ring-4 focus:ring-white/[0.08] transition-all appearance-none cursor-pointer"
+                      >
+                        <option value="Under $250">Under $250</option>
+                        <option value="$250 – $750">$250 – $750</option>
+                        <option value="$750 – $2,000">$750 – $2,000</option>
+                        <option value="$2,000+">$2,000+</option>
+                        <option value="Not sure yet">Not sure yet</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div className="space-y-2">
+                    <label htmlFor="cs-message" className="text-xs uppercase tracking-wider text-zinc-300 font-semibold block">
+                      Message
+                    </label>
+                    <textarea
+                      id="cs-message"
+                      required
+                      rows={5}
+                      value={formData.message}
+                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                      placeholder="Tell us a bit about your project..."
+                      className="w-full bg-[#16161a] border border-white/[0.14] rounded-xl px-4 py-3.5 text-sm text-white placeholder-zinc-500 focus:outline-none focus:border-white focus:bg-[#121214] focus:ring-4 focus:ring-white/[0.08] transition-all resize-y min-h-[140px] leading-relaxed"
+                    />
+                  </div>
+
+                  <div className="pt-2 space-y-3">
+                    <button
+                      type="submit"
+                      disabled={isSubmitting}
+                      className="btn-primary w-full justify-center py-4 rounded-xl text-sm font-semibold tracking-wide"
+                    >
+                      <span>{isSubmitting ? 'Sending...' : 'Send Message'}</span>
+                      <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none">
+                        <path
+                          d="M5 19L19 5M19 5H8M19 5V16"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    </button>
+
+                    <p className="text-xs text-zinc-400 text-center">
+                      We typically reply within one business day.
+                    </p>
+                  </div>
+                </form>
+              )}
+            </div>
           </div>
 
         </div>
-
       </div>
     </section>
   );
