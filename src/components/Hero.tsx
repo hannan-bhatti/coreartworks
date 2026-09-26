@@ -34,9 +34,6 @@ export const Hero: React.FC<HeroProps> = ({
               <p className="text-base sm:text-lg font-medium tracking-[0.06em] uppercase text-zinc-300">
                 Architects of Digital Visions &amp; Worlds
               </p>
-              <p className="text-sm sm:text-base text-zinc-400 max-w-lg leading-relaxed font-normal">
-                Digital Art &amp; Design Agency
-              </p>
             </div>
 
             {/* Clean Pill CTAs */}
