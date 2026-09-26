@@ -1,7 +1,7 @@
 import React from 'react';
 import { Hero } from '../components/Hero';
 import { StatsSection } from '../components/StatsSection';
-import { DisciplinesShowcase } from '../components/DisciplinesShowcase';
+
 import { PortfolioGallery } from '../components/PortfolioGallery';
 import { TestimonialsSection } from '../components/TestimonialsSection';
 import { MarqueeTicker } from '../components/MarqueeTicker';
@@ -30,10 +30,6 @@ export const HomePage: React.FC<HomePageProps> = ({
     if (el) el.scrollIntoView({ behavior: 'smooth' });
   };
 
-  const handleSelectCategoryFromDiscipline = (categoryId: string) => {
-    onSelectCategoryFilter(categoryId);
-    handleExploreGallery();
-  };
 
   return (
     <div className="space-y-0">
@@ -50,10 +46,6 @@ export const HomePage: React.FC<HomePageProps> = ({
         <StatsSection />
       </ScrollReveal>
 
-      {/* 3. Core Disciplines Overview (#disciplines) */}
-      <ScrollReveal direction="up" delay={0.05}>
-        <DisciplinesShowcase onSelectCategory={handleSelectCategoryFromDiscipline} />
-      </ScrollReveal>
 
       {/* 4. Selected Work Archive (#portfolio) */}
       <ScrollReveal direction="up" delay={0.05}>
