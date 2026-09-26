@@ -1,26 +1,28 @@
 import React from 'react';
 
 export const MarqueeTicker: React.FC = () => {
-  const brands = [
-    'Nova Skincare',
-    'Aether Games',
-    'Lumen Studios',
-    'Vera & Co.',
-    'Orbit Media',
-    'Halo Group',
-    'Northpeak',
-    'Atlas Digital',
-    'Chronos Realm',
-    'Arcane Forge',
+  const tools = [
+    'Adobe Photoshop',
+    'Clip Studio Paint EX',
+    'Blender 3D',
+    'Adobe Illustrator',
+    'Unreal Engine 5',
+    'ZBrush',
+    'Substance 3D Painter',
+    'Figma',
+    'Procreate',
+    'Maxon Cinema 4D',
+    'Adobe After Effects',
+    'DaVinci Resolve',
   ];
 
   // Duplicate for seamless infinite marquee loop
-  const brandsLoop = [...brands, ...brands, ...brands];
+  const toolsLoop = [...tools, ...tools, ...tools];
 
   return (
     <section className="py-16 sm:py-20 bg-[#0a0a0b] border-y border-white/[0.08] overflow-hidden text-center select-none">
       <p className="text-xs font-semibold uppercase tracking-[0.22em] text-zinc-500 mb-8">
-        Trusted by brands &amp; creators we've collaborated with
+        Production Pipeline &amp; Design Tools
       </p>
 
       <div className="relative overflow-hidden">
@@ -29,13 +31,13 @@ export const MarqueeTicker: React.FC = () => {
         <div className="absolute right-0 inset-y-0 w-24 sm:w-40 bg-gradient-to-l from-[#0a0a0b] to-transparent z-10 pointer-events-none" />
 
         <div className="animate-marquee-left flex items-center gap-12 sm:gap-16 whitespace-nowrap">
-          {brandsLoop.map((brand, idx) => (
+          {toolsLoop.map((tool, idx) => (
             <div
-              key={`brand-${idx}`}
+              key={`tool-${idx}`}
               className="flex items-center gap-12 sm:gap-16 group"
             >
               <span className="font-display text-lg sm:text-2xl font-semibold tracking-wider uppercase text-zinc-500 group-hover:text-white transition-colors duration-300">
-                {brand}
+                {tool}
               </span>
               <span className="w-1.5 h-1.5 rounded-full bg-zinc-700 group-hover:bg-zinc-400 transition-colors" />
             </div>
