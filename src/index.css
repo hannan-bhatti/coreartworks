@@ -61,6 +61,34 @@ code, kbd, samp, pre,
   font-size: 12.5px !important;
 }
 
+/* ---- Heading word-spacing fix ----
+   Clash Display at large uppercase sizes with tracking-tight collapses
+   word gaps visually. Force adequate word-spacing on every heading
+   and override tracking-tight to neutral letter-spacing. */
+h1, h2, h3, h4, h5, h6 {
+  word-spacing: 0.08em;
+  letter-spacing: 0;
+}
+
+/* Tailwind tracking-tight override for font-display headings */
+.font-display.tracking-tight,
+.tracking-tight.font-display,
+[class*="font-display"][class*="tracking-tight"] {
+  letter-spacing: 0 !important;
+  word-spacing: 0.08em !important;
+}
+
+/* Catch all direct tracking-tight on any heading tag */
+h1.tracking-tight,
+h2.tracking-tight,
+h3.tracking-tight,
+h4.tracking-tight,
+h5.tracking-tight,
+h6.tracking-tight {
+  letter-spacing: 0 !important;
+  word-spacing: 0.08em !important;
+}
+
 /* Suppress default browser outline highlight boxes on click/focus */
 a:focus,
 a:focus-visible,
