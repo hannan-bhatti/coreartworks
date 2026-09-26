@@ -31,8 +31,8 @@ export default {
         }
       },
       fontFamily: {
-        sans: ['"Inter"', 'system-ui', '-apple-system', 'sans-serif'],
-        display: ['"Space Grotesk"', '"Syne"', 'sans-serif'],
+        sans: ['"General Sans"', '"Inter"', 'system-ui', '-apple-system', 'sans-serif'],
+        display: ['"Clash Display"', '"Space Grotesk"', '"Syne"', 'sans-serif'],
         serif: ['"Cinzel"', 'Georgia', 'serif'],
       },
       boxShadow: {

@@ -4,15 +4,28 @@
 
 :root {
   color-scheme: dark;
+  --bg: #0a0a0b;
+  --bg-elevated: #121214;
+  --bg-card: #16161a;
+  --line: rgba(255, 255, 255, 0.08);
+  --line-strong: rgba(255, 255, 255, 0.16);
+  --white: #f6f6f4;
+  --white-dim: #b9b9b6;
+  --white-faint: #7a7a79;
+  --glow-soft: rgba(255, 255, 255, 0.05);
+  --glow-mid: rgba(255, 255, 255, 0.09);
+  --ease: cubic-bezier(0.16, 0.84, 0.32, 1);
+  --ease-soft: cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 
 body {
   background-color: #070709;
-  color: #f4f4f5;
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  color: #f6f6f4;
+  font-family: 'General Sans', 'Inter', system-ui, -apple-system, sans-serif;
   overflow-x: hidden;
   selection-background-color: #ffffff;
   selection-color: #000000;
+  -webkit-font-smoothing: antialiased;
 }
 
 /* Custom sleek scrollbar */
@@ -150,3 +163,106 @@ body {
 .animate-marquee-right:hover {
   animation-play-state: paused;
 }
+
+/* Core Artworks Signature Outline Typography */
+.is-outline {
+  -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.85);
+  color: transparent;
+  transition: -webkit-text-stroke 0.3s ease;
+}
+
+.is-outline:hover {
+  -webkit-text-stroke: 1.5px #ffffff;
+}
+
+/* Core Artworks Eyebrow Accent */
+.eyebrow-accent {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'General Sans', 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #b9b9b6;
+}
+
+.eyebrow-accent::before {
+  content: "";
+  width: 22px;
+  height: 1px;
+  background: #b9b9b6;
+  display: inline-block;
+}
+
+/* Scroll Drip Animation */
+@keyframes scrollDrip {
+  0% { top: -100%; }
+  60% { top: 100%; }
+  100% { top: 100%; }
+}
+
+.animate-scroll-drip {
+  animation: scrollDrip 2.6s ease-in-out infinite;
+}
+
+/* Core Artworks Orbital Geometry Animations */
+@keyframes coreSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes corePulse {
+  0%, 100% { opacity: 0.35; transform: scale(1); }
+  50% { opacity: 0.85; transform: scale(1.04); }
+}
+
+.core-orbit-slow {
+  transform-origin: 50% 50%;
+  animation: coreSpin 90s linear infinite;
+}
+
+.core-orbit-mid {
+  transform-origin: 50% 50%;
+  animation: coreSpin 40s linear infinite;
+}
+
+.core-orbit-rev {
+  transform-origin: 50% 50%;
+  animation: coreSpin 55s linear infinite reverse;
+}
+
+.core-pulse {
+  transform-origin: 50% 50%;
+  animation: corePulse 4.5s ease-in-out infinite;
+}
+
+/* Ambient Floating Glow Drift Animations */
+@keyframes driftA {
+  0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.45; }
+  50% { transform: translate(60px, 50px) scale(1.12); opacity: 0.65; }
+}
+
+@keyframes driftB {
+  0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.4; }
+  50% { transform: translate(-70px, 60px) scale(1.08); opacity: 0.6; }
+}
+
+@keyframes driftC {
+  0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.35; }
+  50% { transform: translate(40px, -50px) scale(1.1); opacity: 0.55; }
+}
+
+.ambient-blob-a {
+  animation: driftA 26s ease-in-out infinite;
+}
+
+.ambient-blob-b {
+  animation: driftB 32s ease-in-out infinite;
+}
+
+.ambient-blob-c {
+  animation: driftC 38s ease-in-out infinite;
+}
+

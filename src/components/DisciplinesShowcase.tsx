@@ -42,9 +42,8 @@ export const DisciplinesShowcase: React.FC<DisciplinesShowcaseProps> = ({ onSele
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
           <div className="space-y-3 max-w-2xl">
-            <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-zinc-400">
-              <span className="w-2 h-0.5 bg-white" />
-              <span>Full-Spectrum Visual Production</span>
+            <div>
+              <span className="eyebrow-accent text-zinc-400">Full-Spectrum Visual Production</span>
             </div>
             <h2 className="text-3xl sm:text-5xl font-display font-bold text-white tracking-tight">
               CORE <span className="text-shimmer-silver font-black">DISCIPLINES &amp; TAXONOMY</span>

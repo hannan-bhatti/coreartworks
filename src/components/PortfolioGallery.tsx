@@ -2,7 +2,6 @@ import React, { useState, useMemo } from 'react';
 import { ART_CATEGORIES, PORTFOLIO_ARTWORKS } from '../data/portfolioData';
 import { Artwork } from '../types';
 import { Search, Eye, ArrowUpRight, X, Bookmark } from 'lucide-react';
-import { Interactive3DCard } from './Interactive3DCard';
 import { useMoodboard } from '../context/MoodboardContext';
 
 interface PortfolioGalleryProps {
@@ -83,9 +82,8 @@ export const PortfolioGallery: React.FC<PortfolioGalleryProps> = ({
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
           <div className="space-y-3">
-            <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-zinc-400">
-              <span className="w-2 h-2 rounded-full bg-white" />
-              <span>Production Vault</span>
+            <div>
+              <span className="eyebrow-accent text-zinc-400">Production Vault</span>
             </div>
             <h2 className="text-3xl sm:text-5xl font-display font-bold text-white tracking-tight">
               INTERACTIVE <span className="text-shimmer-silver font-black">PORTFOLIO MATRIX</span>
@@ -250,11 +248,9 @@ export const PortfolioGallery: React.FC<PortfolioGalleryProps> = ({
             {filteredArtworks.map((art) => {
               const bookmarked = isInMoodboard(art.id);
               return (
-                <Interactive3DCard
+                <div
                   key={art.id}
                   onClick={() => onSelectArtwork(art)}
-                  maxTilt={8}
-                  scale={1.02}
                   className="group cursor-pointer rounded-2xl overflow-hidden bg-zinc-950 border border-white/10 hover:border-white/35 transition-all duration-300 hover:shadow-glow-md flex flex-col justify-between h-full"
                 >
                   {/* Artwork Image Viewport */}
@@ -349,7 +345,7 @@ export const PortfolioGallery: React.FC<PortfolioGalleryProps> = ({
                       </button>
                     </div>
                   </div>
-                </Interactive3DCard>
+                </div>
               );
             })}
           </div>

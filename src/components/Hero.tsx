@@ -3,7 +3,6 @@ import { Sparkles, ArrowRight } from 'lucide-react';
 import { AGENCY_METRICS } from '../data/agencyData';
 import { Artwork } from '../types';
 import { AnimatedCounter } from './AnimatedCounter';
-import { Interactive3DCard } from './Interactive3DCard';
 
 interface HeroProps {
   featuredArtwork: Artwork;
@@ -28,24 +27,29 @@ export const Hero: React.FC<HeroProps> = ({
           
           {/* Left Column: Agency Manifesto & Narrative */}
           <div className="lg:col-span-7 space-y-8 animate-in fade-in slide-in-from-bottom-6 duration-700">
-            {/* Top Pill Badge */}
-            <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-zinc-900/90 border border-white/15 text-xs font-medium text-zinc-300 backdrop-blur-md shadow-inner-glow transition-all hover:border-white/30">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-white" />
-              </span>
-              <span className="text-zinc-400">Core Artworks Studio</span>
-              <span className="text-zinc-600">|</span>
-              <span className="text-white font-semibold flex items-center gap-1">
-                Available for Q3/Q4 Production
-              </span>
+            {/* Eyebrow and Status Badge */}
+            <div className="space-y-4">
+              <div className="flex items-center gap-3">
+                <span className="eyebrow-accent text-zinc-400">Digital Art &amp; Visual Production</span>
+              </div>
+              <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-zinc-900/90 border border-white/15 text-xs font-medium text-zinc-300 backdrop-blur-md shadow-inner-glow transition-all hover:border-white/30">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75" />
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-white" />
+                </span>
+                <span className="text-zinc-400">Core Artworks Studio</span>
+                <span className="text-zinc-600">|</span>
+                <span className="text-white font-semibold flex items-center gap-1">
+                  Available for Q3/Q4 Production
+                </span>
+              </div>
             </div>
 
-            {/* Headline with animated liquid silver shimmer */}
+            {/* Headline with Core Artworks Outline & Shimmer Display Typography */}
             <div className="space-y-3">
               <h1 className="text-4xl sm:text-6xl lg:text-7xl font-display font-extrabold tracking-tight text-white leading-[1.08]">
                 ARCHITECTS OF <br />
-                <span className="text-shimmer-silver font-black">DIGITAL VISIONS</span> &amp; WORLDS.
+                <span className="is-outline text-shimmer-silver font-black">DIGITAL VISIONS</span> &amp; WORLDS.
               </h1>
               <p className="text-base sm:text-lg text-zinc-400 max-w-xl font-light leading-relaxed">
                 Core Artworks is a premier digital arts agency crafting bespoke book &amp; album covers, high-concept character sheets, dynamic logos, D&amp;D &amp; fursona art, serialized manga, and streaming broadcast packages for world-class creators.
@@ -87,21 +91,53 @@ export const Hero: React.FC<HeroProps> = ({
                 </div>
               ))}
             </div>
+
+            {/* Scroll Indicator from Core Artworks Theme */}
+            <div className="hidden lg:inline-flex items-center gap-3 pt-4 text-xs font-mono uppercase tracking-[0.2em] text-zinc-500">
+              <span>Scroll</span>
+              <span className="w-px h-10 bg-zinc-800 relative overflow-hidden inline-block rounded-full">
+                <span className="absolute inset-0 bg-white animate-scroll-drip" />
+              </span>
+            </div>
           </div>
 
-          {/* Right Column: Featured Hero Showcase Artwork with 3D Depth Card Tilt */}
+          {/* Right Column: Featured Hero Showcase Artwork */}
           <div className="lg:col-span-5 relative animate-in fade-in slide-in-from-right-6 duration-700 delay-150">
             <div className="relative mx-auto max-w-md lg:max-w-none">
               
+              {/* Core Artworks Orbital Celestial Mark Aura */}
+              <div className="absolute -inset-14 pointer-events-none opacity-40 z-0 flex items-center justify-center">
+                <svg className="w-[520px] h-[520px] max-w-none" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <radialGradient id="heroCoreGlow" cx="50%" cy="50%" r="50%">
+                      <stop offset="0%" stopColor="#ffffff" stopOpacity="0.8" />
+                      <stop offset="55%" stopColor="#ffffff" stopOpacity="0.1" />
+                      <stop offset="100%" stopColor="#ffffff" stopOpacity="0" />
+                    </radialGradient>
+                  </defs>
+                  <circle cx="250" cy="250" r="140" fill="url(#heroCoreGlow)" className="core-pulse" />
+                  <g className="core-orbit-slow" opacity="0.45">
+                    <ellipse cx="250" cy="250" rx="210" ry="210" stroke="#ffffff" strokeWidth="0.6" />
+                    <circle cx="460" cy="250" r="3" fill="#ffffff" />
+                  </g>
+                  <g className="core-orbit-mid" opacity="0.65">
+                    <ellipse cx="250" cy="250" rx="175" ry="65" stroke="#ffffff" strokeWidth="0.8" transform="rotate(28 250 250)" />
+                    <circle cx="415" cy="185" r="3.4" fill="#ffffff" transform="rotate(28 250 250)" />
+                  </g>
+                  <g className="core-orbit-rev" opacity="0.55">
+                    <ellipse cx="250" cy="250" rx="185" ry="75" stroke="#ffffff" strokeWidth="0.7" transform="rotate(-35 250 250)" />
+                    <circle cx="75" cy="315" r="3" fill="#ffffff" transform="rotate(-35 250 250)" />
+                  </g>
+                </svg>
+              </div>
+
               {/* Floating Ambient Aura Glow */}
               <div className="absolute -inset-2 bg-gradient-to-tr from-white/10 via-white/5 to-transparent rounded-3xl blur-2xl opacity-50 animate-pulse-slow pointer-events-none" />
 
-              {/* 3D Depth Card Container */}
-              <Interactive3DCard
-                maxTilt={8}
-                scale={1.02}
+              {/* Showcase Artwork Card Container */}
+              <div
                 onClick={() => onSelectArtwork(featuredArtwork)}
-                className="cursor-pointer relative rounded-2xl overflow-hidden bg-zinc-900/90 border border-white/15 p-2 shadow-2xl transition-all duration-300 hover:border-white/40 hover:shadow-glow-lg"
+                className="group cursor-pointer relative rounded-2xl overflow-hidden bg-zinc-900/90 border border-white/15 p-2 shadow-2xl transition-all duration-300 hover:border-white/40 hover:shadow-glow-lg"
               >
                 {/* Artwork Viewport */}
                 <div className="relative aspect-[4/5] rounded-xl overflow-hidden bg-zinc-950">
@@ -158,7 +194,7 @@ export const Hero: React.FC<HeroProps> = ({
                     <ArrowRight className="w-3 h-3" />
                   </span>
                 </div>
-              </Interactive3DCard>
+              </div>
 
               {/* Decorative Corner Glow */}
               <div className="absolute -bottom-6 -right-6 w-36 h-36 bg-white/[0.08] rounded-full blur-3xl pointer-events-none" />
