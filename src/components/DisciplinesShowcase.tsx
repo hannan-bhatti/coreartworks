@@ -40,17 +40,14 @@ export const DisciplinesShowcase: React.FC<DisciplinesShowcaseProps> = ({ onSele
     <section id="disciplines" className="py-28 lg:py-36 relative border-t border-white/[0.08] bg-[#0a0a0b]/60">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
-          <div className="space-y-4 max-w-2xl">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+          <div className="space-y-3 max-w-2xl">
             <div>
               <span className="eyebrow-accent text-zinc-400">What We Do</span>
             </div>
             <h2 className="text-3xl sm:text-5xl font-display font-bold text-white tracking-tight uppercase leading-[1.05]">
               Core Disciplines &amp; <span className="is-outline">Taxonomy</span>
             </h2>
-            <p className="text-zinc-400 text-sm sm:text-base leading-relaxed">
-              Every deliverable is crafted with obsessive intent across eight core specializations — from first thumbnail sketch to cinematic master render.
-            </p>
           </div>
           <div className="text-xs font-mono text-zinc-500 uppercase tracking-widest">
             08 Master Specializations
@@ -67,7 +64,7 @@ export const DisciplinesShowcase: React.FC<DisciplinesShowcaseProps> = ({ onSele
               <div
                 key={category.id}
                 onClick={() => onSelectCategory(category.id)}
-                className="group cursor-pointer relative rounded-2xl bg-[#121214] border border-white/[0.08] p-7 transition-all duration-300 hover:border-white/25 hover:bg-[#16161a] flex flex-col justify-between"
+                className="group cursor-pointer relative rounded-2xl bg-[#121214] border border-white/[0.08] p-6 lg:p-7 transition-all duration-300 hover:border-white/25 hover:bg-[#16161a] flex flex-col justify-between"
               >
                 {/* Top Info */}
                 <div className="space-y-6">
@@ -80,13 +77,10 @@ export const DisciplinesShowcase: React.FC<DisciplinesShowcaseProps> = ({ onSele
                     </span>
                   </div>
 
-                  <div className="space-y-2">
-                    <h3 className="text-lg font-bold font-display uppercase tracking-tight text-white group-hover:text-zinc-200 transition-colors">
+                  <div>
+                    <h3 className="text-base sm:text-lg font-bold font-display uppercase tracking-tight text-white group-hover:text-zinc-200 transition-colors">
                       {category.name}
                     </h3>
-                    <p className="text-xs text-zinc-400 leading-relaxed line-clamp-3">
-                      {category.description}
-                    </p>
                   </div>
                 </div>
 
