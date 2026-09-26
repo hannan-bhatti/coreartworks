@@ -20,12 +20,9 @@ export const Navbar: React.FC = () => {
   const navLinks = [
     { label: 'Disciplines', target: 'disciplines', page: '/', isAnchor: true },
     { label: 'Portfolio', target: 'portfolio', page: '/', isAnchor: true },
-    { label: 'Inspector', path: '/inspector' },
     { label: 'Services', path: '/services' },
     { label: 'Process', target: 'process', page: '/services', isAnchor: true },
-    { label: 'Estimator', path: '/estimator' },
-    { label: 'Testimonials', path: '/testimonials' },
-    { label: 'FAQ', target: 'faq', page: '/', isAnchor: true },
+    { label: 'Testimonials', target: 'testimonials', page: '/', isAnchor: true },
   ];
 
   const handleNavClick = (link: (typeof navLinks)[0], e: React.MouseEvent) => {

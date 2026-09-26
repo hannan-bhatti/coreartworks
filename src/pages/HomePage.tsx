@@ -5,7 +5,6 @@ import { DisciplinesShowcase } from '../components/DisciplinesShowcase';
 import { PortfolioGallery } from '../components/PortfolioGallery';
 import { TestimonialsSection } from '../components/TestimonialsSection';
 import { MarqueeTicker } from '../components/MarqueeTicker';
-import { FAQSection } from '../components/FAQSection';
 import { ScrollReveal } from '../components/ScrollReveal';
 import { PORTFOLIO_ARTWORKS } from '../data/portfolioData';
 import { Artwork } from '../types';
@@ -36,17 +35,13 @@ export const HomePage: React.FC<HomePageProps> = ({
     handleExploreGallery();
   };
 
-  const handlePreloadEstimator = (disciplineId: string) => {
-    navigate('/estimator', { state: { disciplineId } });
-  };
-
   return (
     <div className="space-y-0">
       {/* 1. Minimalist Hero Section */}
       <Hero
         featuredArtwork={featuredArtwork}
         onSelectArtwork={onSelectArtwork}
-        onOpenEstimator={() => navigate('/estimator')}
+        onStartProject={() => navigate('/contact')}
         onExploreGallery={handleExploreGallery}
       />
 
@@ -66,7 +61,6 @@ export const HomePage: React.FC<HomePageProps> = ({
           onSelectArtwork={onSelectArtwork}
           selectedCategoryFilter={selectedCategoryFilter}
           onSelectCategoryFilter={onSelectCategoryFilter}
-          onPreloadEstimatorWithDiscipline={handlePreloadEstimator}
         />
       </ScrollReveal>
 
@@ -77,11 +71,6 @@ export const HomePage: React.FC<HomePageProps> = ({
 
       {/* 6. Infinite Sliding Brands Marquee */}
       <MarqueeTicker />
-
-      {/* 6. Frequently Asked Questions Section (#faq) */}
-      <ScrollReveal direction="up" delay={0.05}>
-        <FAQSection onOpenContact={() => navigate('/contact')} />
-      </ScrollReveal>
 
       {/* 7. Minimalist Closing CTA Banner matching Core Artworks */}
       <ScrollReveal direction="up" delay={0.05}>

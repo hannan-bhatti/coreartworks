@@ -5,14 +5,14 @@ import { Artwork } from '../types';
 interface HeroProps {
   featuredArtwork: Artwork;
   onSelectArtwork: (artwork: Artwork) => void;
-  onOpenEstimator: () => void;
+  onStartProject: () => void;
   onExploreGallery: () => void;
 }
 
 export const Hero: React.FC<HeroProps> = ({
   featuredArtwork,
   onSelectArtwork,
-  onOpenEstimator,
+  onStartProject,
   onExploreGallery,
 }) => {
   return (
@@ -48,10 +48,10 @@ export const Hero: React.FC<HeroProps> = ({
                 </button>
 
                 <button
-                  onClick={onOpenEstimator}
+                  onClick={onStartProject}
                   className="btn-ghost"
                 >
-                  <span>Calculate Project Cost</span>
+                  <span>Start a Project</span>
                 </button>
               </div>
               <p className="text-xs text-zinc-500 font-mono tracking-wider pt-1">

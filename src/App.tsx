@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { AmbientBackground } from './components/AmbientBackground';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
@@ -8,10 +8,7 @@ import { ArtworkLightbox } from './components/ArtworkLightbox';
 import { MoodboardDrawer } from './components/MoodboardDrawer';
 import { MoodboardProvider } from './context/MoodboardContext';
 import { HomePage } from './pages/HomePage';
-import { InspectorPage } from './pages/InspectorPage';
 import { ServicesPage } from './pages/ServicesPage';
-import { EstimatorPage } from './pages/EstimatorPage';
-import { TestimonialsPage } from './pages/TestimonialsPage';
 import { ContactPage } from './pages/ContactPage';
 import { Artwork, CommissionBrief } from './types';
 
@@ -59,17 +56,16 @@ export function App() {
                   />
                 }
               />
-              <Route path="/inspector" element={<InspectorPage />} />
               <Route path="/services" element={<ServicesPage />} />
-              <Route
-                path="/estimator"
-                element={<EstimatorPage onSendBriefToContact={(brief) => setActiveBrief(brief)} />}
-              />
-              <Route path="/testimonials" element={<TestimonialsPage />} />
               <Route
                 path="/contact"
                 element={<ContactPage initialBrief={activeBrief} />}
               />
+              {/* Fallback & Redirects for removed routes */}
+              <Route path="/estimator" element={<Navigate to="/contact" replace />} />
+              <Route path="/inspector" element={<Navigate to="/" replace />} />
+              <Route path="/testimonials" element={<Navigate to="/#testimonials" replace />} />
+              <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>
           </main>
 

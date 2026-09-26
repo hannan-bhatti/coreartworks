@@ -8,7 +8,7 @@ export const ServicesPage: React.FC = () => {
   const navigate = useNavigate();
 
   const handleSelectDiscipline = (category: string) => {
-    navigate('/estimator', { state: { disciplineId: category } });
+    navigate('/contact', { state: { disciplineId: category } });
   };
 
   const deliverableFormats = [
