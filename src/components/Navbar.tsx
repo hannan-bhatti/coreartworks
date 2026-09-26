@@ -18,7 +18,7 @@ export const Navbar: React.FC = () => {
   }, []);
 
   const navLinks = [
-    { label: 'Disciplines', target: 'disciplines', page: '/', isAnchor: true },
+    { label: 'Home', target: 'home', page: '/', isAnchor: true },
     { label: 'Portfolio', target: 'portfolio', page: '/', isAnchor: true },
     { label: 'Services', path: '/services' },
     { label: 'Process', target: 'process', page: '/services', isAnchor: true },
@@ -31,16 +31,24 @@ export const Navbar: React.FC = () => {
 
     if (link.isAnchor) {
       if (location.pathname === link.page) {
-        const el = document.getElementById(link.target!);
-        if (el) {
-          el.scrollIntoView({ behavior: 'smooth' });
+        if (link.target === 'home') {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        } else {
+          const el = document.getElementById(link.target!);
+          if (el) {
+            el.scrollIntoView({ behavior: 'smooth' });
+          }
         }
       } else {
         navigate(link.page!);
         setTimeout(() => {
-          const el = document.getElementById(link.target!);
-          if (el) {
-            el.scrollIntoView({ behavior: 'smooth' });
+          if (link.target === 'home') {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          } else {
+            const el = document.getElementById(link.target!);
+            if (el) {
+              el.scrollIntoView({ behavior: 'smooth' });
+            }
           }
         }, 150);
       }
@@ -52,6 +60,9 @@ export const Navbar: React.FC = () => {
   const isLinkActive = (link: (typeof navLinks)[0]) => {
     if (!link.isAnchor && link.path) {
       return location.pathname === link.path;
+    }
+    if (link.target === 'home' && location.pathname === '/') {
+      return true;
     }
     return false;
   };

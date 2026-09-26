@@ -16,7 +16,7 @@ export const Hero: React.FC<HeroProps> = ({
   onExploreGallery,
 }) => {
   return (
-    <section className="relative pt-36 pb-20 lg:pt-44 lg:pb-28 overflow-hidden">
+    <section id="home" className="relative pt-36 pb-20 lg:pt-44 lg:pb-28 overflow-hidden">
       {/* Background soft ambient radial spotlight */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[850px] h-[520px] bg-white/[0.025] rounded-full blur-[160px] pointer-events-none" />
 
