@@ -63,30 +63,30 @@ export const Navbar: React.FC = () => {
     <header
       className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
         scrolled
-          ? 'bg-[#0a0a0b]/85 backdrop-blur-md border-b border-white/[0.08] py-4 shadow-2xl'
-          : 'bg-transparent py-6 border-b border-transparent'
+          ? 'bg-[#0a0a0b]/92 backdrop-blur-xl border-b border-white/[0.1] py-3.5 shadow-2xl'
+          : 'bg-[#0a0a0b]/70 backdrop-blur-md border-b border-white/[0.06] py-4 sm:py-5'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 flex items-center justify-between">
+      <div className="max-w-[1440px] mx-auto px-6 sm:px-8 lg:px-10 xl:px-12 flex items-center justify-between gap-6">
         {/* Brand Logo & Name */}
         <Link
           to="/"
-          className="flex items-center gap-3 group outline-none focus:outline-none focus:ring-0 focus-visible:outline-none focus-visible:ring-0 active:outline-none ring-0 border-none select-none"
+          className="flex items-center gap-3.5 group flex-shrink-0 outline-none focus:outline-none focus:ring-0 focus-visible:outline-none focus-visible:ring-0 active:outline-none ring-0 border-none select-none"
         >
-          <div className="relative w-8 h-8 rounded-lg overflow-hidden bg-transparent flex items-center justify-center">
+          <div className="relative w-10 h-10 sm:w-11 sm:h-11 rounded-xl overflow-hidden bg-transparent flex items-center justify-center flex-shrink-0 transition-transform duration-300 group-hover:scale-105">
             <img
               src="/Core Artworks LOGO.png"
               alt="Core Artworks Logo"
               className="w-full h-full object-contain"
             />
           </div>
-          <span className="font-display font-bold text-base tracking-[0.05em] uppercase text-white">
+          <span className="font-display font-bold text-lg sm:text-xl tracking-[0.06em] uppercase text-white whitespace-nowrap">
             Core Artworks
           </span>
         </Link>
 
         {/* Desktop Navigation matching Core Artworks minimal links */}
-        <nav className="hidden lg:flex items-center gap-8">
+        <nav className="hidden lg:flex items-center gap-4 xl:gap-6 2xl:gap-8 flex-shrink-0">
           {navLinks.map((link) => {
             const active = isLinkActive(link);
             return (
@@ -94,7 +94,7 @@ export const Navbar: React.FC = () => {
                 key={link.label}
                 href={link.path || `#${link.target}`}
                 onClick={(e) => handleNavClick(link, e)}
-                className={`nav-link text-xs tracking-wider uppercase ${active ? 'is-active' : ''}`}
+                className={`nav-link text-xs xl:text-[13px] tracking-wider uppercase ${active ? 'is-active' : ''}`}
               >
                 {link.label}
               </a>
@@ -103,10 +103,10 @@ export const Navbar: React.FC = () => {
         </nav>
 
         {/* Right CTA */}
-        <div className="hidden sm:flex items-center gap-4">
+        <div className="hidden sm:flex items-center gap-4 flex-shrink-0">
           <button
             onClick={() => navigate('/contact')}
-            className="btn-ghost !py-2.5 !px-5 text-xs uppercase tracking-wider"
+            className="btn-primary !py-2.5 !px-5 !text-xs !tracking-wider flex-shrink-0 shadow-lg"
           >
             <span>Start a Project</span>
             <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
