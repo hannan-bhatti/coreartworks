@@ -30,11 +30,11 @@ export const Hero: React.FC<HeroProps> = ({
               <span className="eyebrow-accent text-zinc-400">Digital Art &amp; Design Agency</span>
             </div>
 
-            {/* Headline with Core Artworks Signature Clash Display & Outline Style */}
+            {/* Headline with Clean Solid Typography */}
             <div className="space-y-4">
               <h1 className="text-5xl sm:text-7xl lg:text-8xl font-display font-bold tracking-tight text-white uppercase leading-[0.96]">
                 <span>Core</span> <br />
-                <span className="is-outline">Artworks.</span>
+                <span>Artworks.</span>
               </h1>
               <p className="text-base sm:text-lg font-medium tracking-[0.06em] uppercase text-zinc-300">
                 Architects of Digital Visions &amp; Worlds
@@ -80,17 +80,9 @@ export const Hero: React.FC<HeroProps> = ({
           <div className="lg:col-span-5 relative animate-in fade-in slide-in-from-right-6 duration-700 delay-150">
             <div className="relative mx-auto max-w-md lg:max-w-none">
               
-              {/* Celestial Orbital Core Mark Aura */}
+              {/* Celestial Orbital Core Mark */}
               <div className="absolute -inset-16 pointer-events-none opacity-40 z-0 flex items-center justify-center">
                 <svg className="w-[540px] h-[540px] max-w-none" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <defs>
-                    <radialGradient id="heroCoreGlow" cx="50%" cy="50%" r="50%">
-                      <stop offset="0%" stopColor="#ffffff" stopOpacity="0.75" />
-                      <stop offset="55%" stopColor="#ffffff" stopOpacity="0.08" />
-                      <stop offset="100%" stopColor="#ffffff" stopOpacity="0" />
-                    </radialGradient>
-                  </defs>
-                  <circle cx="250" cy="250" r="140" fill="url(#heroCoreGlow)" className="core-pulse" />
                   <g className="core-orbit-slow" opacity="0.4">
                     <ellipse cx="250" cy="250" rx="210" ry="210" stroke="#ffffff" strokeWidth="0.6" />
                     <circle cx="460" cy="250" r="3" fill="#ffffff" />
