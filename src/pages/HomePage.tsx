@@ -1,14 +1,16 @@
 import React from 'react';
 import { Hero } from '../components/Hero';
-import { MarqueeTicker } from '../components/MarqueeTicker';
+import { StatsSection } from '../components/StatsSection';
 import { DisciplinesShowcase } from '../components/DisciplinesShowcase';
 import { PortfolioGallery } from '../components/PortfolioGallery';
+import { TestimonialsSection } from '../components/TestimonialsSection';
+import { MarqueeTicker } from '../components/MarqueeTicker';
 import { FAQSection } from '../components/FAQSection';
 import { ScrollReveal } from '../components/ScrollReveal';
 import { PORTFOLIO_ARTWORKS } from '../data/portfolioData';
 import { Artwork } from '../types';
 import { useNavigate } from 'react-router-dom';
-import { Sparkles, ArrowRight, Sliders, Shield } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 interface HomePageProps {
   onSelectArtwork: (artwork: Artwork) => void;
@@ -40,7 +42,7 @@ export const HomePage: React.FC<HomePageProps> = ({
 
   return (
     <div className="space-y-0">
-      {/* 1. Hero Section */}
+      {/* 1. Minimalist Hero Section */}
       <Hero
         featuredArtwork={featuredArtwork}
         onSelectArtwork={onSelectArtwork}
@@ -48,75 +50,17 @@ export const HomePage: React.FC<HomePageProps> = ({
         onExploreGallery={handleExploreGallery}
       />
 
-      {/* 2. Infinite Sliding Software Tools & Studio Client Marquee */}
-      <MarqueeTicker />
+      {/* 2. Full-Width Stats Divider matching Core Artworks */}
+      <ScrollReveal direction="up" delay={0.05}>
+        <StatsSection />
+      </ScrollReveal>
 
-      {/* 3. Core Disciplines Overview (#disciplines) with Scroll-Reveal */}
+      {/* 3. Core Disciplines Overview (#disciplines) */}
       <ScrollReveal direction="up" delay={0.05}>
         <DisciplinesShowcase onSelectCategory={handleSelectCategoryFromDiscipline} />
       </ScrollReveal>
 
-      {/* 4. Interactive Feature Highlights */}
-      <ScrollReveal direction="up" delay={0.1}>
-        <section className="py-12 border-y border-white/5 bg-zinc-950/60">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <div
-                onClick={() => navigate('/inspector')}
-                className="group cursor-pointer p-5 rounded-2xl bg-zinc-900/60 border border-white/10 hover:border-white/30 transition-all flex items-center justify-between hover:scale-[1.01]"
-              >
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-zinc-950 border border-white/10 flex items-center justify-center text-white group-hover:scale-105 transition-transform">
-                    <Sliders className="w-4 h-4" />
-                  </div>
-                  <div>
-                    <h4 className="text-sm font-bold text-white group-hover:text-zinc-200">
-                      Pipeline Inspector &rarr;
-                    </h4>
-                    <p className="text-xs text-zinc-400">Sketch vs. Render Slider</p>
-                  </div>
-                </div>
-              </div>
-
-              <div
-                onClick={() => navigate('/services')}
-                className="group cursor-pointer p-5 rounded-2xl bg-zinc-900/60 border border-white/10 hover:border-white/30 transition-all flex items-center justify-between hover:scale-[1.01]"
-              >
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-zinc-950 border border-white/10 flex items-center justify-center text-white group-hover:scale-105 transition-transform">
-                    <Sparkles className="w-4 h-4" />
-                  </div>
-                  <div>
-                    <h4 className="text-sm font-bold text-white group-hover:text-zinc-200">
-                      Studio Services &rarr;
-                    </h4>
-                    <p className="text-xs text-zinc-400">4-Stage Production SOP</p>
-                  </div>
-                </div>
-              </div>
-
-              <div
-                onClick={() => navigate('/estimator')}
-                className="group cursor-pointer p-5 rounded-2xl bg-zinc-900/60 border border-white/10 hover:border-white/30 transition-all flex items-center justify-between hover:scale-[1.01]"
-              >
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-zinc-950 border border-white/10 flex items-center justify-center text-white group-hover:scale-105 transition-transform">
-                    <Shield className="w-4 h-4" />
-                  </div>
-                  <div>
-                    <h4 className="text-sm font-bold text-white group-hover:text-zinc-200">
-                      Cost Estimator &rarr;
-                    </h4>
-                    <p className="text-xs text-zinc-400">Instant Milestone Pricing</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-      </ScrollReveal>
-
-      {/* 5. Deep Interactive Portfolio Matrix (#portfolio) with Scroll-Reveal */}
+      {/* 4. Selected Work Archive (#portfolio) */}
       <ScrollReveal direction="up" delay={0.05}>
         <PortfolioGallery
           onSelectArtwork={onSelectArtwork}
@@ -126,42 +70,50 @@ export const HomePage: React.FC<HomePageProps> = ({
         />
       </ScrollReveal>
 
-      {/* 6. Frequently Asked Questions Section (#faq) with Scroll-Reveal */}
+      {/* 5. Client Words / Testimonials matching Core Artworks */}
+      <ScrollReveal direction="up" delay={0.05}>
+        <TestimonialsSection />
+      </ScrollReveal>
+
+      {/* 6. Infinite Sliding Brands Marquee */}
+      <MarqueeTicker />
+
+      {/* 6. Frequently Asked Questions Section (#faq) */}
       <ScrollReveal direction="up" delay={0.05}>
         <FAQSection onOpenContact={() => navigate('/contact')} />
       </ScrollReveal>
 
-      {/* 7. Streamlined Bottom CTA Banner with Scroll-Reveal */}
+      {/* 7. Minimalist Closing CTA Banner matching Core Artworks */}
       <ScrollReveal direction="up" delay={0.05}>
-        <section className="py-20 bg-[#070709] border-t border-white/5 relative overflow-hidden">
-          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6 relative z-10">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-zinc-900 border border-white/10 text-xs font-mono text-zinc-300">
-              <Sparkles className="w-3.5 h-3.5 text-white" />
-              <span>Ready for Q3/Q4 Production Milestones</span>
+        <section className="py-28 lg:py-36 bg-[#0a0a0b] border-t border-white/[0.08] relative overflow-hidden text-center">
+          <div className="max-w-4xl mx-auto px-6 sm:px-8 space-y-6 relative z-10">
+            <div>
+              <span className="eyebrow-accent text-zinc-400">Let's Build Something</span>
             </div>
 
-            <h2 className="text-3xl sm:text-5xl font-display font-bold text-white tracking-tight">
-              COMMISSION YOUR PROJECT WITH <span className="text-shimmer-silver font-black">CORE ARTWORKS</span>
+            <h2 className="text-4xl sm:text-6xl font-display font-bold text-white tracking-tight uppercase leading-[1.05]">
+              Have a vision? <br />
+              <span className="is-outline">Let's give it a world to live in.</span>
             </h2>
 
-            <p className="text-zinc-400 text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
-              Calculate your production costs in real-time or submit your creative brief directly to our art directors under mutual NDA.
+            <p className="text-zinc-400 text-sm sm:text-base max-w-lg mx-auto leading-relaxed">
+              Tell us about your project and we'll get back to you with milestone pricing and creative direction within one business day.
             </p>
 
             <div className="flex flex-wrap items-center justify-center gap-4 pt-4">
               <button
                 onClick={() => navigate('/contact')}
-                className="px-6 py-3.5 rounded-xl bg-white text-black font-semibold text-xs uppercase tracking-wider hover:bg-zinc-200 transition-all flex items-center gap-2 shadow-glow-sm hover:scale-[1.02] active:scale-[0.98]"
+                className="btn-primary"
               >
-                <span>Submit Creative Brief</span>
+                <span>Start a Project</span>
                 <ArrowRight className="w-4 h-4" />
               </button>
 
               <button
-                onClick={() => navigate('/estimator')}
-                className="px-6 py-3.5 rounded-xl bg-zinc-900 hover:bg-zinc-800 text-white font-semibold text-xs uppercase tracking-wider border border-white/10 transition-all hover:scale-[1.02] active:scale-[0.98]"
+                onClick={handleExploreGallery}
+                className="btn-ghost"
               >
-                Calculate Project Cost
+                <span>See Our Work</span>
               </button>
             </div>
           </div>

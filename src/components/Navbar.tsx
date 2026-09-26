@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { Menu, X, Instagram, Palette, MessageSquare, ArrowUpRight } from 'lucide-react';
+import { Menu, X, ArrowUpRight } from 'lucide-react';
 import { SOCIAL_LINKS } from '../data/agencyData';
 
 export const Navbar: React.FC = () => {
@@ -63,33 +63,27 @@ export const Navbar: React.FC = () => {
     <header
       className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
         scrolled
-          ? 'bg-[#070709]/90 backdrop-blur-md border-b border-white/10 py-3 shadow-2xl'
-          : 'bg-transparent py-5 border-b border-white/5'
+          ? 'bg-[#0a0a0b]/85 backdrop-blur-md border-b border-white/[0.08] py-4 shadow-2xl'
+          : 'bg-transparent py-6 border-b border-transparent'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-        {/* Brand Logo */}
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 flex items-center justify-between">
+        {/* Brand Logo & Name */}
         <Link to="/" className="flex items-center gap-3 group">
-          <div className="relative w-10 h-10 rounded-xl overflow-hidden bg-black border border-white/20 p-1 flex items-center justify-center transition-all duration-300 group-hover:scale-105 group-hover:border-white shadow-glow-sm">
+          <div className="relative w-8 h-8 rounded-lg overflow-hidden bg-black border border-white/20 p-1 flex items-center justify-center transition-all duration-300 group-hover:border-white">
             <img
               src="/Core Artworks LOGO.png"
               alt="Core Artworks Logo"
               className="w-full h-full object-contain"
             />
           </div>
-          <div className="flex flex-col">
-            <span className="font-display font-bold text-lg tracking-wider text-white flex items-center gap-1.5">
-              CORE ARTWORKS
-              <span className="inline-block w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
-            </span>
-            <span className="text-[10px] uppercase tracking-[0.2em] text-zinc-400 font-medium">
-              Digital Arts &amp; Concept
-            </span>
-          </div>
+          <span className="font-display font-bold text-base tracking-[0.05em] uppercase text-white">
+            Core Artworks
+          </span>
         </Link>
 
-        {/* Desktop Navigation (Restored compact single-word pill layout without outline) */}
-        <nav className="hidden lg:flex items-center gap-1 bg-zinc-950/60 p-1.5 rounded-full backdrop-blur-md">
+        {/* Desktop Navigation matching Core Artworks minimal links */}
+        <nav className="hidden lg:flex items-center gap-8">
           {navLinks.map((link) => {
             const active = isLinkActive(link);
             return (
@@ -97,11 +91,7 @@ export const Navbar: React.FC = () => {
                 key={link.label}
                 href={link.path || `#${link.target}`}
                 onClick={(e) => handleNavClick(link, e)}
-                className={`px-3.5 py-1.5 text-xs font-medium rounded-full transition-all duration-200 ${
-                  active
-                    ? 'bg-white text-black font-semibold shadow-sm'
-                    : 'text-zinc-300 hover:text-white hover:bg-white/10'
-                }`}
+                className={`nav-link text-xs tracking-wider uppercase ${active ? 'is-active' : ''}`}
               >
                 {link.label}
               </a>
@@ -109,42 +99,11 @@ export const Navbar: React.FC = () => {
           })}
         </nav>
 
-        {/* Right CTA & Social Badges */}
-        <div className="hidden sm:flex items-center gap-3">
-          {/* Social Quick Links */}
-          <div className="flex items-center gap-2 pr-2 border-r border-zinc-800">
-            <a
-              href="https://instagram.com/coreartworks"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-2 text-zinc-400 hover:text-white hover:bg-white/5 rounded-lg transition-colors"
-              title="Core Artworks on Instagram"
-            >
-              <Instagram className="w-4 h-4" />
-            </a>
-            <a
-              href="https://deviantart.com/coreartworks"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-2 text-zinc-400 hover:text-white hover:bg-white/5 rounded-lg transition-colors"
-              title="Core Artworks on DeviantArt"
-            >
-              <Palette className="w-4 h-4" />
-            </a>
-            <a
-              href="https://discord.gg/coreartworks"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-2 text-zinc-400 hover:text-white hover:bg-white/5 rounded-lg transition-colors"
-              title="Discord Community"
-            >
-              <MessageSquare className="w-4 h-4" />
-            </a>
-          </div>
-
+        {/* Right CTA */}
+        <div className="hidden sm:flex items-center gap-4">
           <button
             onClick={() => navigate('/contact')}
-            className="relative group overflow-hidden px-4 py-2 rounded-xl text-xs font-semibold uppercase tracking-wider bg-white text-black hover:bg-zinc-200 transition-all duration-300 shadow-glow-sm flex items-center gap-1.5"
+            className="btn-ghost !py-2.5 !px-5 text-xs uppercase tracking-wider"
           >
             <span>Start a Project</span>
             <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -152,16 +111,17 @@ export const Navbar: React.FC = () => {
         </div>
 
         {/* Mobile Menu Toggle */}
-        <div className="lg:hidden flex items-center gap-2">
+        <div className="lg:hidden flex items-center gap-3">
           <button
             onClick={() => navigate('/contact')}
-            className="sm:hidden px-3 py-1.5 text-xs font-semibold bg-white text-black rounded-lg"
+            className="sm:hidden px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider bg-white text-black rounded-full"
           >
-            Inquire
+            Start
           </button>
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2 text-zinc-400 hover:text-white hover:bg-white/10 rounded-lg"
+            className="p-2 text-zinc-400 hover:text-white rounded-lg transition-colors"
+            aria-label="Toggle navigation menu"
           >
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>

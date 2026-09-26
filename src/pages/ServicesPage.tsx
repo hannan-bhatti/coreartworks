@@ -2,7 +2,7 @@ import React from 'react';
 import { ServicesSection } from '../components/ServicesSection';
 import { ProcessSection } from '../components/ProcessSection';
 import { useNavigate } from 'react-router-dom';
-import { Sparkles, ArrowRight, HardDrive, FileCheck } from 'lucide-react';
+import { ArrowRight, HardDrive, FileCheck } from 'lucide-react';
 
 export const ServicesPage: React.FC = () => {
   const navigate = useNavigate();
@@ -19,23 +19,22 @@ export const ServicesPage: React.FC = () => {
   ];
 
   return (
-    <div className="pt-28 pb-20 space-y-16">
+    <div className="pt-32 pb-24 space-y-20 bg-[#0a0a0b]">
       
-      {/* Page Hero */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Page Hero matching Core Artworks page-header */}
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 border-b border-white/[0.08] pb-16">
         <div className="space-y-4 max-w-3xl">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-zinc-900 border border-white/10 text-xs font-mono text-zinc-300">
-            <Sparkles className="w-3.5 h-3.5 text-white" />
-            <span>Full Creative Production Services</span>
+          <div>
+            <span className="eyebrow-accent text-zinc-400">What We Offer</span>
           </div>
 
-          <h1 className="text-4xl sm:text-6xl font-display font-extrabold text-white tracking-tight">
-            FULL-SPECTRUM <br />
-            <span className="text-shimmer-silver font-black">DIGITAL ART CAPABILITIES</span>
+          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-display font-bold text-white tracking-tight uppercase leading-[1.02]">
+            Services Built <br />
+            <span className="is-outline">For Every Vision</span>
           </h1>
 
-          <p className="text-zinc-400 text-sm sm:text-base leading-relaxed">
-            From bestselling novel jackets and character turnarounds to custom D&amp;D art, manga spreads, and broadcast stream packages, Core Artworks delivers production-ready visual craftsmanship.
+          <p className="text-zinc-400 text-base sm:text-lg leading-relaxed pt-2">
+            From a single cover illustration to an end-to-end production pipeline — here's everywhere Core Artworks brings your project to life with obsessive craft.
           </p>
         </div>
       </div>

@@ -2,7 +2,7 @@ import React from 'react';
 import { ContactSection } from '../components/ContactSection';
 import { useLocation } from 'react-router-dom';
 import { CommissionBrief } from '../types';
-import { Mail, MapPin } from 'lucide-react';
+import { MapPin } from 'lucide-react';
 
 interface ContactPageProps {
   initialBrief?: CommissionBrief | null;
@@ -13,23 +13,22 @@ export const ContactPage: React.FC<ContactPageProps> = ({ initialBrief }) => {
   const briefFromState = location.state?.prefilledBrief || initialBrief;
 
   return (
-    <div className="pt-28 pb-20 space-y-12">
+    <div className="pt-32 pb-24 space-y-16 bg-[#0a0a0b]">
       
       {/* Page Header */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 border-b border-white/[0.08] pb-16">
         <div className="space-y-4 max-w-3xl">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-zinc-900 border border-white/10 text-xs font-mono text-zinc-300">
-            <Mail className="w-3.5 h-3.5 text-white" />
-            <span>Studio Inquiries &amp; Production Intake</span>
+          <div>
+            <span className="eyebrow-accent text-zinc-400">Get In Touch</span>
           </div>
 
-          <h1 className="text-4xl sm:text-6xl font-display font-extrabold text-white tracking-tight">
-            COMMISSION A PROJECT / <br />
-            <span className="text-shimmer-silver font-black">SUBMIT CREATIVE BRIEF</span>
+          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-display font-bold text-white tracking-tight uppercase leading-[1.02]">
+            Let's Start <br />
+            <span className="is-outline">Your Project</span>
           </h1>
 
-          <p className="text-zinc-400 text-sm sm:text-base leading-relaxed">
-            Fill out the creative brief parameters below. Our art directors will analyze your requirements, review timeline alignment, and respond within 12 business hours.
+          <p className="text-zinc-400 text-base sm:text-lg leading-relaxed pt-2">
+            Have a design or project in mind? Reach out and tell us about it — we'd love to help bring it to life.
           </p>
         </div>
       </div>

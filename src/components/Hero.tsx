@@ -1,8 +1,6 @@
 import React from 'react';
 import { Sparkles, ArrowRight } from 'lucide-react';
-import { AGENCY_METRICS } from '../data/agencyData';
 import { Artwork } from '../types';
-import { AnimatedCounter } from './AnimatedCounter';
 
 interface HeroProps {
   featuredArtwork: Artwork;
@@ -18,81 +16,58 @@ export const Hero: React.FC<HeroProps> = ({
   onExploreGallery,
 }) => {
   return (
-    <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-32 overflow-hidden">
-      {/* Background radial spotlight with breathing pulse */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[850px] h-[520px] bg-white/[0.035] rounded-full blur-[150px] pointer-events-none animate-pulse-slow" />
+    <section className="relative pt-36 pb-20 lg:pt-44 lg:pb-28 overflow-hidden">
+      {/* Background soft ambient radial spotlight */}
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[850px] h-[520px] bg-white/[0.025] rounded-full blur-[160px] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
-          {/* Left Column: Agency Manifesto & Narrative */}
-          <div className="lg:col-span-7 space-y-8 animate-in fade-in slide-in-from-bottom-6 duration-700">
-            {/* Eyebrow and Status Badge */}
-            <div className="space-y-4">
-              <div className="flex items-center gap-3">
-                <span className="eyebrow-accent text-zinc-400">Digital Art &amp; Visual Production</span>
-              </div>
-              <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-zinc-900/90 border border-white/15 text-xs font-medium text-zinc-300 backdrop-blur-md shadow-inner-glow transition-all hover:border-white/30">
-                <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75" />
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-white" />
-                </span>
-                <span className="text-zinc-400">Core Artworks Studio</span>
-                <span className="text-zinc-600">|</span>
-                <span className="text-white font-semibold flex items-center gap-1">
-                  Available for Q3/Q4 Production
-                </span>
-              </div>
+          {/* Left Column: Minimalist Typography & Narrative matching Core Artworks */}
+          <div className="lg:col-span-7 space-y-7 animate-in fade-in slide-in-from-bottom-6 duration-700">
+            {/* Eyebrow */}
+            <div>
+              <span className="eyebrow-accent text-zinc-400">Digital Art &amp; Design Agency</span>
             </div>
 
-            {/* Headline with Core Artworks Outline & Shimmer Display Typography */}
-            <div className="space-y-3">
-              <h1 className="text-4xl sm:text-6xl lg:text-7xl font-display font-extrabold tracking-tight text-white leading-[1.08]">
-                ARCHITECTS OF <br />
-                <span className="is-outline text-shimmer-silver font-black">DIGITAL VISIONS</span> &amp; WORLDS.
+            {/* Headline with Core Artworks Signature Clash Display & Outline Style */}
+            <div className="space-y-4">
+              <h1 className="text-5xl sm:text-7xl lg:text-8xl font-display font-bold tracking-tight text-white uppercase leading-[0.96]">
+                <span>Core</span> <br />
+                <span className="is-outline">Artworks.</span>
               </h1>
-              <p className="text-base sm:text-lg text-zinc-400 max-w-xl font-light leading-relaxed">
-                Core Artworks is a premier digital arts agency crafting bespoke book &amp; album covers, high-concept character sheets, dynamic logos, D&amp;D &amp; fursona art, serialized manga, and streaming broadcast packages for world-class creators.
+              <p className="text-base sm:text-lg font-medium tracking-[0.06em] uppercase text-zinc-300">
+                Architects of Digital Visions &amp; Worlds
+              </p>
+              <p className="text-sm sm:text-base text-zinc-400 max-w-lg leading-relaxed font-normal">
+                We design brand identities, digital illustration, serialized comics, and immersive visual worlds for clients who want their vision built with obsessive craft — from first sketch to final render.
               </p>
             </div>
 
-            {/* Interactive CTAs */}
-            <div className="flex flex-wrap items-center gap-4 pt-2">
-              <button
-                onClick={onExploreGallery}
-                className="relative px-6 py-3.5 rounded-xl bg-white text-black font-semibold text-sm tracking-wide hover:bg-zinc-200 transition-all duration-300 flex items-center gap-2 shadow-glow-md group hover:scale-[1.02] active:scale-[0.98]"
-              >
-                <span>Explore Portfolio Matrix</span>
-                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-              </button>
+            {/* Clean Pill CTAs */}
+            <div className="space-y-3 pt-2">
+              <div className="flex flex-wrap items-center gap-4">
+                <button
+                  onClick={onExploreGallery}
+                  className="btn-primary"
+                >
+                  <span>View My Work</span>
+                  <ArrowRight className="w-4 h-4" />
+                </button>
 
-              <button
-                onClick={onOpenEstimator}
-                className="px-6 py-3.5 rounded-xl bg-zinc-900/80 hover:bg-zinc-800 text-white font-medium text-sm tracking-wide border border-white/10 hover:border-white/25 transition-all duration-300 flex items-center gap-2 backdrop-blur-md hover:scale-[1.02] active:scale-[0.98]"
-              >
-                <Sparkles className="w-4 h-4 text-zinc-400 animate-pulse" />
-                <span>Calculate Project Cost</span>
-              </button>
+                <button
+                  onClick={onOpenEstimator}
+                  className="btn-ghost"
+                >
+                  <span>Calculate Project Cost</span>
+                </button>
+              </div>
+              <p className="text-xs text-zinc-500 font-mono tracking-wider pt-1">
+                300+ projects shipped worldwide &bull; Q3/Q4 Production Open
+              </p>
             </div>
 
-            {/* Trust & Discipline Badges with Animated Counter */}
-            <div className="pt-6 border-t border-zinc-800/80 grid grid-cols-2 sm:grid-cols-4 gap-4">
-              {AGENCY_METRICS.map((metric) => (
-                <div key={metric.label} className="space-y-0.5 group/stat">
-                  <div className="text-xl sm:text-2xl font-bold font-display text-white group-hover/stat:text-zinc-200 transition-colors">
-                    <AnimatedCounter value={metric.value} duration={2000} />
-                  </div>
-                  <div className="text-xs font-semibold text-zinc-400">
-                    {metric.label}
-                  </div>
-                  <div className="text-[10px] text-zinc-500 hidden sm:block font-mono">
-                    {metric.subtext}
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* Scroll Indicator from Core Artworks Theme */}
+            {/* Minimalist Scroll Indicator */}
             <div className="hidden lg:inline-flex items-center gap-3 pt-4 text-xs font-mono uppercase tracking-[0.2em] text-zinc-500">
               <span>Scroll</span>
               <span className="w-px h-10 bg-zinc-800 relative overflow-hidden inline-block rounded-full">
@@ -101,103 +76,71 @@ export const Hero: React.FC<HeroProps> = ({
             </div>
           </div>
 
-          {/* Right Column: Featured Hero Showcase Artwork */}
+          {/* Right Column: Clean Artwork Showcase Framed by Celestial Orbital Mark */}
           <div className="lg:col-span-5 relative animate-in fade-in slide-in-from-right-6 duration-700 delay-150">
             <div className="relative mx-auto max-w-md lg:max-w-none">
               
-              {/* Core Artworks Orbital Celestial Mark Aura */}
-              <div className="absolute -inset-14 pointer-events-none opacity-40 z-0 flex items-center justify-center">
-                <svg className="w-[520px] h-[520px] max-w-none" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+              {/* Celestial Orbital Core Mark Aura */}
+              <div className="absolute -inset-16 pointer-events-none opacity-40 z-0 flex items-center justify-center">
+                <svg className="w-[540px] h-[540px] max-w-none" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <defs>
                     <radialGradient id="heroCoreGlow" cx="50%" cy="50%" r="50%">
-                      <stop offset="0%" stopColor="#ffffff" stopOpacity="0.8" />
-                      <stop offset="55%" stopColor="#ffffff" stopOpacity="0.1" />
+                      <stop offset="0%" stopColor="#ffffff" stopOpacity="0.75" />
+                      <stop offset="55%" stopColor="#ffffff" stopOpacity="0.08" />
                       <stop offset="100%" stopColor="#ffffff" stopOpacity="0" />
                     </radialGradient>
                   </defs>
                   <circle cx="250" cy="250" r="140" fill="url(#heroCoreGlow)" className="core-pulse" />
-                  <g className="core-orbit-slow" opacity="0.45">
+                  <g className="core-orbit-slow" opacity="0.4">
                     <ellipse cx="250" cy="250" rx="210" ry="210" stroke="#ffffff" strokeWidth="0.6" />
                     <circle cx="460" cy="250" r="3" fill="#ffffff" />
                   </g>
-                  <g className="core-orbit-mid" opacity="0.65">
+                  <g className="core-orbit-mid" opacity="0.6">
                     <ellipse cx="250" cy="250" rx="175" ry="65" stroke="#ffffff" strokeWidth="0.8" transform="rotate(28 250 250)" />
                     <circle cx="415" cy="185" r="3.4" fill="#ffffff" transform="rotate(28 250 250)" />
                   </g>
-                  <g className="core-orbit-rev" opacity="0.55">
+                  <g className="core-orbit-rev" opacity="0.5">
                     <ellipse cx="250" cy="250" rx="185" ry="75" stroke="#ffffff" strokeWidth="0.7" transform="rotate(-35 250 250)" />
                     <circle cx="75" cy="315" r="3" fill="#ffffff" transform="rotate(-35 250 250)" />
                   </g>
                 </svg>
               </div>
 
-              {/* Floating Ambient Aura Glow */}
-              <div className="absolute -inset-2 bg-gradient-to-tr from-white/10 via-white/5 to-transparent rounded-3xl blur-2xl opacity-50 animate-pulse-slow pointer-events-none" />
-
-              {/* Showcase Artwork Card Container */}
+              {/* Minimalist Artwork Card */}
               <div
                 onClick={() => onSelectArtwork(featuredArtwork)}
-                className="group cursor-pointer relative rounded-2xl overflow-hidden bg-zinc-900/90 border border-white/15 p-2 shadow-2xl transition-all duration-300 hover:border-white/40 hover:shadow-glow-lg"
+                className="group cursor-pointer relative z-10 rounded-2xl overflow-hidden bg-[#121214] border border-white/[0.1] shadow-2xl transition-all duration-300 hover:border-white/30"
               >
                 {/* Artwork Viewport */}
-                <div className="relative aspect-[4/5] rounded-xl overflow-hidden bg-zinc-950">
+                <div className="relative aspect-[4/5] overflow-hidden bg-black">
                   <img
                     src={featuredArtwork.image}
                     alt={featuredArtwork.title}
-                    className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105 filter brightness-95 contrast-105"
+                    className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105 filter brightness-95"
                   />
                   
-                  {/* Subtle Gradient Overlays */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent pointer-events-none" />
+                  {/* Subtle Gradient Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent pointer-events-none" />
                   
-                  {/* Floating Tags */}
-                  <div className="absolute top-4 left-4 flex items-center gap-2 z-10">
-                    <span className="px-3 py-1 rounded-full text-[11px] font-semibold uppercase tracking-wider bg-black/75 text-white border border-white/25 backdrop-blur-md shadow-sm">
-                      Featured Milestone
-                    </span>
-                    <span className="px-2.5 py-1 rounded-full text-[11px] font-medium bg-zinc-800/80 text-zinc-300 backdrop-blur-md">
-                      {featuredArtwork.client}
-                    </span>
-                  </div>
-
-                  {/* Artwork Quick Details Overlay */}
-                  <div className="absolute bottom-4 left-4 right-4 space-y-2 z-10">
-                    <div className="text-xs font-mono uppercase tracking-widest text-zinc-400">
+                  {/* Clean Bottom Overlay */}
+                  <div className="absolute bottom-5 left-5 right-5 space-y-1.5 z-10">
+                    <div className="text-[11px] font-mono uppercase tracking-widest text-zinc-400">
                       {featuredArtwork.categoryLabel} &bull; {featuredArtwork.year}
                     </div>
-                    <h3 className="text-lg font-bold text-white font-display leading-snug group-hover:text-zinc-200 transition-colors">
+                    <h3 className="text-xl font-bold text-white font-display uppercase tracking-tight group-hover:text-zinc-200 transition-colors">
                       {featuredArtwork.title}
                     </h3>
-                    
-                    <div className="flex items-center justify-between pt-2 border-t border-white/10 text-xs text-zinc-300">
-                      <div className="flex items-center gap-1.5 font-medium">
+                    <div className="pt-2 text-xs font-medium text-zinc-400 flex items-center justify-between">
+                      <span className="group-hover:text-white transition-colors flex items-center gap-1.5">
                         <Sparkles className="w-3.5 h-3.5 text-zinc-400" />
-                        <span>Click to Inspect High-Res</span>
-                      </div>
-                      <span className="font-mono text-zinc-400">{featuredArtwork.stats?.views} views</span>
+                        <span>Inspect High-Res Artwork</span>
+                      </span>
+                      <ArrowRight className="w-3.5 h-3.5 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
                     </div>
                   </div>
-                </div>
-
-                {/* Software Stack Strip */}
-                <div className="mt-2.5 px-2 py-1.5 flex items-center justify-between text-[11px] text-zinc-400">
-                  <div className="flex items-center gap-1.5">
-                    <span className="text-zinc-500 font-mono">Stack:</span>
-                    {featuredArtwork.tools.map((tool) => (
-                      <span key={tool} className="px-2 py-0.5 rounded bg-zinc-800/90 text-zinc-300 font-mono text-[10px] border border-white/5">
-                        {tool}
-                      </span>
-                    ))}
-                  </div>
-                  <span className="text-white font-medium group-hover:underline flex items-center gap-1">
-                    <span>View Specs</span>
-                    <ArrowRight className="w-3 h-3" />
-                  </span>
                 </div>
               </div>
 
-              {/* Decorative Corner Glow */}
-              <div className="absolute -bottom-6 -right-6 w-36 h-36 bg-white/[0.08] rounded-full blur-3xl pointer-events-none" />
             </div>
           </div>
 

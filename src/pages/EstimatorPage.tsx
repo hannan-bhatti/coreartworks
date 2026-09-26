@@ -2,7 +2,7 @@ import React from 'react';
 import { CommissionEstimator } from '../components/CommissionEstimator';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { CommissionBrief } from '../types';
-import { Calculator, ShieldCheck, DollarSign, Clock } from 'lucide-react';
+import { ShieldCheck, DollarSign, Clock } from 'lucide-react';
 
 interface EstimatorPageProps {
   onSendBriefToContact: (brief: CommissionBrief) => void;
@@ -19,23 +19,22 @@ export const EstimatorPage: React.FC<EstimatorPageProps> = ({ onSendBriefToConta
   };
 
   return (
-    <div className="pt-28 pb-20 space-y-12">
+    <div className="pt-32 pb-24 space-y-16 bg-[#0a0a0b]">
       
       {/* Page Header */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 border-b border-white/[0.08] pb-16">
         <div className="space-y-4 max-w-3xl">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-zinc-900 border border-white/10 text-xs font-mono text-zinc-300">
-            <Calculator className="w-3.5 h-3.5 text-white" />
-            <span>Deterministic Pricing Calculator</span>
+          <div>
+            <span className="eyebrow-accent text-zinc-400">Deterministic Pricing</span>
           </div>
 
-          <h1 className="text-4xl sm:text-6xl font-display font-extrabold text-white tracking-tight">
-            COMMISSION &amp; PRODUCTION <br />
-            <span className="text-shimmer-silver font-black">COST ESTIMATOR</span>
+          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-display font-bold text-white tracking-tight uppercase leading-[1.02]">
+            Calculate Your <br />
+            <span className="is-outline">Project Cost</span>
           </h1>
 
-          <p className="text-zinc-400 text-sm sm:text-base leading-relaxed">
-            Configure your asset quantities, complexity tiers, turnaround urgency, and commercial licensing options. Generate an instant brief and calculate deterministic project pricing.
+          <p className="text-zinc-400 text-base sm:text-lg leading-relaxed pt-2">
+            Configure asset requirements, complexity tiers, turnaround urgency, and commercial licensing options to generate instant deterministic pricing.
           </p>
         </div>
       </div>

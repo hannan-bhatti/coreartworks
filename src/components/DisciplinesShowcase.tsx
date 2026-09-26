@@ -37,89 +37,68 @@ const ICONS_MAP: Record<string, React.FC<{ className?: string }>> = {
 
 export const DisciplinesShowcase: React.FC<DisciplinesShowcaseProps> = ({ onSelectCategory }) => {
   return (
-    <section id="disciplines" className="py-24 relative border-t border-white/5 bg-[#09090c]/50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="disciplines" className="py-28 lg:py-36 relative border-t border-white/[0.08] bg-[#0a0a0b]/60">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
-          <div className="space-y-3 max-w-2xl">
+          <div className="space-y-4 max-w-2xl">
             <div>
-              <span className="eyebrow-accent text-zinc-400">Full-Spectrum Visual Production</span>
+              <span className="eyebrow-accent text-zinc-400">What We Do</span>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-display font-bold text-white tracking-tight">
-              CORE <span className="text-shimmer-silver font-black">DISCIPLINES &amp; TAXONOMY</span>
+            <h2 className="text-3xl sm:text-5xl font-display font-bold text-white tracking-tight uppercase leading-[1.05]">
+              Core Disciplines &amp; <span className="is-outline">Taxonomy</span>
             </h2>
             <p className="text-zinc-400 text-sm sm:text-base leading-relaxed">
-              Our multidisciplinary studio bridges book publishing, character development, music artwork, identity design, D&amp;D and fursona art, serialized comics, 8K wallpapers, and broadcast overlays.
+              Every deliverable is crafted with obsessive intent across eight core specializations — from first thumbnail sketch to cinematic master render.
             </p>
           </div>
-          <div className="text-xs font-mono text-zinc-500 uppercase tracking-wider">
-            8 Core Disciplines &bull; Master Specializations
+          <div className="text-xs font-mono text-zinc-500 uppercase tracking-widest">
+            08 Master Specializations
           </div>
         </div>
 
-        {/* Categories Grid (8 Cards in 4x2 Grid) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {ART_CATEGORIES.map((category) => {
+        {/* Categories Grid (8 Cards in 4x2 Grid with Minimal Index & Clean Spacing) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+          {ART_CATEGORIES.map((category, idx) => {
             const IconComponent = ICONS_MAP[category.iconName] || Sparkles;
+            const indexStr = String(idx + 1).padStart(2, '0');
 
             return (
               <div
                 key={category.id}
                 onClick={() => onSelectCategory(category.id)}
-                className="group cursor-pointer relative rounded-2xl overflow-hidden bg-zinc-950/80 border border-white/10 p-6 transition-all duration-500 hover:border-white/40 hover:bg-zinc-900/90 hover:shadow-glow-md flex flex-col justify-between"
+                className="group cursor-pointer relative rounded-2xl bg-[#121214] border border-white/[0.08] p-7 transition-all duration-300 hover:border-white/25 hover:bg-[#16161a] flex flex-col justify-between"
               >
-                {/* Background Artwork Vignette with Subtle Hover Zoom */}
-                <div className="absolute inset-0 z-0 opacity-20 group-hover:opacity-30 transition-opacity duration-500">
-                  <img
-                    src={category.coverImage}
-                    alt={category.name}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 filter grayscale contrast-125"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent" />
-                </div>
-
                 {/* Top Info */}
-                <div className="relative z-10 space-y-4">
+                <div className="space-y-6">
                   <div className="flex items-center justify-between">
-                    <div className="w-12 h-12 rounded-xl bg-zinc-900 border border-white/15 flex items-center justify-center text-white group-hover:border-white group-hover:scale-105 transition-all shadow-inner">
-                      <IconComponent className="w-6 h-6" />
+                    <div className="w-10 h-10 rounded-xl bg-white/[0.04] border border-white/[0.08] flex items-center justify-center text-white group-hover:border-white/30 transition-colors">
+                      <IconComponent className="w-5 h-5 text-zinc-300 group-hover:text-white transition-colors" />
                     </div>
-                    <span className="text-xs font-mono text-zinc-400 px-2.5 py-1 rounded-full bg-zinc-900/80 border border-white/10">
-                      {category.subcategories.reduce((acc, s) => acc + s.itemCount, 0)} Works
+                    <span className="text-xs font-mono text-zinc-500 group-hover:text-zinc-400 transition-colors">
+                      {indexStr}
                     </span>
                   </div>
 
-                  <div>
-                    <h3 className="text-lg font-bold font-display text-white group-hover:text-zinc-200 transition-colors">
+                  <div className="space-y-2">
+                    <h3 className="text-lg font-bold font-display uppercase tracking-tight text-white group-hover:text-zinc-200 transition-colors">
                       {category.name}
                     </h3>
-                    <p className="text-[11px] font-mono text-zinc-400 mt-1 uppercase tracking-wider line-clamp-1">
-                      {category.tagline}
+                    <p className="text-xs text-zinc-400 leading-relaxed line-clamp-3">
+                      {category.description}
                     </p>
                   </div>
-
-                  <p className="text-xs text-zinc-400 leading-relaxed line-clamp-3">
-                    {category.description}
-                  </p>
                 </div>
 
-                {/* Subcategories Preview */}
-                <div className="relative z-10 pt-5 mt-5 border-t border-white/10 space-y-3">
-                  <div className="flex flex-wrap gap-1.5">
-                    {category.subcategories.map((sub) => (
-                      <span
-                        key={sub.id}
-                        className="text-[10px] px-2 py-0.5 rounded-md bg-zinc-900/90 text-zinc-300 border border-white/5 font-medium group-hover:border-white/15 transition-colors"
-                      >
-                        {sub.name}
-                      </span>
-                    ))}
-                  </div>
-
-                  <div className="pt-2 flex items-center justify-between text-xs font-semibold text-white group-hover:text-zinc-300">
-                    <span>Explore Vault</span>
-                    <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1.5" />
-                  </div>
+                {/* Bottom Discipline Link */}
+                <div className="pt-6 mt-6 border-t border-white/[0.06] flex items-center justify-between text-xs font-medium text-zinc-400 group-hover:text-white transition-colors">
+                  <span className="text-[11px] font-mono uppercase tracking-wider text-zinc-500">
+                    {category.subcategories.reduce((acc, s) => acc + s.itemCount, 0)} Works
+                  </span>
+                  <span className="flex items-center gap-1">
+                    <span>Explore</span>
+                    <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
+                  </span>
                 </div>
               </div>
             );

@@ -23,149 +23,164 @@ export const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="bg-[#050507] border-t border-white/10 pt-20 pb-12 relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-16">
+    <footer className="bg-[#0a0a0b] border-t border-white/[0.08] pt-24 pb-12 relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 relative z-10 space-y-16">
         
-        {/* Top Grid: Branding, Newsletter, Social Badges */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
+        {/* Top Grid: Branding, Links, Studio & Socials */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-16">
           
           {/* Brand Col */}
-          <div className="md:col-span-5 space-y-6">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl overflow-hidden bg-black border border-white/20 p-1 flex items-center justify-center shadow-glow-sm">
+          <div className="md:col-span-4 space-y-6">
+            <Link to="/" className="flex items-center gap-3">
+              <div className="w-8 h-8 rounded-lg overflow-hidden bg-black border border-white/20 p-1 flex items-center justify-center">
                 <img
                   src="/Core Artworks LOGO.png"
                   alt="Core Artworks Logo"
                   className="w-full h-full object-contain"
                 />
               </div>
-              <div>
-                <span className="font-display font-bold text-lg text-white tracking-wider block">
-                  CORE ARTWORKS
-                </span>
-                <span className="text-[10px] uppercase tracking-[0.2em] text-zinc-400 font-mono block">
-                  Digital Arts &amp; Visual Production
-                </span>
-              </div>
-            </div>
+              <span className="font-display font-bold text-lg text-white tracking-[0.05em] uppercase">
+                Core Artworks
+              </span>
+            </Link>
 
-            <p className="text-xs text-zinc-400 max-w-sm leading-relaxed">
-              Core Artworks is a specialized digital arts studio partnering with authors, musicians, game developers, streamers, and content creators to produce world-class visual assets and brand identities.
+            <p className="text-sm text-zinc-400 max-w-sm leading-relaxed">
+              A digital art and design studio crafting brand identities, concept art, serialized comics, and immersive digital worlds with obsessive craft.
             </p>
 
-            {/* Social Grid Badges */}
-            <div className="flex flex-wrap gap-2 pt-2">
-              {SOCIAL_LINKS.map((s) => (
-                <a
-                  key={s.platform}
-                  href={s.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-3 py-1.5 rounded-lg bg-zinc-900/80 hover:bg-white/10 text-zinc-300 hover:text-white border border-white/10 text-xs font-mono flex items-center gap-1.5 transition-all"
-                  title={`${s.platform} - ${s.followers || ''}`}
-                >
-                  {s.platform === 'Instagram' && <Instagram className="w-3.5 h-3.5" />}
-                  {s.platform === 'DeviantArt' && <Palette className="w-3.5 h-3.5" />}
-                  {s.platform === 'ArtStation' && <Sparkles className="w-3.5 h-3.5" />}
-                  {s.platform === 'Discord' && <MessageSquare className="w-3.5 h-3.5" />}
-                  {s.platform === 'GitHub' && <Github className="w-3.5 h-3.5" />}
-                  <span>{s.platform}</span>
-                </a>
-              ))}
+            <div className="pt-2">
+              <span className="text-xs uppercase tracking-widest text-zinc-500 block mb-2 font-mono">
+                Direct Contact
+              </span>
+              <a
+                href="mailto:coreartworks@gmail.com"
+                className="text-sm text-white hover:text-zinc-300 underline underline-offset-4 transition-colors"
+              >
+                coreartworks@gmail.com
+              </a>
             </div>
           </div>
 
-          {/* Quick Navigation Links */}
+          {/* Quick Links */}
           <div className="md:col-span-3 space-y-4">
-            <h4 className="text-xs font-mono uppercase tracking-widest text-white">
-              Studio Navigation
-            </h4>
-            <ul className="space-y-2 text-xs text-zinc-400">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white">
+              Quick Links
+            </p>
+            <ul className="space-y-2.5 text-xs uppercase tracking-wider text-zinc-400">
               <li>
                 <Link to="/" className="hover:text-white transition-colors">
-                  Portfolio Vault
+                  Home
+                </Link>
+              </li>
+              <li>
+                <a href="/#portfolio" className="hover:text-white transition-colors">
+                  Portfolio Archive
+                </a>
+              </li>
+              <li>
+                <Link to="/services" className="hover:text-white transition-colors">
+                  Services &amp; Capabilities
                 </Link>
               </li>
               <li>
                 <Link to="/inspector" className="hover:text-white transition-colors">
-                  Pipeline Inspector (Sketch vs. Polish)
-                </Link>
-              </li>
-              <li>
-                <Link to="/services" className="hover:text-white transition-colors">
-                  Services &amp; 4-Stage SOP
+                  Pipeline Inspector
                 </Link>
               </li>
               <li>
                 <Link to="/estimator" className="hover:text-white transition-colors">
-                  Commission Cost Estimator
+                  Cost Estimator
                 </Link>
               </li>
               <li>
                 <Link to="/testimonials" className="hover:text-white transition-colors">
-                  Client Testimonials
-                </Link>
-              </li>
-              <li>
-                <Link to="/contact" className="hover:text-white transition-colors">
-                  Submit Creative Brief
+                  Client Reviews
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Newsletter / Studio Dispatch */}
-          <div className="md:col-span-4 space-y-4">
-            <h4 className="text-xs font-mono uppercase tracking-widest text-white">
-              The Studio Dispatch
-            </h4>
+          {/* Studio & Dispatch */}
+          <div className="md:col-span-5 space-y-4">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white">
+              Studio Dispatch
+            </p>
             <p className="text-xs text-zinc-400 leading-relaxed">
-              Subscribe to receive quarterly case studies, pipeline breakdowns, and milestone releases from our art directors.
+              Subscribe to receive quarterly case studies, pipeline breakdowns, and milestone releases directly from our creative directors.
             </p>
 
-            <form onSubmit={handleNewsletter} className="space-y-2">
-              <div className="relative">
+            <form onSubmit={handleNewsletter} className="space-y-3 pt-2">
+              <div className="relative max-w-md">
                 <input
                   type="email"
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="artdirector@studio.com"
-                  className="w-full bg-zinc-900/90 border border-white/10 rounded-xl px-4 py-2.5 text-xs text-white placeholder-zinc-500 focus:outline-none focus:border-white/30"
+                  className="w-full bg-[#121214] border border-white/[0.08] rounded-full pl-5 pr-28 py-3 text-xs text-white placeholder-zinc-500 focus:outline-none focus:border-white/30 transition-colors"
                 />
                 <button
                   type="submit"
-                  className="absolute right-1.5 top-1.5 bottom-1.5 px-3 rounded-lg bg-white text-black text-xs font-semibold hover:bg-zinc-200 transition-all flex items-center justify-center"
+                  className="absolute right-1.5 top-1.5 bottom-1.5 px-4 rounded-full bg-white text-black text-xs font-semibold hover:bg-zinc-200 transition-all flex items-center justify-center gap-1.5"
                 >
-                  {subscribed ? <Check className="w-3.5 h-3.5 text-black" /> : <Send className="w-3.5 h-3.5" />}
+                  {subscribed ? (
+                    <>
+                      <Check className="w-3.5 h-3.5 text-black" />
+                      <span>Joined</span>
+                    </>
+                  ) : (
+                    <>
+                      <span>Subscribe</span>
+                      <Send className="w-3 h-3 text-black" />
+                    </>
+                  )}
                 </button>
               </div>
-              {subscribed && (
-                <span className="text-[10px] font-mono text-green-400 block animate-in fade-in">
-                  Subscribed to Core Artworks Quarterly Dispatch!
-                </span>
-              )}
             </form>
+
+            {/* Social Follow Links */}
+            <div className="pt-4">
+              <p className="text-[11px] uppercase tracking-widest text-zinc-500 mb-3 font-mono">
+                Follow Along
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {SOCIAL_LINKS.map((s) => (
+                  <a
+                    key={s.platform}
+                    href={s.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-2.5 rounded-full bg-[#121214] hover:bg-white text-zinc-400 hover:text-black border border-white/[0.08] transition-all duration-300"
+                    title={s.platform}
+                  >
+                    {s.platform === 'Instagram' && <Instagram className="w-4 h-4" />}
+                    {s.platform === 'DeviantArt' && <Palette className="w-4 h-4" />}
+                    {s.platform === 'ArtStation' && <Sparkles className="w-4 h-4" />}
+                    {s.platform === 'Discord' && <MessageSquare className="w-4 h-4" />}
+                    {s.platform === 'GitHub' && <Github className="w-4 h-4" />}
+                  </a>
+                ))}
+              </div>
+            </div>
           </div>
 
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-zinc-900 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] font-mono text-zinc-500">
+        <div className="pt-8 border-t border-white/[0.06] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-zinc-500">
           <div>
-            &copy; {new Date().getFullYear()} Core Artworks Digital Arts Agency. All Rights Reserved.
+            &copy; {new Date().getFullYear()} Core Artworks. All rights reserved.
           </div>
 
           <div className="flex items-center gap-6">
-            <span>Non-Disclosure Compliant</span>
-            <span>Commercial IP Transfer</span>
+            <span>Obsessive Craft &amp; High Fidelity</span>
             <button
               onClick={scrollToTop}
-              className="p-2 rounded-lg bg-zinc-900 hover:bg-zinc-800 text-zinc-400 hover:text-white border border-white/5 transition-all flex items-center gap-1"
+              className="hover:text-white transition-colors flex items-center gap-1.5"
               title="Back to Top"
             >
+              <span>Back to Top</span>
               <ArrowUp className="w-3.5 h-3.5" />
-              <span>Top</span>
             </button>
           </div>
         </div>
