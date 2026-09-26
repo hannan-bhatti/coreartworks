@@ -25,11 +25,6 @@ export const Hero: React.FC<HeroProps> = ({
           
           {/* Left Column: Minimalist Typography & Narrative matching Core Artworks */}
           <div className="lg:col-span-7 space-y-7 animate-in fade-in slide-in-from-bottom-6 duration-700">
-            {/* Eyebrow */}
-            <div>
-              <span className="eyebrow-accent text-zinc-400">Digital Art &amp; Design Agency</span>
-            </div>
-
             {/* Headline with Clean Solid Typography */}
             <div className="space-y-4">
               <h1 className="text-5xl sm:text-7xl lg:text-8xl font-display font-bold tracking-tight text-white uppercase leading-[0.96]">
@@ -40,7 +35,7 @@ export const Hero: React.FC<HeroProps> = ({
                 Architects of Digital Visions &amp; Worlds
               </p>
               <p className="text-sm sm:text-base text-zinc-400 max-w-lg leading-relaxed font-normal">
-                We design brand identities, digital illustration, serialized comics, and immersive visual worlds for clients who want their vision built with obsessive craft — from first sketch to final render.
+                Digital Art &amp; Design Agency
               </p>
             </div>
 
