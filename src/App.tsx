@@ -61,7 +61,8 @@ export function App() {
                 path="/contact"
                 element={<ContactPage initialBrief={activeBrief} />}
               />
-              {/* Fallback & Redirects for removed routes */}
+              {/* Fallback & Redirects for routes */}
+              <Route path="/about" element={<Navigate to="/#about" replace />} />
               <Route path="/estimator" element={<Navigate to="/contact" replace />} />
               <Route path="/inspector" element={<Navigate to="/" replace />} />
               <Route path="/testimonials" element={<Navigate to="/#testimonials" replace />} />

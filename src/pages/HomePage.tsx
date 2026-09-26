@@ -3,6 +3,7 @@ import { Hero } from '../components/Hero';
 import { StatsSection } from '../components/StatsSection';
 import { DisciplinesShowcase } from '../components/DisciplinesShowcase';
 import { PortfolioGallery } from '../components/PortfolioGallery';
+import { AboutSection } from '../components/AboutSection';
 import { TestimonialsSection } from '../components/TestimonialsSection';
 import { MarqueeTicker } from '../components/MarqueeTicker';
 import { ScrollReveal } from '../components/ScrollReveal';
@@ -64,7 +65,12 @@ export const HomePage: React.FC<HomePageProps> = ({
         />
       </ScrollReveal>
 
-      {/* 5. Client Words / Testimonials matching Core Artworks */}
+      {/* 5. About Section matching Core Artworks reference (#about) */}
+      <ScrollReveal direction="up" delay={0.05}>
+        <AboutSection />
+      </ScrollReveal>
+
+      {/* 6. Client Words / Testimonials matching Core Artworks */}
       <ScrollReveal direction="up" delay={0.05}>
         <TestimonialsSection />
       </ScrollReveal>
