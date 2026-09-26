@@ -46,33 +46,33 @@ export const EstimatorPage: React.FC<EstimatorPageProps> = ({ onSendBriefToConta
       />
 
       {/* Pricing Transparency & Payment Terms Strip */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 p-8 rounded-3xl bg-zinc-950 border border-white/10">
+      <section className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 p-8 rounded-2xl bg-[#121214] border border-white/[0.08]">
           
-          <div className="space-y-2">
-            <div className="flex items-center gap-2 text-white font-semibold text-sm">
+          <div className="space-y-2 p-6 rounded-2xl bg-[#0a0a0b] border border-white/[0.08]">
+            <div className="flex items-center gap-2 text-white font-bold text-sm font-display uppercase tracking-tight">
               <DollarSign className="w-4 h-4 text-zinc-300" />
               <span>3-Stage Milestone Billing</span>
             </div>
             <p className="text-xs text-zinc-400 leading-relaxed">
-              Standard payments split across 30% brief approval, 40% halfway clay/value lock, and 30% master delivery. Escrow support available.
+              Standard payments split across 30% brief approval, 40% halfway clay/value lock, and 30% master delivery.
             </p>
           </div>
 
-          <div className="space-y-2">
-            <div className="flex items-center gap-2 text-white font-semibold text-sm">
+          <div className="space-y-2 p-6 rounded-2xl bg-[#0a0a0b] border border-white/[0.08]">
+            <div className="flex items-center gap-2 text-white font-bold text-sm font-display uppercase tracking-tight">
               <Clock className="w-4 h-4 text-zinc-300" />
-              <span>Predictable Delivery Milestones</span>
+              <span>Predictable Milestones</span>
             </div>
             <p className="text-xs text-zinc-400 leading-relaxed">
-              Strict delivery timelines backed by dedicated art squads. Rush sprint options available for publisher pitch and convention deadlines.
+              Strict delivery timelines backed by dedicated art squads. Rush sprint options available for publisher deadlines.
             </p>
           </div>
 
-          <div className="space-y-2">
-            <div className="flex items-center gap-2 text-white font-semibold text-sm">
+          <div className="space-y-2 p-6 rounded-2xl bg-[#0a0a0b] border border-white/[0.08]">
+            <div className="flex items-center gap-2 text-white font-bold text-sm font-display uppercase tracking-tight">
               <ShieldCheck className="w-4 h-4 text-zinc-300" />
-              <span>Full IP &amp; Commercial Transfer</span>
+              <span>Full IP Transfer</span>
             </div>
             <p className="text-xs text-zinc-400 leading-relaxed">
               Worldwide copyright ownership transferred upon final milestone payment. We retain zero ongoing royalties.

@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { ART_CATEGORIES } from '../data/portfolioData';
-import { Calculator, Check, ArrowRight, Shield, Copy } from 'lucide-react';
+import { Check, ArrowRight, Shield, Copy } from 'lucide-react';
 import { CommissionBrief } from '../types';
 
 interface CommissionEstimatorProps {
@@ -109,16 +109,15 @@ export const CommissionEstimator: React.FC<CommissionEstimatorProps> = ({
       {/* Background radial accent */}
       <div className="absolute bottom-10 right-10 w-[500px] h-[500px] bg-white/[0.02] rounded-full blur-[140px] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-zinc-900 border border-white/10 text-xs font-mono text-zinc-300">
-            <Calculator className="w-3.5 h-3.5 text-white" />
-            <span>Deterministic Pricing Engine</span>
+        <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
+          <div>
+            <span className="eyebrow-accent text-zinc-400">Deterministic Pricing Engine</span>
           </div>
-          <h2 className="text-3xl sm:text-5xl font-display font-bold text-white tracking-tight">
-            PROJECT <span className="text-shimmer-silver font-black">COMMISSION ESTIMATOR</span>
+          <h2 className="text-3xl sm:text-5xl font-display font-bold text-white tracking-tight uppercase leading-[1.05]">
+            Project <span className="is-outline">Commission Estimator</span>
           </h2>
           <p className="text-zinc-400 text-sm sm:text-base leading-relaxed">
             Configure your creative scope, timeline urgency, and licensing parameters to obtain an instantaneous, transparent production estimate.
@@ -129,7 +128,7 @@ export const CommissionEstimator: React.FC<CommissionEstimatorProps> = ({
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           
           {/* Left Column: Interactive Controls */}
-          <div className="lg:col-span-7 bg-zinc-950 p-6 sm:p-8 rounded-3xl border border-white/10 space-y-8 shadow-2xl">
+          <div className="lg:col-span-7 bg-[#121214] p-6 sm:p-8 rounded-2xl border border-white/[0.08] space-y-8 shadow-2xl">
             
             {/* Step 1: Discipline Category */}
             <div className="space-y-3">
@@ -271,20 +270,20 @@ export const CommissionEstimator: React.FC<CommissionEstimatorProps> = ({
           </div>
 
           {/* Right Column: Dynamic Price Summary & Brief Payload Export */}
-          <div className="lg:col-span-5 bg-zinc-950 p-6 sm:p-8 rounded-3xl border border-white/15 space-y-6 sticky top-28 shadow-2xl">
+          <div className="lg:col-span-5 bg-[#121214] p-6 sm:p-8 rounded-2xl border border-white/[0.08] space-y-6 sticky top-28 shadow-2xl">
             
-            <div className="flex items-center justify-between pb-4 border-b border-white/10">
+            <div className="flex items-center justify-between pb-4 border-b border-white/[0.08]">
               <span className="text-xs font-mono uppercase tracking-wider text-zinc-400">
                 Production Estimate
               </span>
-              <span className="px-2.5 py-0.5 rounded bg-white/10 text-white text-[11px] font-mono">
+              <span className="px-2.5 py-0.5 rounded-full bg-white/10 text-white text-[11px] font-mono">
                 USD
               </span>
             </div>
 
             {/* Estimated Price Range Big Display */}
             <div className="space-y-1">
-              <div className="text-3xl sm:text-4xl font-display font-extrabold text-white tracking-tight text-shimmer-silver font-black">
+              <div className="text-3xl sm:text-4xl font-display font-bold text-white tracking-tight">
                 {calculation.minFormatted} - {calculation.maxFormatted}
               </div>
               <div className="text-xs text-zinc-400 font-mono">
@@ -293,35 +292,35 @@ export const CommissionEstimator: React.FC<CommissionEstimatorProps> = ({
             </div>
 
             {/* Structured Scope Breakdown */}
-            <div className="space-y-3 pt-4 border-t border-white/10 text-xs">
-              <div className="flex justify-between py-1 border-b border-zinc-900 text-zinc-400">
+            <div className="space-y-3 pt-4 border-t border-white/[0.08] text-xs">
+              <div className="flex justify-between py-1 border-b border-white/[0.04] text-zinc-400">
                 <span>Selected Discipline:</span>
                 <span className="text-white font-medium">{currentCategory.name}</span>
               </div>
-              <div className="flex justify-between py-1 border-b border-zinc-900 text-zinc-400">
+              <div className="flex justify-between py-1 border-b border-white/[0.04] text-zinc-400">
                 <span>Deliverable Subcategory:</span>
                 <span className="text-white font-medium">{activeSubcategoryName}</span>
               </div>
-              <div className="flex justify-between py-1 border-b border-zinc-900 text-zinc-400">
+              <div className="flex justify-between py-1 border-b border-white/[0.04] text-zinc-400">
                 <span>Quantity / Deliverables:</span>
                 <span className="text-white font-medium">{quantity} Assets</span>
               </div>
-              <div className="flex justify-between py-1 border-b border-zinc-900 text-zinc-400">
+              <div className="flex justify-between py-1 border-b border-white/[0.04] text-zinc-400">
                 <span>Detail Tier:</span>
                 <span className="text-white font-medium">{complexity}</span>
               </div>
-              <div className="flex justify-between py-1 border-b border-zinc-900 text-zinc-400">
+              <div className="flex justify-between py-1 border-b border-white/[0.04] text-zinc-400">
                 <span>Turnaround Sprint:</span>
                 <span className="text-white font-medium">{timeline}</span>
               </div>
-              <div className="flex justify-between py-1 border-b border-zinc-900 text-zinc-400">
+              <div className="flex justify-between py-1 border-b border-white/[0.04] text-zinc-400">
                 <span>IP / Licensing:</span>
                 <span className="text-white font-medium">{commercialRights ? 'Exclusive Buyout Included' : 'Portfolio Only'}</span>
               </div>
             </div>
 
             {/* Guarantees */}
-            <div className="p-3.5 rounded-2xl bg-zinc-900/60 border border-white/5 space-y-2 text-[11px] text-zinc-400">
+            <div className="p-4 rounded-xl bg-black/40 border border-white/[0.06] space-y-2 text-[11px] text-zinc-400">
               <div className="flex items-center gap-2 text-white font-medium">
                 <Shield className="w-3.5 h-3.5 text-zinc-300" />
                 <span>Core Artworks Production Guarantees:</span>
@@ -337,7 +336,7 @@ export const CommissionEstimator: React.FC<CommissionEstimatorProps> = ({
             <div className="space-y-3 pt-2">
               <button
                 onClick={() => onSendBriefToContact(generateBriefObject())}
-                className="w-full py-3.5 px-4 rounded-xl bg-white text-black font-semibold text-xs uppercase tracking-wider hover:bg-zinc-200 transition-all flex items-center justify-center gap-2 shadow-glow-sm"
+                className="w-full py-3.5 px-6 rounded-full bg-white text-black font-semibold text-xs uppercase tracking-wider hover:bg-zinc-200 transition-all flex items-center justify-center gap-2 shadow-sm hover:-translate-y-0.5"
               >
                 <span>Transfer Estimate to Project Brief</span>
                 <ArrowRight className="w-4 h-4" />
@@ -345,7 +344,7 @@ export const CommissionEstimator: React.FC<CommissionEstimatorProps> = ({
 
               <button
                 onClick={handleCopySummary}
-                className="w-full py-2.5 px-4 rounded-xl bg-zinc-900 hover:bg-zinc-800 text-zinc-300 hover:text-white font-medium text-xs border border-white/10 transition-all flex items-center justify-center gap-2"
+                className="w-full py-3 px-6 rounded-full bg-transparent hover:bg-white text-zinc-300 hover:text-black font-medium text-xs border border-white/20 transition-all flex items-center justify-center gap-2"
               >
                 {copiedBrief ? (
                   <>

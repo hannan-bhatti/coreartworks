@@ -333,20 +333,20 @@ export const ArtworkLightbox: React.FC<ArtworkLightboxProps> = ({
           </div>
 
           {/* Action CTAs */}
-          <div className="pt-6 border-t border-white/10 space-y-3">
+          <div className="pt-6 border-t border-white/[0.08] space-y-3">
             <div className="flex items-center gap-2.5">
               {/* Bookmark to Moodboard */}
               <button
                 type="button"
                 onClick={() => toggleMoodboard(artwork)}
-                className={`py-3.5 px-4 rounded-xl font-semibold text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 border flex-shrink-0 ${
+                className={`py-3 px-5 rounded-full font-semibold text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 border flex-shrink-0 ${
                   bookmarked
-                    ? 'bg-zinc-800 text-white border-white/40 shadow-glow-sm'
-                    : 'bg-zinc-900/90 text-zinc-300 hover:text-white hover:bg-zinc-800 border-white/10'
+                    ? 'bg-white text-black border-white shadow-sm'
+                    : 'bg-transparent text-zinc-300 hover:text-white hover:bg-white/10 border-white/20'
                 }`}
                 title={bookmarked ? 'Remove from Curated Moodboard' : 'Add to Curated Moodboard'}
               >
-                <Bookmark className={`w-4 h-4 ${bookmarked ? 'fill-white' : ''}`} />
+                <Bookmark className={`w-4 h-4 ${bookmarked ? 'fill-black' : ''}`} />
                 <span className="hidden sm:inline">{bookmarked ? 'Shortlisted' : 'Add to Moodboard'}</span>
               </button>
 
@@ -357,7 +357,7 @@ export const ArtworkLightbox: React.FC<ArtworkLightboxProps> = ({
                   onClose();
                   onCommissionStyle(artwork);
                 }}
-                className="flex-1 py-3.5 px-4 rounded-xl bg-white text-black font-semibold text-xs uppercase tracking-wider hover:bg-zinc-200 transition-all flex items-center justify-center gap-2 shadow-glow-sm"
+                className="flex-1 py-3 px-6 rounded-full bg-white text-black font-semibold text-xs uppercase tracking-wider hover:bg-zinc-200 transition-all flex items-center justify-center gap-2 shadow-sm hover:-translate-y-0.5"
               >
                 <Sparkles className="w-4 h-4" />
                 <span>Commission Style</span>

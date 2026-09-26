@@ -39,14 +39,14 @@ export const TestimonialsPage: React.FC = () => {
       </div>
 
       {/* Metrics Banner */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 p-8 rounded-3xl bg-zinc-950 border border-white/10">
+      <section className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 p-8 rounded-2xl bg-[#121214] border border-white/[0.08]">
           {AGENCY_METRICS.map((m) => (
             <div key={m.label} className="space-y-1">
-              <div className="text-3xl sm:text-4xl font-display font-extrabold text-white text-shimmer-silver font-black">
+              <div className="text-3xl sm:text-4xl font-display font-bold text-white tracking-tight">
                 <AnimatedCounter value={m.value} duration={2000} />
               </div>
-              <div className="text-xs font-semibold text-zinc-300">
+              <div className="text-xs font-semibold text-zinc-300 uppercase tracking-wider">
                 {m.label}
               </div>
               <div className="text-[11px] text-zinc-500 font-mono">
@@ -61,28 +61,29 @@ export const TestimonialsPage: React.FC = () => {
       <TestimonialsSection />
 
       {/* Studio Partner Roster */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="p-8 sm:p-12 rounded-3xl bg-zinc-950 border border-white/10 space-y-8 shadow-2xl">
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-6 border-b border-white/10">
-            <div>
-              <h2 className="text-2xl font-bold font-display text-white">
-                FEATURED PRODUCTION ENGAGEMENTS
+      <section className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+        <div className="p-8 sm:p-12 rounded-2xl bg-[#121214] border border-white/[0.08] space-y-8 shadow-2xl">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-6 border-b border-white/[0.08]">
+            <div className="space-y-2">
+              <span className="eyebrow-accent text-zinc-400">Collaborations</span>
+              <h2 className="text-2xl sm:text-3xl font-display font-bold text-white tracking-tight uppercase leading-[1.05]">
+                Featured Production <span className="is-outline">Engagements</span>
               </h2>
-              <p className="text-xs text-zinc-400 mt-1">
+              <p className="text-xs sm:text-sm text-zinc-400 mt-1">
                 A selection of published titles and production pipelines powered by Core Artworks.
               </p>
             </div>
-            <span className="text-xs font-mono text-zinc-500">Global Studio Roster</span>
+            <span className="text-xs font-mono text-zinc-500 uppercase tracking-widest">Global Studio Roster</span>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {studioHighlights.map((s) => (
-              <div key={s.studio} className="p-4 rounded-2xl bg-zinc-900/60 border border-white/5 space-y-1.5">
+              <div key={s.studio} className="p-6 rounded-2xl bg-[#0a0a0b] border border-white/[0.08] space-y-2">
                 <div className="flex items-center justify-between text-[11px] font-mono text-zinc-500">
                   <span>{s.country}</span>
-                  <span className="text-white">{s.genre}</span>
+                  <span className="text-white font-medium">{s.genre}</span>
                 </div>
-                <h4 className="text-sm font-bold text-white font-display">
+                <h4 className="text-base font-bold text-white font-display uppercase tracking-tight">
                   {s.studio}
                 </h4>
                 <p className="text-xs text-zinc-400">
@@ -92,7 +93,7 @@ export const TestimonialsPage: React.FC = () => {
             ))}
           </div>
 
-          <div className="pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="pt-6 border-t border-white/[0.08] flex flex-col sm:flex-row items-center justify-between gap-4">
             <div className="flex items-center gap-3 text-xs text-zinc-400">
               <ShieldCheck className="w-4 h-4 text-zinc-300" />
               <span>Many major franchise titles are subject to active NDA embargoes until official studio trailers.</span>
@@ -100,10 +101,10 @@ export const TestimonialsPage: React.FC = () => {
 
             <button
               onClick={() => navigate('/contact')}
-              className="px-6 py-3 rounded-xl bg-white text-black font-semibold text-xs uppercase tracking-wider hover:bg-zinc-200 transition-all flex items-center gap-2 flex-shrink-0"
+              className="btn-primary"
             >
               <span>Partner With Us</span>
-              <ArrowRight className="w-3.5 h-3.5" />
+              <ArrowRight className="w-4 h-4" />
             </button>
           </div>
         </div>

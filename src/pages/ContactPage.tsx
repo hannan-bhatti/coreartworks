@@ -37,11 +37,11 @@ export const ContactPage: React.FC<ContactPageProps> = ({ initialBrief }) => {
       <ContactSection initialBrief={briefFromState} />
 
       {/* Global Studio Hubs */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 p-8 rounded-3xl bg-zinc-950 border border-white/10">
+      <section className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 p-8 rounded-2xl bg-[#121214] border border-white/[0.08]">
           
-          <div className="space-y-2 p-4 rounded-2xl bg-zinc-900/60 border border-white/5">
-            <div className="flex items-center gap-2 text-white font-bold text-sm">
+          <div className="space-y-2 p-6 rounded-2xl bg-[#0a0a0b] border border-white/[0.08]">
+            <div className="flex items-center gap-2 text-white font-bold text-sm font-display uppercase tracking-tight">
               <MapPin className="w-4 h-4 text-zinc-300" />
               <span>Americas Hub</span>
             </div>
@@ -51,8 +51,8 @@ export const ContactPage: React.FC<ContactPageProps> = ({ initialBrief }) => {
             </p>
           </div>
 
-          <div className="space-y-2 p-4 rounded-2xl bg-zinc-900/60 border border-white/5">
-            <div className="flex items-center gap-2 text-white font-bold text-sm">
+          <div className="space-y-2 p-6 rounded-2xl bg-[#0a0a0b] border border-white/[0.08]">
+            <div className="flex items-center gap-2 text-white font-bold text-sm font-display uppercase tracking-tight">
               <MapPin className="w-4 h-4 text-zinc-300" />
               <span>Europe Hub</span>
             </div>
@@ -62,8 +62,8 @@ export const ContactPage: React.FC<ContactPageProps> = ({ initialBrief }) => {
             </p>
           </div>
 
-          <div className="space-y-2 p-4 rounded-2xl bg-zinc-900/60 border border-white/5">
-            <div className="flex items-center gap-2 text-white font-bold text-sm">
+          <div className="space-y-2 p-6 rounded-2xl bg-[#0a0a0b] border border-white/[0.08]">
+            <div className="flex items-center gap-2 text-white font-bold text-sm font-display uppercase tracking-tight">
               <MapPin className="w-4 h-4 text-zinc-300" />
               <span>Asia-Pacific Hub</span>
             </div>

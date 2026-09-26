@@ -1,5 +1,5 @@
 import React, { useState, useRef, useCallback } from 'react';
-import { Sparkles, Sliders, Eye } from 'lucide-react';
+import { Sliders, Eye } from 'lucide-react';
 import { PORTFOLIO_ARTWORKS } from '../data/portfolioData';
 
 export const BeforeAfterSlider: React.FC = () => {
@@ -80,65 +80,64 @@ export const BeforeAfterSlider: React.FC = () => {
       {/* Subtle Glow */}
       <div className="absolute top-1/2 left-1/3 w-[600px] h-[300px] bg-white/[0.02] rounded-full blur-[140px] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
         
         {/* Section Header */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-12 gap-6">
-          <div className="space-y-3 max-w-2xl">
-            <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-zinc-400">
-              <Sparkles className="w-4 h-4 text-white" />
-              <span>Interactive Pipeline Inspector</span>
+          <div className="space-y-4 max-w-2xl">
+            <div>
+              <span className="eyebrow-accent text-zinc-400">Interactive Pipeline</span>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-display font-bold text-white tracking-tight">
-              SKETCH &amp; CLAY &rarr; <span className="text-shimmer-silver font-black">FINAL POLISH</span>
+            <h2 className="text-3xl sm:text-5xl font-display font-bold text-white tracking-tight uppercase leading-[1.05]">
+              Sketch &amp; Clay &rarr; <span className="is-outline">Final Polish</span>
             </h2>
             <p className="text-zinc-400 text-sm sm:text-base leading-relaxed">
-              Experience the iterative evolution of Core Artworks assets. Drag the slider to inspect the transition from foundational silhouette to high-gloss cinematic master.
+              Drag the slider to inspect the transition from foundational silhouette to high-gloss cinematic master.
             </p>
           </div>
 
           {/* Mode Controls */}
-          <div className="flex items-center gap-3 bg-zinc-950 p-1.5 rounded-xl border border-white/10">
+          <div className="flex items-center gap-2 bg-[#121214] p-1.5 rounded-full border border-white/[0.08]">
             <button
               onClick={() => setMode('slider')}
-              className={`px-4 py-2 rounded-lg text-xs font-semibold uppercase tracking-wider transition-all ${
+              className={`px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider transition-all ${
                 mode === 'slider'
-                  ? 'bg-white text-black shadow-md'
-                  : 'text-zinc-400 hover:text-white hover:bg-white/5'
+                  ? 'bg-white text-black shadow-sm'
+                  : 'text-zinc-400 hover:text-white'
               }`}
             >
               <Sliders className="w-3.5 h-3.5 inline mr-1.5" />
-              Interactive Slider
+              Slider
             </button>
             <button
               onClick={() => setMode('toggle')}
-              className={`px-4 py-2 rounded-lg text-xs font-semibold uppercase tracking-wider transition-all ${
+              className={`px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider transition-all ${
                 mode === 'toggle'
-                  ? 'bg-white text-black shadow-md'
-                  : 'text-zinc-400 hover:text-white hover:bg-white/5'
+                  ? 'bg-white text-black shadow-sm'
+                  : 'text-zinc-400 hover:text-white'
               }`}
             >
               <Eye className="w-3.5 h-3.5 inline mr-1.5" />
-              Instant A/B Flip
+              A/B Flip
             </button>
           </div>
         </div>
 
         {/* Artwork Selector Tabs */}
-        <div className="flex items-center gap-3 overflow-x-auto pb-4 mb-6 scrollbar-none">
+        <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-6 scrollbar-none">
           {comparisonItems.map((item, idx) => (
             <button
               key={item.id}
               onClick={() => setSelectedIdx(idx)}
-              className={`px-4 py-2.5 rounded-xl text-xs font-medium whitespace-nowrap transition-all duration-300 border flex items-center gap-2 ${
+              className={`px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider transition-all whitespace-nowrap border flex items-center gap-2 ${
                 selectedIdx === idx
-                  ? 'bg-zinc-800 text-white border-white/30 shadow-glow-sm'
-                  : 'bg-zinc-950/60 text-zinc-400 border-white/5 hover:border-white/20 hover:text-white'
+                  ? 'bg-white text-black border-white shadow-sm'
+                  : 'bg-[#121214] text-zinc-400 border-white/[0.08] hover:border-white/20 hover:text-white'
               }`}
             >
               <span className="font-mono text-zinc-500">0{idx + 1}</span>
-              <span className="font-semibold">{item.title}</span>
-              <span className="text-[10px] px-1.5 py-0.5 rounded bg-zinc-900 text-zinc-400 border border-white/5">
+              <span>{item.title}</span>
+              <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-black/40 text-zinc-400 border border-white/[0.08]">
                 {item.categoryLabel}
               </span>
             </button>

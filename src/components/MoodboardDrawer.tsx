@@ -224,7 +224,7 @@ export const MoodboardDrawer: React.FC<MoodboardDrawerProps> = ({
 
                   <button
                     onClick={handleAttachAndQuote}
-                    className="w-full py-3.5 px-4 rounded-xl bg-white text-black font-semibold text-xs uppercase tracking-wider hover:bg-zinc-200 transition-all flex items-center justify-center gap-2 shadow-glow-sm"
+                    className="w-full py-3.5 px-6 rounded-full bg-white text-black font-semibold text-xs uppercase tracking-wider hover:bg-zinc-200 transition-all flex items-center justify-center gap-2 shadow-sm hover:-translate-y-0.5"
                   >
                     <span>Attach to Brief &amp; Get Quote</span>
                     <ArrowRight className="w-4 h-4" />
@@ -232,9 +232,9 @@ export const MoodboardDrawer: React.FC<MoodboardDrawerProps> = ({
 
                   <button
                     onClick={handleCopySummary}
-                    className="w-full py-2.5 px-4 rounded-xl bg-zinc-900 hover:bg-zinc-800 text-zinc-300 hover:text-white font-medium text-xs font-mono border border-white/10 transition-all flex items-center justify-center gap-2"
+                    className="w-full py-3 px-6 rounded-full bg-transparent hover:bg-white text-zinc-300 hover:text-black font-medium text-xs border border-white/20 transition-all flex items-center justify-center gap-2"
                   >
-                    {copied ? <Check className="w-3.5 h-3.5 text-white" /> : <Copy className="w-3.5 h-3.5" />}
+                    {copied ? <Check className="w-3.5 h-3.5 text-green-400" /> : <Copy className="w-3.5 h-3.5" />}
                     <span>{copied ? 'Copied Specs to Clipboard!' : 'Copy Moodboard Summary'}</span>
                   </button>
                 </div>

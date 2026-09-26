@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Sparkles, Send, CheckCircle2, Shield, Bookmark } from 'lucide-react';
+import { Send, CheckCircle2, Shield, Bookmark } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { CommissionBrief } from '../types';
 import { ART_CATEGORIES } from '../data/portfolioData';
@@ -67,41 +67,43 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialBrief }) 
           
           {/* Left Column: Studio Intake Manifesto */}
           <div className="lg:col-span-5 space-y-6">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-zinc-900 border border-white/10 text-xs font-mono text-zinc-300">
-              <Sparkles className="w-3.5 h-3.5 text-white" />
-              <span>Project Intake &amp; Commissioning</span>
+            <div>
+              <span className="eyebrow-accent text-zinc-400">Project Intake</span>
             </div>
 
-            <h2 className="text-3xl sm:text-5xl font-display font-bold text-white tracking-tight">
-              LET'S CRAFT YOUR NEXT <br />
-              <span className="text-shimmer-silver font-black">VISUAL MASTERPIECE</span>.
+            <h2 className="text-3xl sm:text-5xl font-display font-bold text-white tracking-tight uppercase leading-[1.05]">
+              Let's Craft Your Next <br />
+              <span className="is-outline">Visual Masterpiece.</span>
             </h2>
 
             <p className="text-zinc-400 text-sm sm:text-base leading-relaxed">
-              Whether you require an iconic book or album cover, full-body character sheets, dynamic esports branding, custom D&amp;D/fursona commissions, or a full streaming suite, our artists are prepared to align on scope.
+              Whether you require an iconic book or album cover, full-body character sheets, serialized comics, or a full streaming suite, our artists are prepared to align on scope.
             </p>
 
             {/* Direct Studio Contact Cards */}
-            <div className="space-y-3 pt-4 border-t border-white/10">
-              <div className="p-4 rounded-2xl bg-zinc-950 border border-white/10 flex items-center justify-between">
+            <div className="space-y-3 pt-4 border-t border-white/[0.08]">
+              <div className="p-5 rounded-2xl bg-[#121214] border border-white/[0.08] flex items-center justify-between">
                 <div>
                   <span className="text-[10px] font-mono uppercase tracking-wider text-zinc-500 block">
                     Direct Creative Inquiries
                   </span>
-                  <span className="text-sm font-semibold text-white font-mono">
-                    commissions@coreartworks.com
-                  </span>
+                  <a
+                    href="mailto:coreartworks@gmail.com"
+                    className="text-sm font-semibold text-white hover:text-zinc-300 transition-colors"
+                  >
+                    coreartworks@gmail.com
+                  </a>
                 </div>
-                <span className="text-xs text-zinc-400 font-mono">Reply &lt; 12 hrs</span>
+                <span className="text-xs text-zinc-400 font-mono">Reply &lt; 24 hrs</span>
               </div>
 
-              <div className="p-4 rounded-2xl bg-zinc-950 border border-white/10 flex items-center justify-between">
+              <div className="p-5 rounded-2xl bg-[#121214] border border-white/[0.08] flex items-center justify-between">
                 <div>
                   <span className="text-[10px] font-mono uppercase tracking-wider text-zinc-500 block">
                     Studio Location
                   </span>
                   <span className="text-sm font-semibold text-white">
-                    Los Angeles &bull; London &bull; Tokyo (Remote Hub)
+                    Remote Worldwide Production
                   </span>
                 </div>
                 <span className="text-xs text-zinc-400 font-mono">Global Timezones</span>
@@ -109,14 +111,14 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialBrief }) 
             </div>
 
             {/* NDA badge */}
-            <div className="p-4 rounded-2xl bg-zinc-950/60 border border-white/5 flex items-center gap-3 text-xs text-zinc-400">
+            <div className="p-4 rounded-xl bg-black/40 border border-white/[0.06] flex items-center gap-3 text-xs text-zinc-400">
               <Shield className="w-5 h-5 text-zinc-300 flex-shrink-0" />
               <span>All submissions protected by our default bilateral Non-Disclosure Agreement.</span>
             </div>
           </div>
 
           {/* Right Column: Creative Brief Form */}
-          <div className="lg:col-span-7 bg-zinc-950 p-6 sm:p-10 rounded-3xl border border-white/15 shadow-2xl relative">
+          <div className="lg:col-span-7 bg-[#121214] p-6 sm:p-10 rounded-2xl border border-white/[0.08] shadow-2xl relative">
             
             {submitted ? (
               <div className="py-16 text-center space-y-5 animate-in zoom-in-95 duration-300">
