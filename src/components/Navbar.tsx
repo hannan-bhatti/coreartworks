@@ -20,7 +20,6 @@ export const Navbar: React.FC = () => {
   const navLinks = [
     { label: 'Home', target: 'home', page: '/', isAnchor: true },
     { label: 'Portfolio', path: '/portfolio' },
-    { label: 'Services', target: 'services', page: '/', isAnchor: true },
     { label: 'About', path: '/about' },
     { label: 'Testimonials', target: 'testimonials', page: '/', isAnchor: true },
   ];
