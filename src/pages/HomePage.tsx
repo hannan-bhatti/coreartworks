@@ -1,8 +1,7 @@
 import React from 'react';
 import { Hero } from '../components/Hero';
 import { StatsSection } from '../components/StatsSection';
-
-import { PortfolioGallery } from '../components/PortfolioGallery';
+import { ServicesSection } from '../components/ServicesSection';
 import { TestimonialsSection } from '../components/TestimonialsSection';
 import { MarqueeTicker } from '../components/MarqueeTicker';
 import { ScrollReveal } from '../components/ScrollReveal';
@@ -13,23 +12,17 @@ import { ArrowRight } from 'lucide-react';
 
 interface HomePageProps {
   onSelectArtwork: (artwork: Artwork) => void;
-  selectedCategoryFilter: string | null;
-  onSelectCategoryFilter: (categoryId: string | null) => void;
 }
 
 export const HomePage: React.FC<HomePageProps> = ({
   onSelectArtwork,
-  selectedCategoryFilter,
-  onSelectCategoryFilter,
 }) => {
   const navigate = useNavigate();
   const featuredArtwork = PORTFOLIO_ARTWORKS.find((a) => a.featured) || PORTFOLIO_ARTWORKS[0];
 
   const handleExploreGallery = () => {
-    const el = document.getElementById('portfolio');
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
+    navigate('/portfolio');
   };
-
 
   return (
     <div className="space-y-0">
@@ -46,25 +39,18 @@ export const HomePage: React.FC<HomePageProps> = ({
         <StatsSection />
       </ScrollReveal>
 
+      {/* 3. Services Section (#services & #process) */}
+      <ServicesSection />
 
-      {/* 4. Selected Work Archive (#portfolio) */}
-      <ScrollReveal direction="up" delay={0.05}>
-        <PortfolioGallery
-          onSelectArtwork={onSelectArtwork}
-          selectedCategoryFilter={selectedCategoryFilter}
-          onSelectCategoryFilter={onSelectCategoryFilter}
-        />
-      </ScrollReveal>
-
-      {/* 5. Client Words / Testimonials matching Core Artworks */}
+      {/* 4. Client Words / Testimonials matching Core Artworks */}
       <ScrollReveal direction="up" delay={0.05}>
         <TestimonialsSection />
       </ScrollReveal>
 
-      {/* 6. Infinite Sliding Brands Marquee */}
+      {/* 5. Infinite Sliding Brands Marquee */}
       <MarqueeTicker />
 
-      {/* 7. Minimalist Closing CTA Banner matching Core Artworks */}
+      {/* 6. Minimalist Closing CTA Banner matching Core Artworks */}
       <ScrollReveal direction="up" delay={0.05}>
         <section className="py-28 lg:py-36 bg-[#0a0a0b] border-t border-white/[0.08] relative overflow-hidden text-center">
           <div className="max-w-4xl mx-auto px-6 sm:px-8 space-y-6 relative z-10">

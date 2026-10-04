@@ -19,8 +19,8 @@ export const Navbar: React.FC = () => {
 
   const navLinks = [
     { label: 'Home', target: 'home', page: '/', isAnchor: true },
-    { label: 'Portfolio', target: 'portfolio', page: '/', isAnchor: true },
-    { label: 'Services', path: '/services' },
+    { label: 'Portfolio', path: '/portfolio' },
+    { label: 'Services', target: 'services', page: '/', isAnchor: true },
     { label: 'About', path: '/about' },
     { label: 'Testimonials', target: 'testimonials', page: '/', isAnchor: true },
   ];
@@ -54,6 +54,9 @@ export const Navbar: React.FC = () => {
       }
     } else {
       navigate(link.path!);
+      if (location.pathname === link.path) {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
     }
   };
 

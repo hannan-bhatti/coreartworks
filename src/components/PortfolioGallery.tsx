@@ -9,12 +9,14 @@ interface PortfolioGalleryProps {
   selectedCategoryFilter?: string | null;
   onSelectCategoryFilter: (categoryId: string | null) => void;
   onPreloadEstimatorWithDiscipline?: (disciplineId: string) => void;
+  hideHeader?: boolean;
 }
 
 export const PortfolioGallery: React.FC<PortfolioGalleryProps> = ({
   onSelectArtwork,
   selectedCategoryFilter,
   onSelectCategoryFilter,
+  hideHeader = false,
 }) => {
   const [selectedSubcategory, setSelectedSubcategory] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState('');
@@ -63,28 +65,35 @@ export const PortfolioGallery: React.FC<PortfolioGalleryProps> = ({
   }, [selectedCategoryFilter, selectedSubcategory, searchQuery, sortBy]);
 
   return (
-    <section id="portfolio" className="py-28 lg:py-36 relative border-t border-white/[0.08] bg-[#070709]">
+    <section id="portfolio" className={`${hideHeader ? 'py-10 lg:py-14' : 'py-28 lg:py-36 border-t border-white/[0.08]'} relative bg-[#070709]`}>
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
-          <div className="space-y-4 max-w-2xl">
-            <div>
-              <span className="eyebrow-accent text-zinc-400">Selected Work Archive</span>
+        {!hideHeader ? (
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+            <div className="space-y-4 max-w-2xl">
+              <div>
+                <span className="eyebrow-accent text-zinc-400">Selected Work Archive</span>
+              </div>
+              <h2 className="text-3xl sm:text-5xl font-display font-bold text-white tracking-tight uppercase leading-[1.05]">
+                A Glimpse Into <span className="is-outline">The Archive</span>
+              </h2>
+              <p className="text-zinc-400 text-sm sm:text-base leading-relaxed">
+                Curated master artworks across book covers, comic &amp; manga, character design, and brand identities. Click any work to inspect high-resolution details.
+              </p>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-display font-bold text-white tracking-tight uppercase leading-[1.05]">
-              A Glimpse Into <span className="is-outline">The Archive</span>
-            </h2>
-            <p className="text-zinc-400 text-sm sm:text-base leading-relaxed">
-              Curated master artworks across book covers, comic &amp; manga, character design, and brand identities. Click any work to inspect high-resolution details.
-            </p>
-          </div>
 
-          {/* Work Count Indicator */}
-          <div className="text-xs font-mono text-zinc-500 uppercase tracking-widest">
-            {filteredArtworks.length} of {PORTFOLIO_ARTWORKS.length} Selected Projects
+            {/* Work Count Indicator */}
+            <div className="text-xs font-mono text-zinc-500 uppercase tracking-widest">
+              {filteredArtworks.length} of {PORTFOLIO_ARTWORKS.length} Selected Projects
+            </div>
           </div>
-        </div>
+        ) : (
+          <div className="flex items-center justify-between pb-4 text-xs font-mono text-zinc-500 uppercase tracking-widest">
+            <span>Filter Projects by Discipline</span>
+            <span>{filteredArtworks.length} of {PORTFOLIO_ARTWORKS.length} Projects</span>
+          </div>
+        )}
 
         {/* Minimalist Category Tabs matching Core Artworks */}
         <div className="flex items-center gap-2 overflow-x-auto pb-6 mb-10 scrollbar-none border-b border-white/[0.08]">
