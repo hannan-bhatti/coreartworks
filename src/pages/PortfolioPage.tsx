@@ -1,5 +1,5 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { PortfolioGallery } from '../components/PortfolioGallery';
 import { ScrollReveal } from '../components/ScrollReveal';
@@ -17,6 +17,31 @@ export const PortfolioPage: React.FC<PortfolioPageProps> = ({
   onSelectCategoryFilter,
 }) => {
   const navigate = useNavigate();
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  useEffect(() => {
+    const categoryParam = searchParams.get('category');
+    if (categoryParam) {
+      onSelectCategoryFilter(categoryParam);
+      const el = document.getElementById('portfolio');
+      if (el) {
+        setTimeout(() => {
+          el.scrollIntoView({ behavior: 'smooth' });
+        }, 150);
+      }
+    } else if (searchParams.has('category') && !categoryParam) {
+      onSelectCategoryFilter(null);
+    }
+  }, [searchParams, onSelectCategoryFilter]);
+
+  const handleCategoryFilter = (catId: string | null) => {
+    onSelectCategoryFilter(catId);
+    if (catId) {
+      setSearchParams({ category: catId });
+    } else {
+      setSearchParams({});
+    }
+  };
 
   return (
     <div className="pt-32 pb-24 bg-[#070709] text-[#f6f6f4] min-h-screen">
@@ -44,7 +69,7 @@ export const PortfolioPage: React.FC<PortfolioPageProps> = ({
       <PortfolioGallery
         onSelectArtwork={onSelectArtwork}
         selectedCategoryFilter={selectedCategoryFilter}
-        onSelectCategoryFilter={onSelectCategoryFilter}
+        onSelectCategoryFilter={handleCategoryFilter}
         hideHeader={true}
       />
 
