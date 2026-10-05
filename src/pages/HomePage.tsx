@@ -2,6 +2,7 @@ import React from 'react';
 import { Hero } from '../components/Hero';
 import { StatsSection } from '../components/StatsSection';
 import { ServicesSection } from '../components/ServicesSection';
+import { PortfolioGlimpse } from '../components/PortfolioGlimpse';
 import { TestimonialsSection } from '../components/TestimonialsSection';
 import { MarqueeTicker } from '../components/MarqueeTicker';
 import { ScrollReveal } from '../components/ScrollReveal';
@@ -42,7 +43,10 @@ export const HomePage: React.FC<HomePageProps> = ({
       {/* 3. Services Section (#services & #process) */}
       <ServicesSection />
 
-      {/* 4. Client Words / Testimonials matching Core Artworks */}
+      {/* 4. Glimpse of Portfolio Showcase */}
+      <PortfolioGlimpse onSelectArtwork={onSelectArtwork} />
+
+      {/* 5. Client Words / Testimonials matching Core Artworks */}
       <ScrollReveal direction="up" delay={0.05}>
         <TestimonialsSection />
       </ScrollReveal>
